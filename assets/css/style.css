@@ -37,6 +37,15 @@ body {
     width: 100vw;
 }
 
+.main-area {
+    height: 95%;
+    width: 95%;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 0 5px 2px black;
+}
+
 /* NAVBAR AREA */
 
 .nav-container {
@@ -49,6 +58,86 @@ body {
     background: transparent;
     box-shadow: none;
     border: none;
+}
+
+/* PLAYING AREA */
+
+.playing-container {
+    height: 55%;
+}
+
+.main-area--playing {
+    margin: 10px auto;
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+.playing-section {
+    margin: auto;
+}
+
+.playing-section--dealer,
+.playing-section--player {
+    flex-direction: column;
+}
+
+.card {
+    background: url('../images/Red_back.jpg') no-repeat center;
+    background-size: contain;
+    height: 66px;
+    width: 43px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+    margin: 5px;
+}
+
+.score-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    line-height: 1;
+}
+
+.score-container--dealer {
+    margin-top: 10px;
+}
+
+.score-container--player {
+    margin-bottom: 10px;
+}
+
+.score-container span {
+    padding: 5px;
+}
+
+.score-value {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+#double,
+#insurance {
+    height: 8vh;
+    width: 25vw;
+    margin: 2px;
+}
+
+.bet-info {
+    height: 8vh;
+    width: 20vw;
+    margin: 0 10px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.bet-info span {
+    display: block;
+}
+
+#bet-info-txt {
+    font-size: 0.8rem;
+}
+
+#undo-bet {
+    font-size: 0.5rem;
 }
 
 /* FOOTER */
