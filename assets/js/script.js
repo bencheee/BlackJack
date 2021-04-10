@@ -35,7 +35,9 @@ $('#bet').click(function () {
 
 
 $('#hit').click(function () {
-
+    generateCard();
+    addCard(playerHandString, playerHandValue, $('#player-cards'));
+    updateTotal();
 }); // end event listener
 
 
@@ -143,6 +145,34 @@ function getHandValue(handValue) {
     }
     return totalHandValue;
 }; // end getHandValue
+
+
+function updateTotal() {
+    // Stores score for player / dealer BEFORE correcting ace value
+    playerScore = getHandValue(playerHandValue);
+    dealerScore = getHandValue(dealerHandValue);
+    // Corrects ace value
+    aceCorrect(playerHandValue, playerScore);
+    aceCorrect(dealerHandValue, dealerScore);
+    // Stores score for player / dealer AFTER correcting ace value
+    playerScore = getHandValue(playerHandValue);
+    dealerScore = getHandValue(dealerHandValue);
+    // Updates html with latest scores
+    $('#player-score').text(`${playerScore}`);
+    $('#dealer-score').text(`${dealerHandValue[0]}`);
+}; // end updateTotal
+
+
+function aceCorrect(handValue, score) {
+    // Adjusts value of ace card to 1 if total score is > 21
+    if (score > 21) {
+        for (i = 0; i < handValue.length; i++) {
+            if (handValue[i] === 11) {
+                handValue[i] = 1;
+            }; // end if
+        }; // end loop
+    }; // end if
+}; // end aceCorrect
 
 
 
