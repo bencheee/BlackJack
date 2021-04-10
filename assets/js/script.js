@@ -6,10 +6,13 @@ let cardsDrawn = [],
 
 
 $('#bet').click(function () {
-    generateCard();
-    addCard(playerHandString, playerHandValue, $('#player-cards'));
+    for (i = 0; i < 2; i++) {
+        generateCard();
+        addCard(playerHandString, playerHandValue, $('#player-cards'));
+        generateCard();
+        addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
+    }
 }); // end event listener
-
 
 
 function generateCard() {
