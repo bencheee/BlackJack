@@ -8,6 +8,7 @@ let cardsDrawn = [],
 
 
 $('#bet').click(function () {
+    // Draws 2 cards for player / dealer
     for (i = 0; i < 2; i++) {
         generateCard();
         addCard(playerHandString, playerHandValue, $('#player-cards'));
@@ -22,6 +23,10 @@ $('#bet').click(function () {
     // Stores numeric values of current score for dealer / player 
     playerScore = getHandValue(playerHandValue);
     dealerScore = getHandValue(dealerHandValue);
+
+    // Updates scoreboard in html
+    $('#player-score').text(`${playerScore}`);
+    $('#dealer-score').text(`${dealerHandValue[0]}`);
 
     console.log('----Initial hand----');
     logsInfo();
