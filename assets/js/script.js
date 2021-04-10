@@ -68,7 +68,7 @@ function addCard(handString, handValue, container) {
 
     // Creates and adds new card element to index.html
     let card = $('<div></div>').addClass('card');
-    card.css('background-image', `url(/images/${cardsDrawn[0]}.jpg)`);
+    card.css('background-image', `url(/assets/images/${cardsDrawn[0]}.jpg)`);
     container.append(card);
 
     // Updates handString array for player / dealer with string value of drawn card
