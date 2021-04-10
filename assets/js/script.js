@@ -12,6 +12,10 @@ $('#bet').click(function () {
         generateCard();
         addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
     }
+
+    console.log('----Initial hand----');
+    logsInfo();
+
 }); // end event listener
 
 
@@ -100,3 +104,13 @@ function addCard(handString, handValue, container) {
     // Updates handValue array for player / dealer with numeric value of card drawn
     handValue.unshift(convertedValue);
 }; // end addCard
+
+
+// Function for testing purposes
+function logsInfo() {
+    console.log('Deck: ' + cardsDrawn);
+    console.log('Players Hand: ' + playerHandString);
+    console.log('Dealers Hand: ' + dealerHandString);
+    console.log('Players Hand Values: ' + playerHandValue);
+    console.log('Dealers Hand Values: ' + dealerHandValue);
+};
