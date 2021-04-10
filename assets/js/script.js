@@ -11,6 +11,11 @@ $('#bet').click(function () {
         addCard(playerHandString, playerHandValue, $('#player-cards'));
         generateCard();
         addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
+
+        // Hides first dealer's card
+        $('#dealer-cards').children(":first")
+            .css('background-image', 'url(/assets/images/Red_back.jpg)');
+
     }
 
     console.log('----Initial hand----');
