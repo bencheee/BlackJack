@@ -34,6 +34,12 @@ $('#bet').click(function () {
 }); // end event listener
 
 
+$('#hit').click(function () {
+
+}); // end event listener
+
+
+
 function generateCard() {
 
     /* Determines card value by generating string
