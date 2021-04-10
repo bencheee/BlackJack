@@ -2,7 +2,9 @@ let cardsDrawn = [],
     playerHandString = [],
     playerHandValue = [],
     dealerHandString = [],
-    dealerHandValue = [];
+    dealerHandValue = [],
+    playerScore,
+    dealerScore;
 
 
 $('#bet').click(function () {
@@ -11,12 +13,15 @@ $('#bet').click(function () {
         addCard(playerHandString, playerHandValue, $('#player-cards'));
         generateCard();
         addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
+    };
 
-        // Hides first dealer's card
-        $('#dealer-cards').children(":first")
-            .css('background-image', 'url(/assets/images/Red_back.jpg)');
+    // Hides first dealer's card
+    $('#dealer-cards').children(":first")
+        .css('background-image', 'url(/assets/images/Red_back.jpg)');
 
-    }
+    // Stores numeric values of current score for dealer / player 
+    playerScore = getHandValue(playerHandValue);
+    dealerScore = getHandValue(dealerHandValue);
 
     console.log('----Initial hand----');
     logsInfo();
@@ -111,6 +116,27 @@ function addCard(handString, handValue, container) {
 }; // end addCard
 
 
+function getHandValue(handValue) {
+    let totalHandValue = 0;
+    for (i = 0; i < handValue.length; i++) {
+        // Checks for NaN value to determine if this is Ace card
+        if (isNaN(handValue[i])) {
+            // Gives value of 1 or 11 to Ace card
+            if (totalHandValue > 10) {
+                handValue[i] = 1;
+            } else {
+                handValue[i] = 11;
+            };
+        };
+        totalHandValue += handValue[i];
+    }
+    return totalHandValue;
+}; // end getHandValue
+
+
+
+
+
 // Function for testing purposes
 function logsInfo() {
     console.log('Deck: ' + cardsDrawn);
@@ -118,4 +144,6 @@ function logsInfo() {
     console.log('Dealers Hand: ' + dealerHandString);
     console.log('Players Hand Values: ' + playerHandValue);
     console.log('Dealers Hand Values: ' + dealerHandValue);
+    console.log('Players Score: ' + playerScore);
+    console.log('Dealers Score: ' + dealerScore);
 };
