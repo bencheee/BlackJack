@@ -18,7 +18,7 @@ $('#bet').click(function () {
 
     // Hides first dealer's card
     $('#dealer-cards').children(":first")
-        .css('background-image', 'url(/assets/images/Red_back.jpg)');
+        .css('background-image', 'url(assets/images/Red_back.jpg)');
 
     // Stores numeric values of current score for dealer / player 
     playerScore = getHandValue(playerHandValue);
@@ -95,7 +95,7 @@ function addCard(handString, handValue, container) {
 
     // Creates and adds new card element to index.html
     let card = $('<div></div>').addClass('card');
-    card.css('background-image', `url(/assets/images/${cardsDrawn[0]}.jpg)`);
+    card.css('background-image', `url(assets/images/${cardsDrawn[0]}.jpg)`);
     container.append(card);
 
     // Updates handString array for player / dealer with string value of drawn card
