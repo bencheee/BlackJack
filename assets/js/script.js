@@ -28,6 +28,8 @@ $('#bet').click(function () {
     $('#player-score').text(`${playerScore}`);
     $('#dealer-score').text(`${dealerHandValue[0]}`);
 
+    checkInitBlackjack();
+
     console.log('----Initial hand----');
     logsInfo();
 
@@ -38,6 +40,8 @@ $('#hit').click(function () {
     generateCard();
     addCard(playerHandString, playerHandValue, $('#player-cards'));
     updateTotal();
+
+    logsInfo();
 }); // end event listener
 
 
@@ -175,7 +179,16 @@ function aceCorrect(handValue, score) {
 }; // end aceCorrect
 
 
-
+function checkInitBlackjack() {
+    if (playerScore === 21) {
+        alert(`Player has Blackjack! Dealer's turn!`);
+        if (dealerScore === 21) {
+            alert(`Dealer has Blackjack too! It's a tie!`);
+        } else {
+            alert('Dealer does not have Blackjack. Player wins!');
+        }; // end if
+    }; // end if
+}; // end checkInitBlackjack
 
 
 // Function for testing purposes
