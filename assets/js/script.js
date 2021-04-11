@@ -28,7 +28,7 @@ $('#bet').click(function () {
     $('#player-score').text(`${playerScore}`);
     $('#dealer-score').text(`${dealerHandValue[0]}`);
 
-    checkInitBlackjack();
+    checkBlackjack();
 
     console.log('----Initial hand----');
     logsInfo();
@@ -40,6 +40,7 @@ $('#hit').click(function () {
     generateCard();
     addCard(playerHandString, playerHandValue, $('#player-cards'));
     updateTotal();
+    checkScore();
 
     logsInfo();
 }); // end event listener
@@ -179,16 +180,59 @@ function aceCorrect(handValue, score) {
 }; // end aceCorrect
 
 
-function checkInitBlackjack() {
+function checkBlackjack() {
     if (playerScore === 21) {
         alert(`Player has Blackjack! Dealer's turn!`);
         if (dealerScore === 21) {
             alert(`Dealer has Blackjack too! It's a tie!`);
+            $('#dealer-score').text(dealerScore);
+            // Shows first dealer's card
+            $('#dealer-cards').children(":first")
+                .css('background-image',
+                    `url(/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+            return;
         } else {
             alert('Dealer does not have Blackjack. Player wins!');
         }; // end if
     }; // end if
-}; // end checkInitBlackjack
+}; // end checkBlackjack
+
+
+function checkScore() {
+    // Player bust if score > 21 
+    if (playerScore < 22) {
+        // Checks if player has Blackjack
+        if (playerScore === 21) {
+            alert(`Player has Blackjack! Dealer's turn!`);
+            if (dealerScore === 21) {
+                alert(`Dealer has Blackjack too! It's a tie!`);
+                $('#dealer-score').text(dealerScore);
+                // Shows first dealer's card
+                $('#dealer-cards').children(":first")
+                    .css('background-image',
+                        `url(/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+                return;
+            } else {
+                // here goes function for dealers turn
+                return;
+            }; // end if
+        }; // end if
+
+    } else {
+        alert('Player bust! Dealer wins!');
+        return;
+    }; // end if
+
+    // Checks and limits amount of player's drawn cards to 5 
+    if (playerHandString.length === 5) {
+        alert(`This was last card. Dealer's turn!`);
+    }; // end if
+
+    // here goes function for dealers turn
+
+    console.log('------Next hand------');
+    logsInfo();
+}; // end checkScore
 
 
 // Function for testing purposes
