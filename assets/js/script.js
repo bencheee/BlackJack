@@ -189,7 +189,7 @@ function checkBlackjack() {
             // Shows first dealer's card
             $('#dealer-cards').children(":first")
                 .css('background-image',
-                    `url(/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+                    `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
             return;
         } else {
             alert('Dealer does not have Blackjack. Player wins!');
@@ -210,7 +210,7 @@ function checkScore() {
                 // Shows first dealer's card
                 $('#dealer-cards').children(":first")
                     .css('background-image',
-                        `url(/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+                        `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
                 return;
             } else {
                 // here goes function for dealers turn
