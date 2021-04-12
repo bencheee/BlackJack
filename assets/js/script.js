@@ -46,6 +46,9 @@ $('#hit').click(function () {
 }); // end event listener
 
 
+$('#stand').click(dealerTurn);
+
+
 
 function generateCard() {
 
@@ -213,7 +216,7 @@ function checkScore() {
                         `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
                 return;
             } else {
-                // here goes function for dealers turn
+                dealerTurn();
                 return;
             }; // end if
         }; // end if
@@ -226,13 +229,62 @@ function checkScore() {
     // Checks and limits amount of player's drawn cards to 5 
     if (playerHandString.length === 5) {
         alert(`This was last card. Dealer's turn!`);
+        dealerTurn();
     }; // end if
-
-    // here goes function for dealers turn
 
     console.log('------Next hand------');
     logsInfo();
 }; // end checkScore
+
+
+function dealerTurn() {
+    // Keeps drawing cards as long as player is in the lead
+    if (dealerScore < playerScore) {
+        generateCard();
+        addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
+        updateTotal();
+        // Updates scoreboard in html for total score
+        $('#dealer-score').text(`${dealerScore}`);
+        // Shows first dealer's card
+        $('#dealer-cards').children(":first")
+            .css('background-image',
+                `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+        // Limits cards drawn to 5 and checks the winner
+        if (dealerHandString.length === 5) {
+            if (dealerScore < 22) {
+                // decide winner
+                alert('Last card for dealer! We have to decide the winner!');
+                return;
+            } else {
+                alert('Dealer bust! Player wins!');
+                return;
+            }; // end if
+        }; // end if
+        if (dealerScore < playerScore) {
+            dealerTurn();
+            return;
+        } else {
+            if (dealerScore > 21) {
+                alert('Dealer bust! Player wins!');
+                return;
+            } else {
+                // decide winner
+                alert('We have to decide the winner!');
+                return;
+            }; // end if
+        }; // end if
+    } else {
+        // Updates scoreboard in html for total score
+        $('#dealer-score').text(`${dealerScore}`);
+        // Shows first dealer's card
+        $('#dealer-cards').children(":first")
+            .css('background-image',
+                `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+        // decide winner
+        alert('We have to decide the winner!');
+    }; // end if
+}; // end dealerTurn
+
 
 
 // Function for testing purposes
