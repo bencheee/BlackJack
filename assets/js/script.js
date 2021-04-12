@@ -207,20 +207,9 @@ function checkScore() {
         // Checks if player has Blackjack
         if (playerScore === 21) {
             alert(`Player has Blackjack! Dealer's turn!`);
-            if (dealerScore === 21) {
-                alert(`Dealer has Blackjack too! It's a tie!`);
-                $('#dealer-score').text(dealerScore);
-                // Shows first dealer's card
-                $('#dealer-cards').children(":first")
-                    .css('background-image',
-                        `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
-                return;
-            } else {
-                dealerTurn();
-                return;
-            }; // end if
+            dealerTurn();
+            return;
         }; // end if
-
     } else {
         alert('Player bust! Dealer wins!');
         return;
