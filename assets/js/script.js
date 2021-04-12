@@ -241,8 +241,8 @@ function dealerTurn() {
         // Limits cards drawn to 5 and checks the winner
         if (dealerHandString.length === 5) {
             if (dealerScore < 22) {
-                // decide winner
                 alert('Last card for dealer! We have to decide the winner!');
+                decideWinner();
                 return;
             } else {
                 alert('Dealer bust! Player wins!');
@@ -257,8 +257,8 @@ function dealerTurn() {
                 alert('Dealer bust! Player wins!');
                 return;
             } else {
-                // decide winner
                 alert('We have to decide the winner!');
+                decideWinner();
                 return;
             }; // end if
         }; // end if
@@ -269,10 +269,21 @@ function dealerTurn() {
         $('#dealer-cards').children(":first")
             .css('background-image',
                 `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
-        // decide winner
         alert('We have to decide the winner!');
+        decideWinner();
     }; // end if
 }; // end dealerTurn
+
+
+function decideWinner() {
+    if (dealerScore === playerScore) {
+        alert(`Player and dealer have the same score. It's a tie!`);
+    } else if (dealerScore > playerScore) {
+        alert('Dealer wins with higher score!');
+    } else {
+        alert('Player wins with higher score!');
+    }; // end if
+}; // end decideWinner
 
 
 
