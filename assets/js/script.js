@@ -185,9 +185,8 @@ function aceCorrect(handValue, score) {
 
 function checkBlackjack() {
     if (playerScore === 21) {
-        alert(`Player has Blackjack! Dealer's turn!`);
         if (dealerScore === 21) {
-            alert(`Dealer has Blackjack too! It's a tie!`);
+            popUp(`Player and Dealer have Blackjack! It's a tie!`);
             $('#dealer-score').text(dealerScore);
             // Shows first dealer's card
             $('#dealer-cards').children(":first")
@@ -195,7 +194,7 @@ function checkBlackjack() {
                     `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
             return;
         } else {
-            alert('Dealer does not have Blackjack. Player wins!');
+            popUp('Dealer does not have Blackjack. Player wins!');
         }; // end if
     }; // end if
 }; // end checkBlackjack
@@ -206,18 +205,17 @@ function checkScore() {
     if (playerScore < 22) {
         // Checks if player has Blackjack
         if (playerScore === 21) {
-            alert(`Player has Blackjack! Dealer's turn!`);
             dealerTurn();
             return;
         }; // end if
     } else {
-        alert('Player bust! Dealer wins!');
+        popUp('Player bust! Dealer wins!');
         return;
     }; // end if
 
     // Checks and limits amount of player's drawn cards to 5 
     if (playerHandString.length === 5) {
-        alert(`This was last card. Dealer's turn!`);
+        //popUp(`This was last card. Dealer's turn!`);
         dealerTurn();
     }; // end if
 
@@ -241,11 +239,10 @@ function dealerTurn() {
         // Limits cards drawn to 5 and checks the winner
         if (dealerHandString.length === 5) {
             if (dealerScore < 22) {
-                alert('Last card for dealer! We have to decide the winner!');
                 decideWinner();
                 return;
             } else {
-                alert('Dealer bust! Player wins!');
+                popUp('Dealer bust! Player wins!');
                 return;
             }; // end if
         }; // end if
@@ -254,10 +251,9 @@ function dealerTurn() {
             return;
         } else {
             if (dealerScore > 21) {
-                alert('Dealer bust! Player wins!');
+                popUp('Dealer bust! Player wins!');
                 return;
             } else {
-                alert('We have to decide the winner!');
                 decideWinner();
                 return;
             }; // end if
@@ -269,7 +265,6 @@ function dealerTurn() {
         $('#dealer-cards').children(":first")
             .css('background-image',
                 `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
-        alert('We have to decide the winner!');
         decideWinner();
     }; // end if
 }; // end dealerTurn
@@ -277,14 +272,39 @@ function dealerTurn() {
 
 function decideWinner() {
     if (dealerScore === playerScore) {
-        alert(`Player and dealer have the same score. It's a tie!`);
+        popUp(`Player and dealer have the same score. It's a tie!`);
     } else if (dealerScore > playerScore) {
-        alert('Dealer wins with higher score!');
+        popUp('Dealer wins with higher score!');
     } else {
-        alert('Player wins with higher score!');
+        popUp('Player wins with higher score!');
     }; // end if
 }; // end decideWinner
 
+
+function popUp(message) {
+    $('#playing-section-middle').hide();
+
+    let playSectionDealer = $('.playing-section--dealer');
+    let popUpBox = $('<div></div>').addClass('pop-up-box');
+    let popUpTxt = $('<div></div>').text(message);
+    let popUpBtn = $('<button></button>').text('CONTINUE');
+
+    playSectionDealer.after(popUpBox);
+    popUpBox.append(popUpTxt);
+    popUpBox.append(popUpBtn);
+
+    $('.main-area--playing').addClass('pop-up-bg-green');
+    $('.main-area--bank').addClass('pop-up-bg-blue');
+
+    // turn off buttons
+
+    $('.pop-up-box button').click(function () {
+        popUpBox.remove();
+        $('#playing-section-middle').show();
+        $('.main-area--playing').removeClass('pop-up-bg-green');
+        $('.main-area--bank').removeClass('pop-up-bg-blue');
+    });
+}; // end popUp
 
 
 // Function for testing purposes
