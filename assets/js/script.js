@@ -194,30 +194,38 @@ function checkBlackjack() {
                     `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
             return;
         } else {
-            popUp('Dealer does not have Blackjack. Player wins!');
+            popUp('Player wins with Blackjack!');
+            $('#dealer-score').text(dealerScore);
+            // Shows first dealer's card
+            $('#dealer-cards').children(":first")
+                .css('background-image',
+                    `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
         }; // end if
     }; // end if
 }; // end checkBlackjack
 
 
 function checkScore() {
-    // Player bust if score > 21 
-    if (playerScore < 22) {
-        // Checks if player has Blackjack
-        if (playerScore === 21) {
-            dealerTurn();
-            return;
-        }; // end if
-    } else {
+
+    // Player bust if score > 21
+    if (playerScore > 21) {
         popUp('Player bust! Dealer wins!');
+        return;
+    } else if (playerScore === 21) {
+        dealerTurn();
         return;
     }; // end if
 
     // Checks and limits amount of player's drawn cards to 5 
     if (playerHandString.length === 5) {
-        //popUp(`This was last card. Dealer's turn!`);
-        dealerTurn();
+        popUp(`This was last card. Dealer's turn!`);
+        // prevents running dealerTurn function before continue btn is clicked
+        $('.pop-up-box button').attr('id', 'five-cards');
+        $('#five-cards').click(function () {
+            dealerTurn();
+        }); // end event listener
     }; // end if
+
 
     console.log('------Next hand------');
     logsInfo();
@@ -272,9 +280,13 @@ function dealerTurn() {
 
 function decideWinner() {
     if (dealerScore === playerScore) {
-        popUp(`Player and dealer have the same score. It's a tie!`);
+        (dealerScore === 21) ?
+        popUp(`Player and Dealer have Blackjack! It's a tie!`):
+            popUp(`Player and dealer have the same score. It's a tie!`);
     } else if (dealerScore > playerScore) {
-        popUp('Dealer wins with higher score!');
+        (dealerScore === 21) ?
+        popUp('Dealer wins with Blackjack!'):
+            popUp('Dealer wins with higher score!');
     } else {
         popUp('Player wins with higher score!');
     }; // end if
