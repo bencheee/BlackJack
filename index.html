@@ -24,29 +24,33 @@
         <div class="main-area main-area--playing flex-centered">
 
             <div class="playing-section playing-section--dealer flex-centered">
-                <div id="dealer-cards" class="flex-centered"></div>
+                <div id="dealer-cards" class="dealer-cards flex-centered"></div>
+            </div>
+
+            <div id="playing-section-middle" class="playing-section flex-centered">
+                <div class="score-container score-container--player flex-centered">
+                    <span>PLAYER:</span>
+                    <span id="player-score" class="score-value">0</span>
+                </div>
+
+                <div class="flex-centered">
+                    <button id="double">Double</button>
+                    <div id="bet-info" class="bet-info flex-centered">
+                        <span id="bet-info-txt">Total bet</span>
+                        <span id="total-bet">0 credits</span>
+                        <span id="undo-bet"></span>
+                    </div>
+                    <button id="insurance">Insurance</button>
+                </div>
+
                 <div class="score-container score-container--dealer flex-centered">
                     <span>DEALER:</span>
                     <span id="dealer-score" class="score-value">0</span>
                 </div>
             </div>
 
-            <div id="playing-section-middle" class="playing-section flex-centered">
-                <button id="double">Double</button>
-                <div id="bet-info" class="bet-info flex-centered">
-                    <span id="bet-info-txt">Total bet</span>
-                    <span id="total-bet">0 credits</span>
-                    <span id="undo-bet"></span>
-                </div>
-                <button id="insurance">Insurance</button>
-            </div>
-
             <div class="playing-section playing-section--player flex-centered">
-                <div class="score-container score-container--player flex-centered">
-                    <span>PLAYER:</span>
-                    <span id="player-score" class="score-value">0</span>
-                </div>
-                <div id="player-cards" class="flex-centered"></div>
+                <div id="player-cards" class="player-cards flex-centered"></div>
             </div>
 
         </div>

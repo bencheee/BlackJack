@@ -18,7 +18,7 @@ $('#bet').click(function () {
 
     // Hides first dealer's card
     $('#dealer-cards').children(":first")
-        .css('background-image', 'url(assets/images/Red_back.jpg)');
+        .replaceWith(`<img src="assets/images/Red_back.jpg" class="card"></img>`);
 
     // Stores numeric values of current score for dealer / player 
     playerScore = getHandValue(playerHandValue);
@@ -102,8 +102,7 @@ function generateCard() {
 function addCard(handString, handValue, container) {
 
     // Creates and adds new card element to index.html
-    let card = $('<div></div>').addClass('card');
-    card.css('background-image', `url(assets/images/${cardsDrawn[0]}.jpg)`);
+    let card = $(`<img src="assets/images/${cardsDrawn[0]}.jpg"></img>`).addClass('card');
     container.append(card);
 
     // Updates handString array for player / dealer with string value of drawn card
@@ -190,15 +189,14 @@ function checkBlackjack() {
             $('#dealer-score').text(dealerScore);
             // Shows first dealer's card
             $('#dealer-cards').children(":first")
-                .css('background-image',
-                    `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+                .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
             return;
         } else {
             popUp('Player wins with Blackjack!');
             $('#dealer-score').text(dealerScore);
             // Shows first dealer's card
             $('#dealer-cards').children(":first")
-                .css('background-image',
+                .replaceWith('background-image',
                     `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
         }; // end if
     }; // end if
@@ -297,7 +295,7 @@ function popUp(message) {
     $('#playing-section-middle').hide();
 
     let playSectionDealer = $('.playing-section--dealer');
-    let popUpBox = $('<div></div>').addClass('pop-up-box');
+    let popUpBox = $('<div></div>').addClass('pop-up-box flex-centered');
     let popUpTxt = $('<div></div>').text(message);
     let popUpBtn = $('<button></button>').text('CONTINUE');
 
