@@ -237,11 +237,10 @@ function dealerTurn() {
         addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
         updateTotal();
         // Updates scoreboard in html for total score
-        $('#dealer-score').text(`${dealerScore}`);
+        $('#dealer-score').text(dealerScore);
         // Shows first dealer's card
         $('#dealer-cards').children(":first")
-            .css('background-image',
-                `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+            .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
         // Limits cards drawn to 5 and checks the winner
         if (dealerHandString.length === 5) {
             if (dealerScore < 22) {
@@ -266,11 +265,10 @@ function dealerTurn() {
         }; // end if
     } else {
         // Updates scoreboard in html for total score
-        $('#dealer-score').text(`${dealerScore}`);
+        $('#dealer-score').text(dealerScore);
         // Shows first dealer's card
         $('#dealer-cards').children(":first")
-            .css('background-image',
-                `url(assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg)`);
+            .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
         decideWinner();
     }; // end if
 }; // end dealerTurn
