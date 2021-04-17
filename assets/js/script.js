@@ -10,9 +10,6 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
-creditsAvailable += (totalBet * 1.5);
-$('#bank-amount').text(creditsAvailable);
-
 $('#bank-amount').text(creditsAvailable);
 
 $('.chip').click(function () {
@@ -24,7 +21,12 @@ $('.chip').click(function () {
     // deducts current amount from bank and updates html
     creditsAvailable -= betPool[0];
     $('#bank-amount').text(creditsAvailable);
+    // activates bet info box
+    $('#bet-info').addClass('bet-info--active');
+    // adds undo button
+    undoBtn();
 }); // end event listener
+
 
 $('#bet').click(function () {
     // Draws 2 cards for player / dealer
@@ -350,6 +352,30 @@ function popUp(message) {
         $('.main-area--bank').removeClass('pop-up-bg-blue');
     });
 }; // end popUp
+
+function undoBtn() {
+    // makes sure undo button is not duplicated
+    if ($('#player-cards').is(':empty')) {
+
+        let undoBtn = $('<button></button>').addClass('undo-btn');
+        $('#player-cards').append(undoBtn.text('UNDO BET '));
+
+        // removes last bet
+        $('.undo-btn').click(function () {
+            totalBet -= betPool[0];
+            creditsAvailable += betPool[0];
+            betPool.shift();
+            $('#total-bet').text(`${totalBet} credits`);
+            $('#bank-amount').text(creditsAvailable);
+            // if there are no bets left remove button
+            if (totalBet === 0) {
+                $('.undo-btn').remove();
+                // deactivates bet info box
+                $('#bet-info').removeClass('bet-info--active');
+            }; // end if
+        }); // end event listener
+    }; // end if
+}; // end undoBtn
 
 
 // Function for testing purposes
