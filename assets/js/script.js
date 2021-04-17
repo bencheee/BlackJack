@@ -29,6 +29,10 @@ $('.chip').click(function () {
 
 
 $('#bet').click(function () {
+
+    // removes undo button
+    $('.undo-btn').remove();
+
     // Draws 2 cards for player / dealer
     for (i = 0; i < 2; i++) {
         generateCard();
