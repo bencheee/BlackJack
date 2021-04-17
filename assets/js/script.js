@@ -354,6 +354,10 @@ function popUp(message) {
         $('#playing-section-middle').show();
         $('.main-area--playing').removeClass('pop-up-bg-green');
         $('.main-area--bank').removeClass('pop-up-bg-blue');
+
+        setTimeout(function () {
+            resetRound();
+        }, 1200); // end setTimeout
     });
 }; // end popUp
 
@@ -380,6 +384,23 @@ function undoBtn() {
         }); // end event listener
     }; // end if
 }; // end undoBtn
+
+
+function resetRound() {
+    $('.card').remove();
+    $('#total-bet').text('0 credits');
+    $('#player-score').text('0');
+    $('#dealer-score').text('0');
+    cardsDrawn = [],
+        playerHandString = [],
+        playerHandValue = [],
+        dealerHandString = [],
+        dealerHandValue = [],
+        playerScore = 0,
+        dealerScore = 0,
+        betPool = [],
+        totalBet = 0;
+}; // end resetRound
 
 
 // Function for testing purposes
