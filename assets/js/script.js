@@ -6,6 +6,22 @@ let cardsDrawn = [],
     playerScore,
     dealerScore;
 
+let betPool = [],
+    totalBet = 0,
+    creditsAvailable = 1000;
+
+$('#bank-amount').text(creditsAvailable);
+
+$('.chip').click(function () {
+    // adds chip value to array
+    betPool.unshift(Number($(this).text()));
+    // adds current amount to total bet and updates html
+    totalBet += betPool[0];
+    $('#total-bet').text(`${totalBet} credits`);
+    // deducts current amount from bank and updates html
+    creditsAvailable -= betPool[0];
+    $('#bank-amount').text(creditsAvailable);
+}); // end event listener
 
 $('#bet').click(function () {
     // Draws 2 cards for player / dealer
