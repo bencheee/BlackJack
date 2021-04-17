@@ -10,6 +10,9 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
+creditsAvailable += (totalBet * 1.5);
+$('#bank-amount').text(creditsAvailable);
+
 $('#bank-amount').text(creditsAvailable);
 
 $('.chip').click(function () {
@@ -202,6 +205,9 @@ function checkBlackjack() {
     if (playerScore === 21) {
         if (dealerScore === 21) {
             popUp(`Player and Dealer have Blackjack! It's a tie!`);
+            creditsAvailable += totalBet;
+            $('#bank-amount').text(creditsAvailable);
+
             $('#dealer-score').text(dealerScore);
             // Shows first dealer's card
             $('#dealer-cards').children(":first")
@@ -209,6 +215,9 @@ function checkBlackjack() {
             return;
         } else {
             popUp('Player wins with Blackjack!');
+            creditsAvailable += (totalBet * 1.5);
+            $('#bank-amount').text(creditsAvailable);
+
             $('#dealer-score').text(dealerScore);
             // Shows first dealer's card
             $('#dealer-cards').children(":first")
@@ -264,6 +273,9 @@ function dealerTurn() {
                 return;
             } else {
                 popUp('Dealer bust! Player wins!');
+                creditsAvailable += (totalBet * 1.5);
+                $('#bank-amount').text(creditsAvailable);
+
                 return;
             }; // end if
         }; // end if
@@ -273,6 +285,9 @@ function dealerTurn() {
         } else {
             if (dealerScore > 21) {
                 popUp('Dealer bust! Player wins!');
+                creditsAvailable += (totalBet * 1.5);
+                $('#bank-amount').text(creditsAvailable);
+
                 return;
             } else {
                 decideWinner();
@@ -295,12 +310,18 @@ function decideWinner() {
         (dealerScore === 21) ?
         popUp(`Player and Dealer have Blackjack! It's a tie!`):
             popUp(`Player and dealer have the same score. It's a tie!`);
+        creditsAvailable += totalBet;
+        $('#bank-amount').text(creditsAvailable);
+
     } else if (dealerScore > playerScore) {
         (dealerScore === 21) ?
         popUp('Dealer wins with Blackjack!'):
             popUp('Dealer wins with higher score!');
     } else {
         popUp('Player wins with higher score!');
+        creditsAvailable += (totalBet * 1.5);
+        $('#bank-amount').text(creditsAvailable);
+
     }; // end if
 }; // end decideWinner
 
