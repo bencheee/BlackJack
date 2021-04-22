@@ -210,7 +210,7 @@ function aceCorrect(handValue, score) {
 function checkBlackjack() {
     if (playerScore === 21) {
         if (dealerScore === 21) {
-            popUp(`Player and Dealer have Blackjack! It's a tie!`);
+            popUpOn(`Player and Dealer have Blackjack! It's a tie!`);
             creditsAvailable += totalBet;
             $('#bank-amount').text(creditsAvailable);
 
@@ -220,7 +220,7 @@ function checkBlackjack() {
                 .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
             return;
         } else {
-            popUp('Player wins with Blackjack!');
+            popUpOn('Player wins with Blackjack!');
             creditsAvailable += (totalBet * 1.5);
             $('#bank-amount').text(creditsAvailable);
 
@@ -238,7 +238,7 @@ function checkScore() {
 
     // Player bust if score > 21
     if (playerScore > 21) {
-        popUp('Player bust! Dealer wins!');
+        popUpOn('Player bust! Dealer wins!');
         return;
     } else if (playerScore === 21) {
         dealerTurn();
@@ -247,7 +247,7 @@ function checkScore() {
 
     // Checks and limits amount of player's drawn cards to 5 
     if (playerHandString.length === 5) {
-        popUp(`This was last card. Dealer's turn!`);
+        popUpOn(`This was last card. Dealer's turn!`);
         // prevents running dealerTurn function before continue btn is clicked
         $('.pop-up-box button').attr('id', 'five-cards');
         $('#five-cards').click(function () {
@@ -278,7 +278,7 @@ function dealerTurn() {
                 decideWinner();
                 return;
             } else {
-                popUp('Dealer bust! Player wins!');
+                popUpOn('Dealer bust! Player wins!');
                 creditsAvailable += (totalBet * 1.5);
                 $('#bank-amount').text(creditsAvailable);
 
@@ -290,7 +290,7 @@ function dealerTurn() {
             return;
         } else {
             if (dealerScore > 21) {
-                popUp('Dealer bust! Player wins!');
+                popUpOn('Dealer bust! Player wins!');
                 creditsAvailable += (totalBet * 1.5);
                 $('#bank-amount').text(creditsAvailable);
 
@@ -314,17 +314,17 @@ function dealerTurn() {
 function decideWinner() {
     if (dealerScore === playerScore) {
         (dealerScore === 21) ?
-        popUp(`Player and Dealer have Blackjack! It's a tie!`):
-            popUp(`Player and dealer have the same score. It's a tie!`);
+        popUpOn(`Player and Dealer have Blackjack! It's a tie!`):
+            popUpOn(`Player and dealer have the same score. It's a tie!`);
         creditsAvailable += totalBet;
         $('#bank-amount').text(creditsAvailable);
 
     } else if (dealerScore > playerScore) {
         (dealerScore === 21) ?
-        popUp('Dealer wins with Blackjack!'):
-            popUp('Dealer wins with higher score!');
+        popUpOn('Dealer wins with Blackjack!'):
+            popUpOn('Dealer wins with higher score!');
     } else {
-        popUp('Player wins with higher score!');
+        popUpOn('Player wins with higher score!');
         creditsAvailable += (totalBet * 1.5);
         $('#bank-amount').text(creditsAvailable);
 
@@ -332,7 +332,7 @@ function decideWinner() {
 }; // end decideWinner
 
 
-function popUp(message) {
+function popUpOn(message) {
     $('#playing-section-middle').hide();
 
     let playSectionDealer = $('.playing-section--dealer');
@@ -346,20 +346,14 @@ function popUp(message) {
 
     $('.main-area--playing').addClass('pop-up-bg-green');
     $('.main-area--bank').addClass('pop-up-bg-blue');
+}; // end popUpOn
 
-    // turn off buttons
-
-    $('.pop-up-box button').click(function () {
-        popUpBox.remove();
-        $('#playing-section-middle').show();
-        $('.main-area--playing').removeClass('pop-up-bg-green');
-        $('.main-area--bank').removeClass('pop-up-bg-blue');
-
-        setTimeout(function () {
-            resetRound();
-        }, 1200); // end setTimeout
-    });
-}; // end popUp
+function popUpOff() {
+    $('.pop-up-box').remove();
+    $('#playing-section-middle').show();
+    $('.main-area--playing').removeClass('pop-up-bg-green');
+    $('.main-area--bank').removeClass('pop-up-bg-blue');
+}; // end popUpOff
 
 function undoBtn() {
     // makes sure undo button is not duplicated
