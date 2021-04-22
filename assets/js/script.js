@@ -257,7 +257,7 @@ function checkScore() {
     }; // end if
 
     // Checks and limits amount of player's drawn cards to 5 
-    if (playerHandString.length === 5) {
+    if (playerHandString.length === 5 && playerScore < 21) {
         popUpOn(`This was last card. Dealer's turn!`);
         // prevents running dealerTurn function before continue btn is clicked
         $('.pop-up-box button').click(function () {
