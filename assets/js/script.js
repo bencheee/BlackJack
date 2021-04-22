@@ -298,6 +298,7 @@ function dealerTurn() {
                     setTimeout(resetRound, 1000);
                 }); // end event listener 
             }; // end if
+
         }; // end if
         if (dealerScore < playerScore) {
             dealerTurn();
@@ -422,6 +423,14 @@ function resetRound() {
         dealerScore = 0,
         betPool = [],
         totalBet = 0;
+
+    if (creditsAvailable < 25) {
+        popUpOn(`Not enought credits to place bet. Game over!`);
+        $('.pop-up-box button').click(function () {
+            popUpOff();
+            location.reload();
+        });
+    }; // end if
 }; // end resetRound
 
 
