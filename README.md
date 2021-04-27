@@ -201,7 +201,7 @@ This is where majority of player game choices takes place. It consists of Bank i
 
 ### Fixed bugs
 
-- Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](workspace/BlackJack/documentation/testing/images/001.png)
+- Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](documentation/testing/images/001.png))
 
 Solution: Added 'return' command to IF statement in dealerTurn() function.
 
