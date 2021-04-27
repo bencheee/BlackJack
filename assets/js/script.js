@@ -298,7 +298,7 @@ function dealerTurn() {
                     setTimeout(resetRound, 1000);
                 }); // end event listener 
             }; // end if
-
+            return;
         }; // end if
         if (dealerScore < playerScore) {
             dealerTurn();

@@ -197,8 +197,31 @@ This is where majority of player game choices takes place. It consists of Bank i
 
 ### Known bugs
 
+-
+
+### Fixed bugs
+
 - Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](workspace/BlackJack/documentation/testing/images/001.png)
 
+Solution: Added 'return' command to IF statement in dealerTurn() function.
+
+```
+if (dealerHandString.length === 5) {
+    if (dealerScore < 22) {
+        decideWinner();
+        return;
+    } else {
+        popUpOn('Dealer bust! Player wins!');
+        creditsAvailable += (totalBet * 1.5);
+        $('#bank-amount').text(creditsAvailable);
+        $('.pop-up-box button').click(function () {
+            popUpOff();
+            setTimeout(resetRound, 1000);
+        });
+    };
+    return;
+};
+```
 ---
 
 
