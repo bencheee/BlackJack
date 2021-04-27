@@ -411,7 +411,7 @@ function undoBtn() {
 
 function double() {
     // displays pop-up message with yes/no option
-    popUpOn('You will double your current bet and draw only one card. Do you wish to proceed?');
+    popUpOn(`You will place additional bet of ${totalBet} credits and draw only one card. Do you wish to proceed?`);
     $('.pop-up-box button').remove();
     let container = $('<div></div>').addClass('flex-centered');
     let yes = $('<button></button>').text('YES').attr('id', 'yes');
