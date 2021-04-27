@@ -73,6 +73,7 @@ $('#hit').click(function () {
 
 $('#stand').click(dealerTurn);
 
+$('#double').click(double);
 
 
 function generateCard() {
@@ -408,6 +409,37 @@ function undoBtn() {
     }; // end if
 }; // end undoBtn
 
+function double() {
+    // displays pop-up message with yes/no option
+    popUpOn('You will double your current bet and draw only one card. Do you wish to proceed?');
+    $('.pop-up-box button').remove();
+    let container = $('<div></div>').addClass('flex-centered');
+    let yes = $('<button></button>').text('YES').attr('id', 'yes');
+    let no = $('<button></button>').text('NO').attr('id', 'no');
+    container.append(yes);
+    container.append(no);
+    $('.pop-up-box').append(container);
+
+    yes.click(function () {
+        popUpOff();
+        // doubles the current bet
+        creditsAvailable -= totalBet;
+        totalBet *= 2;
+        $('#total-bet').text(`${totalBet} credits`);
+        $('#bank-amount').text(creditsAvailable);
+
+        generateCard();
+        addCard(playerHandString, playerHandValue, $('#player-cards'));
+        updateTotal();
+        checkScore();
+
+        if (playerScore < 21) {
+            dealerTurn();
+        }; // end if
+    }); // end event listener
+
+    no.click(popUpOff);
+}; // end double
 
 function resetRound() {
     $('.card').remove();

@@ -257,6 +257,6 @@ footer {
 .pop-up-box button {
     background-color: black;
     color: white;
-    width: 30%;
-    margin-top: 10px;
+    width: 50px;
+    margin: 10px;
 }
