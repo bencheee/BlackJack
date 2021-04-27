@@ -75,6 +75,8 @@ $('#stand').click(dealerTurn);
 
 $('#double').click(double);
 
+$('#insurance').click(insurance);
+
 
 function generateCard() {
 
@@ -440,6 +442,47 @@ function double() {
 
     no.click(popUpOff);
 }; // end double
+
+function insurance() {
+    // displays pop-up message with yes/no option
+    popUpOn(`You will place separate bet of ${totalBet / 2} credits. Do you wish to proceed?`);
+    $('.pop-up-box button').remove();
+    let container = $('<div></div>').addClass('flex-centered');
+    let yes = $('<button></button>').text('YES').attr('id', 'yes');
+    let no = $('<button></button>').text('NO').attr('id', 'no');
+    container.append(yes);
+    container.append(no);
+    $('.pop-up-box').append(container);
+
+    yes.click(function () {
+        popUpOff();
+
+        creditsAvailable -= (totalBet / 2);
+
+        if (dealerScore === 21) {
+            creditsAvailable += totalBet;
+            $('#bank-amount').text(creditsAvailable);
+            // Updates scoreboard in html for total score
+            $('#dealer-score').text(dealerScore);
+            // Shows first dealer's card
+            $('#dealer-cards').children(":first")
+                .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+
+            popUpOn(`Dealer wins with Blackjack! Player wins insurance bet!`);
+            $('.pop-up-box button').click(function () {
+                popUpOff();
+                setTimeout(resetRound, 1000);
+            }); // end event listener
+
+        } else {
+            popUpOn(`Dealer does not have Blackjack! Player lost insurance bet! Round continues...`);
+            $('.pop-up-box button').click(popUpOff);
+        }; // end if
+
+    }); // end event listener
+
+    no.click(popUpOff);
+}; // end insurance
 
 function resetRound() {
     $('.card').remove();
