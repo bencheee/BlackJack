@@ -412,6 +412,14 @@ function undoBtn() {
 }; // end undoBtn
 
 function double() {
+
+    // checks if there is enough credit to place double bet
+    if (creditsAvailable < (totalBet * 2)) {
+        popUpOn(`You don't have enough credit to place double bet!`);
+        $('.pop-up-box button').click(popUpOff);
+        return;
+    }; // end if 
+
     // displays pop-up message with yes/no option
     popUpOn(`You will place additional bet of ${totalBet} credits and draw only one card. Do you wish to proceed?`);
     $('.pop-up-box button').remove();
@@ -444,6 +452,14 @@ function double() {
 }; // end double
 
 function insurance() {
+
+    // checks if there is enough credit to place insurance bet
+    if (creditsAvailable < (totalBet / 2)) {
+        popUpOn(`You don't have enough credit to place insurance bet!`);
+        $('.pop-up-box button').click(popUpOff);
+        return;
+    }; // end if 
+
     // displays pop-up message with yes/no option
     popUpOn(`You will place separate bet of ${totalBet / 2} credits. Do you wish to proceed?`);
     $('.pop-up-box button').remove();
