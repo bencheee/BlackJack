@@ -10,9 +10,13 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
+$('.play-btn').addClass('play-btn-disabled');
+
 $('#bank-amount').text(creditsAvailable);
 
 $('.chip').click(function () {
+    // turns on 'bet' button
+    $('#bet').removeClass('play-btn-disabled');
     // adds chip value to array
     betPool.unshift(Number($(this).text()));
     // adds current amount to total bet and updates html
@@ -29,9 +33,6 @@ $('.chip').click(function () {
 
 
 $('#bet').click(function () {
-
-    // removes undo button
-    $('.undo-btn').remove();
 
     // Draws 2 cards for player / dealer
     for (i = 0; i < 2; i++) {
@@ -53,6 +54,28 @@ $('#bet').click(function () {
     $('#player-score').text(`${playerScore}`);
     $('#dealer-score').text(`${dealerHandValue[0]}`);
 
+    // disables chip buttons
+
+    // disables bet button
+    $('#bet').addClass('play-btn-disabled');
+    // removes undo button
+    $('.undo-btn').remove();
+    // enables hit button
+    $('#hit').removeClass('play-btn-disabled');
+    // enables stand button
+    $('#stand').removeClass('play-btn-disabled');
+
+    if (playerScore < 21) {
+        // enables double button
+        $('#double').removeClass('play-btn-disabled');
+    }; // end if
+
+    if (dealerHandValue[0] === 11 || dealerHandValue[0] === 10) {
+        // enables insurance button
+        $('#insurance').removeClass('play-btn-disabled');
+    }; // end if
+
+
     checkBlackjack();
 
     console.log('----Initial hand----');
@@ -67,15 +90,33 @@ $('#hit').click(function () {
     updateTotal();
     checkScore();
 
+    // disables double button
+    $('#double').addClass('play-btn-disabled');
+    // disables insurance button
+    $('#insurance').addClass('play-btn-disabled');
+
     logsInfo();
 }); // end event listener
 
 
-$('#stand').click(dealerTurn);
+$('#stand').click(function () {
+    dealerTurn();
+    // disables all buttons
+    $('.play-btn').addClass('play-btn-disabled');
 
-$('#double').click(double);
+});
 
-$('#insurance').click(insurance);
+$('#double').click(function () {
+    double();
+    // disables all buttons
+    $('.play-btn').addClass('play-btn-disabled');
+});
+
+$('#insurance').click(function () {
+    insurance();
+    // disables insurance button
+    $('#insurance').addClass('play-btn-disabled');
+});
 
 
 function generateCard() {
@@ -406,6 +447,8 @@ function undoBtn() {
                 $('.undo-btn').remove();
                 // deactivates bet info box
                 $('#bet-info').removeClass('bet-info--active');
+                // deactivates bet button
+                $('#bet').addClass('play-btn-disabled');
             }; // end if
         }); // end event listener
     }; // end if
@@ -522,6 +565,10 @@ function resetRound() {
             location.reload();
         });
     }; // end if
+
+    // disables all buttons
+    $('.play-btn').addClass('play-btn-disabled');
+
 }; // end resetRound
 
 
