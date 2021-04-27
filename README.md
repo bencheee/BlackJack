@@ -54,21 +54,31 @@
 
 <a name="first"></a>
 #### 1.1.1 First time player's goals
+
 *As a first time player*, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
+
 *As a first time player*, I want to see 'help' section so I can quickly understand the rules of the game.
+
 *As a first time player*, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
+
 *As a first time player*, I want to have fun playing the game.
 
 <a name="casual"></a>
 #### 1.1.2 Casual player's goals
+
 *As a casual player*, I want to be challenged and entertained.
+
 *As a casual player*, I want to get notified about the score in real time so I can adapt my strategy accordingly.
+
 *As a casual player*, I want to see 'quit' button so I can restart the session whenever I wish.
 
 <a name="advanced"></a>
 #### 1.1.3 Advanced player's goals
+
 *As an advanced player*, I want to be able to choose advanced options in order to make the game more interesting.
+
 *As an advanced player*, I want to be able to keep my score so I can compare it with previous scores.
+
 *As an advanced player*, I want to see virtual currency system so I can place bets in each round.
 
 
@@ -185,6 +195,9 @@ This is where majority of player game choices takes place. It consists of Bank i
 <a name="testing"></a>
 ## 5. TESTING
 
+### Known bugs
+
+- Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](workspace/BlackJack/documentation/testing/images/001.png)
 
 ---
 
