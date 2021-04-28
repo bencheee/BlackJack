@@ -197,7 +197,7 @@ This is where majority of player game choices takes place. It consists of Bank i
 
 ### Known bugs
 
--
+- Page height is bigger than screen height on mobile devices.
 
 ### Fixed bugs
 
