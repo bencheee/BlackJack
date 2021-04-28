@@ -110,17 +110,9 @@ $('#stand').click(function () {
 
 });
 
-$('#double').click(function () {
-    double();
-    // disables all buttons
-    $('.play-btn').addClass('play-btn-disabled');
-});
+$('#double').click(double);
 
-$('#insurance').click(function () {
-    insurance();
-    // disables insurance button
-    $('#insurance').addClass('play-btn-disabled');
-});
+$('#insurance').click(insurance);
 
 
 function generateCard() {
@@ -471,6 +463,8 @@ function double() {
     $('.pop-up-box').append(container);
 
     yes.click(function () {
+        // disables all buttons
+        $('.play-btn').addClass('play-btn-disabled');
         popUpOff();
         // doubles the current bet
         creditsAvailable -= totalBet;
@@ -511,6 +505,9 @@ function insurance() {
     $('.pop-up-box').append(container);
 
     yes.click(function () {
+        // disables insurance button
+        $('#insurance').addClass('play-btn-disabled');
+
         popUpOff();
 
         creditsAvailable -= (totalBet / 2);
