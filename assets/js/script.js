@@ -29,6 +29,8 @@ $('.chip').click(function () {
     $('#bet-info').addClass('bet-info--active');
     // adds undo button
     undoBtn();
+    // checks which chips are still available
+    chipsToggle();
 }); // end event listener
 
 
@@ -450,6 +452,7 @@ function undoBtn() {
                 // deactivates bet button
                 $('#bet').addClass('play-btn-disabled');
             }; // end if
+            chipsToggle();
         }); // end event listener
     }; // end if
 }; // end undoBtn
@@ -543,6 +546,16 @@ function insurance() {
     no.click(popUpOff);
 }; // end insurance
 
+function chipsToggle() {
+    $('.chip div').each(function () {
+        if (creditsAvailable < Number(this.innerHTML)) {
+            $(this.parentNode).addClass('chip-off');
+        } else {
+            $(this.parentNode).removeClass('chip-off');
+        };
+    }); // end each
+}; // end chipsToggle
+
 function resetRound() {
     $('.card').remove();
     $('#total-bet').text('0 credits');
@@ -565,6 +578,8 @@ function resetRound() {
             location.reload();
         });
     }; // end if
+
+    chipsToggle();
 
     // disables all buttons
     $('.play-btn').addClass('play-btn-disabled');

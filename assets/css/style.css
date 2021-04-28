@@ -229,6 +229,11 @@ body {
     text-align: center;
 }
 
+.chip-off {
+    opacity: 0.3;
+    background-color: black;
+}
+
 .undo-btn {
     background-color: red;
     padding: 10px;
