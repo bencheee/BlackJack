@@ -460,7 +460,7 @@ function undoBtn() {
 function double() {
 
     // checks if there is enough credit to place double bet
-    if (creditsAvailable < (totalBet * 2)) {
+    if (creditsAvailable < (totalBet)) {
         popUpOn(`You don't have enough credit to place double bet!`);
         $('.pop-up-box button').click(popUpOff);
         return;
