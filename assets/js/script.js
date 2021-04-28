@@ -261,16 +261,12 @@ function checkBlackjack() {
             if (dealerScore === 21) {
                 popUpOn(`Player and Dealer have Blackjack! It's a tie!`);
                 creditsAvailable += totalBet;
-                $('#bank-amount').text(creditsAvailable);
-
-                $('#dealer-score').text(dealerScore);
                 // Shows first dealer's card
                 $('#dealer-cards').children(":first")
                     .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
             } else {
                 popUpOn('Player wins with Blackjack!');
                 creditsAvailable += (totalBet * 1.5);
-                $('#bank-amount').text(creditsAvailable);
 
                 $('#dealer-score').text(dealerScore);
                 // Shows first dealer's card
@@ -337,7 +333,6 @@ function dealerTurn() {
             } else {
                 popUpOn('Dealer bust! Player wins!');
                 creditsAvailable += (totalBet * 1.5);
-                $('#bank-amount').text(creditsAvailable);
 
                 $('.pop-up-box button').click(function () {
                     popUpOff();
@@ -353,7 +348,6 @@ function dealerTurn() {
             if (dealerScore > 21) {
                 popUpOn('Dealer bust! Player wins!');
                 creditsAvailable += (totalBet * 1.5);
-                $('#bank-amount').text(creditsAvailable);
 
                 $('.pop-up-box button').click(function () {
                     popUpOff();
@@ -381,7 +375,6 @@ function decideWinner() {
         popUpOn(`Player and Dealer have Blackjack! It's a tie!`):
             popUpOn(`Player and dealer have the same score. It's a tie!`);
         creditsAvailable += totalBet;
-        $('#bank-amount').text(creditsAvailable);
 
         $('.pop-up-box button').click(function () {
             popUpOff();
@@ -398,7 +391,6 @@ function decideWinner() {
     } else {
         popUpOn('Player wins with higher score!');
         creditsAvailable += (totalBet * 1.5);
-        $('#bank-amount').text(creditsAvailable);
         $('.pop-up-box button').click(function () {
             popUpOff();
             setTimeout(resetRound, 1000);
@@ -561,6 +553,8 @@ function resetRound() {
     $('#total-bet').text('0 credits');
     $('#player-score').text('0');
     $('#dealer-score').text('0');
+    $('#bank-amount').text(creditsAvailable);
+
     cardsDrawn = [],
         playerHandString = [],
         playerHandValue = [],
