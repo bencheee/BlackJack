@@ -10,7 +10,7 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
-$('body').css("height", `${window.innerHeight}px`);
+$('body').css("height", `${window.innerHeight * 0.9}px`);
 
 $('.play-btn').addClass('play-btn-disabled');
 
@@ -34,6 +34,11 @@ $('.chip').click(function () {
     // checks which chips are still available
     chipsToggle();
 }); // end event listener
+
+// disables zoom on double click
+$('.chip').dblclick(function (event) {
+    event.preventDefault();
+});
 
 
 $('#bet').click(function () {
