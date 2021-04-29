@@ -232,6 +232,7 @@ body {
 .chip-off {
     opacity: 0.3;
     background-color: black;
+    pointer-events: none;
 }
 
 .undo-btn {
