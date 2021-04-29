@@ -10,7 +10,7 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
-$('body').css("height", `${window.innerHeight * 0.9}px`);
+$('body').css("height", `${window.innerHeight}px`);
 
 $('.play-btn').addClass('play-btn-disabled');
 
