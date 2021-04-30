@@ -86,6 +86,7 @@ $('#bet').click(function () {
         $('#insurance').removeClass('play-btn-disabled');
     }; // end if
 
+    $('.chip').addClass('chip-off');
 
     checkBlackjack();
 
