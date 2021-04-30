@@ -38,7 +38,7 @@ $('.chip').click(function () {
 }); // end event listener
 
 // disables zoom on double click
-$('.chip').dblclick(function (event) {
+$('button').dblclick(function (event) {
     event.preventDefault();
 });
 
