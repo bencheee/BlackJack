@@ -1,6 +1,3 @@
-$('.playing-container').hide();
-$('.controls-container').hide();
-
 let cardsDrawn = [],
     playerHandString = [],
     playerHandValue = [],
@@ -14,6 +11,8 @@ let betPool = [],
     creditsAvailable = 1000;
 
 $('body').css("height", `${window.innerHeight}px`);
+
+$('.help-container').hide();
 
 $('.play-btn').addClass('play-btn-disabled');
 
