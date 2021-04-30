@@ -1,3 +1,6 @@
+$('.playing-container').hide();
+$('.controls-container').hide();
+
 let cardsDrawn = [],
     playerHandString = [],
     playerHandValue = [],
