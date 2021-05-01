@@ -13,6 +13,14 @@ let betPool = [],
 $('body').css("height", `${window.innerHeight}px`);
 
 $('.help-container').hide();
+$('.playing-container').hide();
+$('.controls-container').hide();
+
+$('#new-game').click(function () {
+    $('.playing-container').show();
+    $('.controls-container').show();
+    $('.menu-container').hide();
+}); // end listener
 
 $('.play-btn').addClass('play-btn-disabled');
 

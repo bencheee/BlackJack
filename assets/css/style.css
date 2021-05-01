@@ -316,3 +316,38 @@ footer {
     align-self: flex-end;
     padding: 0 5px;
 }
+
+/* MAIN MENU */
+
+.menu-container {
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+}
+
+.logo-container,
+.buttons-container {
+    height: 50%;
+    width: 100vw;
+}
+
+.logo-container {
+    background-image: linear-gradient(to top, white, transparent);
+}
+
+.buttons-container {
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, white, transparent);
+}
+
+.logo-container img {
+    width: 100vw;
+}
+
+.main-btn {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
+    width: 100px;
+    margin: 10px auto;
+}
