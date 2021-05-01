@@ -37,7 +37,7 @@ a {
 }
 
 body {
-    background: url('../images/bg.jpg') no-repeat center rgb(128, 128, 128);
+    background: url('../images/bg-color.jpg') no-repeat center rgb(128, 128, 128);
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -321,7 +321,7 @@ footer {
 
 .menu-container {
     flex-direction: column;
-    height: 90%;
+    height: 95%;
     width: 100%;
 }
 

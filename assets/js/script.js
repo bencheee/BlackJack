@@ -12,14 +12,17 @@ let betPool = [],
 
 $('body').css("height", `${window.innerHeight}px`);
 
+$('.nav-container').hide();
 $('.help-container').hide();
 $('.playing-container').hide();
 $('.controls-container').hide();
 
 $('#new-game').click(function () {
+    $('.nav-container').show();
     $('.playing-container').show();
     $('.controls-container').show();
     $('.menu-container').hide();
+    $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
 }); // end listener
 
 $('.play-btn').addClass('play-btn-disabled');
