@@ -25,6 +25,23 @@ $('#new-game').click(function () {
     $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
 }); // end listener
 
+$('#rules').click(function () {
+    $('.menu-container').hide();
+    $('.help-container').show();
+    $('.help-container').css('height', '95%');
+    let btn = $('<button></button>').addClass('help-close').text('CLOSE');
+    $('.help-controls').append(btn);
+
+    $('.help-close').click(function () {
+        $('.menu-container').show();
+        $('.help-container').hide();
+        $('.help-container').css('height', '90%');
+        $('.help-close').remove();
+    }); // end listener
+}); // end listener
+
+
+
 $('.play-btn').addClass('play-btn-disabled');
 
 $('#bank-amount').text(creditsAvailable);

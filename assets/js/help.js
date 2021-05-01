@@ -41,13 +41,19 @@ $('#help-ingame').click(function () {
     $('.playing-container').hide();
     $('.controls-container').hide();
     $('.help-container').show();
+    let btn = $('<button></button>').addClass('help-close').text('CLOSE');
+    $('.help-controls').append(btn);
+
+    $('.help-close').click(function () {
+        $('.playing-container').show();
+        $('.controls-container').show();
+        $('.help-container').hide();
+        $('.help-close').remove();
+    }); // end listener
+
 }); // end listener
 
-$('#help-close').click(function () {
-    $('.playing-container').show();
-    $('.controls-container').show();
-    $('.help-container').hide();
-}); // end listener
+
 
 $('#btn-right').click(function () {
     helpCounter += 1;
