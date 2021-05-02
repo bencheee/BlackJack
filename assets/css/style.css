@@ -127,8 +127,8 @@ body {
     color: white;
 }
 
-#double,
-#insurance {
+.double,
+.insurance {
     height: 8vh;
     width: 25vw;
     margin: 2px;
@@ -282,7 +282,8 @@ footer {
     height: 90%;
 }
 
-.help-box {
+.help-box,
+.options-box {
     background-color: white;
     color: black;
     justify-content: space-between;
@@ -308,7 +309,8 @@ footer {
     margin: 0 20px;
 }
 
-.help-close {
+.help-close,
+.options-close {
     border: none;
     background-color: black;
     box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
@@ -350,4 +352,30 @@ footer {
     box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
     width: 100px;
     margin: 10px auto;
+}
+
+/* OPTIONS */
+
+.options-container {
+    height: 95%;
+}
+
+.options-box {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.options-btns-container {
+    flex-direction: column;
+}
+
+.option-btns {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.options-close {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }

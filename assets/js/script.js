@@ -16,6 +16,7 @@ $('.nav-container').hide();
 $('.help-container').hide();
 $('.playing-container').hide();
 $('.controls-container').hide();
+$('.options-container').hide();
 
 $('#new-game').click(function () {
     $('.nav-container').show();
@@ -23,6 +24,41 @@ $('#new-game').click(function () {
     $('.controls-container').show();
     $('.menu-container').hide();
     $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
+}); // end listener
+
+$('#options').click(function () {
+    $('.menu-container').hide();
+    $('.options-container').show();
+
+    // enables or disables insurance option in game
+    $('#option-insurance').click(function () {
+        $('#option-insurance i').toggleClass('fa-check-square');
+        $('#option-insurance i').toggleClass('fa-square');
+
+        if ($("#option-insurance i").hasClass("fa-square")) {
+            $('#insurance').attr('id', 'insurance-disabled');
+        } else {
+            $('#insurance-disabled').attr('id', 'insurance');
+        }; // end if
+    }); //end listener
+
+    // enables or disables double option in game
+    $('#option-double').click(function () {
+        $('#option-double i').toggleClass('fa-check-square');
+        $('#option-double i').toggleClass('fa-square');
+
+        if ($("#option-double i").hasClass("fa-square")) {
+            $('#double').attr('id', 'double-disabled');
+        } else {
+            $('#double-disabled').attr('id', 'double');
+        }; // end if
+    }); //end listener
+
+    $('.options-close').click(function () {
+        $('.menu-container').show();
+        $('.options-container').hide();
+    }); // end listener
+
 }); // end listener
 
 $('#rules').click(function () {
@@ -39,6 +75,7 @@ $('#rules').click(function () {
         $('.help-close').remove();
     }); // end listener
 }); // end listener
+
 
 
 
