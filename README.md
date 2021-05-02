@@ -234,3 +234,5 @@ if (dealerHandString.length === 5) {
 
 <a name="credits"></a>
 ## 7. CREDITS
+
+- [Joker logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu is downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
