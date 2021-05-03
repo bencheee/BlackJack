@@ -525,8 +525,10 @@ function double() {
     // checks if there is enough credit to place double bet
     if (creditsAvailable < (totalBet)) {
         popUpOn(`You don't have enough credit to place double bet!`);
-        $('.pop-up-box button').click(popUpOff);
-        $('#hit, #stand').removeClass('play-btn-disabled');
+        $('.pop-up-box button').click(function () {
+            popUpOff();
+            $('#hit, #stand').removeClass('play-btn-disabled');
+        });
         return;
     }; // end if 
 
@@ -571,8 +573,10 @@ function insurance() {
     // checks if there is enough credit to place insurance bet
     if (creditsAvailable < (totalBet / 2)) {
         popUpOn(`You don't have enough credit to place insurance bet!`);
-        $('.pop-up-box button').click(popUpOff);
-        $('#hit, #stand').removeClass('play-btn-disabled');
+        $('.pop-up-box button').click(function () {
+            popUpOff();
+            $('#hit, #stand').removeClass('play-btn-disabled');
+        });
         return;
     }; // end if 
 
