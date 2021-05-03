@@ -480,6 +480,9 @@ function popUpOn(message) {
 
     $('.main-area--playing').addClass('pop-up-bg-green');
     $('.main-area--bank').addClass('pop-up-bg-blue');
+
+    $('#hit, #stand').addClass('play-btn-disabled');
+
 }; // end popUpOn
 
 function popUpOff() {
@@ -487,6 +490,7 @@ function popUpOff() {
     $('#playing-section-middle').show();
     $('.main-area--playing').removeClass('pop-up-bg-green');
     $('.main-area--bank').removeClass('pop-up-bg-blue');
+
 }; // end popUpOff
 
 function undoBtn() {
@@ -522,6 +526,7 @@ function double() {
     if (creditsAvailable < (totalBet)) {
         popUpOn(`You don't have enough credit to place double bet!`);
         $('.pop-up-box button').click(popUpOff);
+        $('#hit, #stand').removeClass('play-btn-disabled');
         return;
     }; // end if 
 
@@ -555,7 +560,10 @@ function double() {
         }; // end if
     }); // end event listener
 
-    no.click(popUpOff);
+    no.click(function () {
+        popUpOff();
+        $('#hit, #stand').removeClass('play-btn-disabled');
+    });
 }; // end double
 
 function insurance() {
@@ -564,6 +572,7 @@ function insurance() {
     if (creditsAvailable < (totalBet / 2)) {
         popUpOn(`You don't have enough credit to place insurance bet!`);
         $('.pop-up-box button').click(popUpOff);
+        $('#hit, #stand').removeClass('play-btn-disabled');
         return;
     }; // end if 
 
@@ -602,12 +611,18 @@ function insurance() {
 
         } else {
             popUpOn(`Dealer does not have Blackjack! Player lost insurance bet! Round continues...`);
-            $('.pop-up-box button').click(popUpOff);
+            $('.pop-up-box button').click(function () {
+                popUpOff();
+                $('#hit, #stand').removeClass('play-btn-disabled');
+            });
         }; // end if
 
     }); // end event listener
 
-    no.click(popUpOff);
+    no.click(function () {
+        popUpOff();
+        $('#hit, #stand').removeClass('play-btn-disabled');
+    });
 }; // end insurance
 
 function chipsToggle() {
