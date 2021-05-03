@@ -90,7 +90,7 @@ $('.chip').click(function () {
     betPool.unshift(Number($(this).text()));
     // adds current amount to total bet and updates html
     totalBet += betPool[0];
-    $('#total-bet').text(`${totalBet} credits`);
+    $('#total-bet').text(`${totalBet}`);
     // deducts current amount from bank and updates html
     creditsAvailable -= betPool[0];
     $('#bank-amount').text(creditsAvailable);
@@ -501,7 +501,7 @@ function undoBtn() {
             totalBet -= betPool[0];
             creditsAvailable += betPool[0];
             betPool.shift();
-            $('#total-bet').text(`${totalBet} credits`);
+            $('#total-bet').text(`${totalBet}`);
             $('#bank-amount').text(creditsAvailable);
             // if there are no bets left remove button
             if (totalBet === 0) {
@@ -542,7 +542,7 @@ function double() {
         // doubles the current bet
         creditsAvailable -= totalBet;
         totalBet *= 2;
-        $('#total-bet').text(`${totalBet} credits`);
+        $('#total-bet').text(`${totalBet}`);
         $('#bank-amount').text(creditsAvailable);
 
         generateCard();
@@ -622,7 +622,7 @@ function chipsToggle() {
 
 function resetRound() {
     $('.card').remove();
-    $('#total-bet').text('0 credits');
+    $('#total-bet').text('0');
     $('#player-score').text('0');
     $('#dealer-score').text('0');
     $('#bank-amount').text(creditsAvailable);
