@@ -597,10 +597,11 @@ function insurance() {
         popUpOff();
 
         creditsAvailable -= (totalBet / 2);
+        $('#bank-amount').text(creditsAvailable);
+        $('#total-bet').text(`${totalBet} (+${totalBet / 2})`);
 
         if (dealerScore === 21) {
             creditsAvailable += totalBet;
-            $('#bank-amount').text(creditsAvailable);
             // Updates scoreboard in html for total score
             $('#dealer-score').text(dealerScore);
             // Shows first dealer's card
@@ -610,6 +611,7 @@ function insurance() {
             popUpOn(`Dealer wins with Blackjack! Player wins insurance bet!`);
             $('.pop-up-box button').click(function () {
                 popUpOff();
+                $('#bank-amount').text(creditsAvailable);
                 setTimeout(resetRound, 1000);
             }); // end event listener
 
