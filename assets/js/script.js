@@ -11,7 +11,8 @@ let betPool = [],
     creditsAvailable = 1000;
 
 let playStyle = 'conservative',
-    doubleMode = false;
+    doubleMode = false,
+    placedBet = false;
 
 $('body').css("height", `${window.innerHeight}px`);
 
@@ -99,7 +100,30 @@ $('#rules').click(function () {
 }); // end listener
 
 
+$('#cash-out').click(function () {
+    if (placedBet) {
+        popUpOn(`You can't cash out in the middle of the round!`);
+        $('.pop-up-box button').click(function () {
+            popUpOff();
+            $('#stand').removeClass('play-btn-disabled');
+            $('#hit').removeClass('play-btn-disabled');
+        }); // end event listener
+    } else {
+        if (totalBet != 0) {
+            popUpOn(`Please remove any bets before leaving!`);
+            $('#bet').addClass('play-btn-disabled');
+            $('.undo-btn').hide();
 
+            $('.pop-up-box button').click(function () {
+                popUpOff();
+                $('#bet').removeClass('play-btn-disabled');
+                $('.undo-btn').show();
+            }); // end event listener
+        } else {
+            cashOut();
+        }; // end if
+    }; // end if
+}); // end event
 
 $('.play-btn').addClass('play-btn-disabled');
 
@@ -131,7 +155,7 @@ $(document).dblclick(function (event) {
 
 
 $('#bet').click(function () {
-
+    placedBet = true;
     // Draws 2 cards for player / dealer
     for (i = 0; i < 2; i++) {
         generateCard();
@@ -747,6 +771,35 @@ function chipsToggle() {
     }); // end each
 }; // end chipsToggle
 
+function cashOut() {
+    // displays pop-up message with yes/no option
+    popUpOn(`You will cash out ${creditsAvailable} credits and end the game. Do you wish to proceed?`);
+    $('.pop-up-box button').remove();
+    let container = $('<div></div>').addClass('flex-centered');
+    let yes = $('<button></button>').text('YES').attr('id', 'yes');
+    let no = $('<button></button>').text('NO').attr('id', 'no');
+    container.append(yes);
+    container.append(no);
+    $('.pop-up-box').append(container);
+    $('.chip').addClass('chip-off');
+    $('#cash-out').css('pointer-events', 'none');
+
+    yes.click(function () {
+        popUpOff();
+        popUpOn(`Congratulations! You won ${creditsAvailable} credits. Good job!`)
+        $('.pop-up-box button').click(function () {
+            popUpOff();
+            location.reload();
+        }); // end event listener
+    }); // end event listener
+
+    no.click(function () {
+        popUpOff();
+        $('.chip').removeClass('chip-off');
+        $('#cash-out').css('pointer-events', 'auto');
+    });
+}; // end cashOut
+
 function resetRound() {
     $('.card').remove();
     $('#total-bet').text('0');
@@ -763,7 +816,8 @@ function resetRound() {
         dealerScore = 0,
         betPool = [],
         totalBet = 0,
-        doubleMode = false;
+        doubleMode = false,
+        placedBet = false;
 
     if (creditsAvailable < 25) {
         popUpOn(`You don't have enough credits to place bet.`);
