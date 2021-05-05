@@ -110,14 +110,16 @@ $('#cash-out').click(function () {
         }); // end event listener
     } else {
         if (totalBet != 0) {
-            popUpOn(`Please remove any bets before leaving!`);
+            popUpOn(`Please remove all bets before leaving!`);
             $('#bet').addClass('play-btn-disabled');
             $('.undo-btn').hide();
+            $('.chip').addClass('chip-off');
 
             $('.pop-up-box button').click(function () {
                 popUpOff();
                 $('#bet').removeClass('play-btn-disabled');
                 $('.undo-btn').show();
+                chipsToggle();
             }); // end event listener
         } else {
             cashOut();
