@@ -5,7 +5,7 @@ let help = [{
     },
     {
         title: `BETTING`,
-        text: `The player starts the game with the amount of €1000 in the bank. Before the start of each round, the player has to place the initial bet. In case the round is won, the award is paid to the player’s bank in 3/2 ratio (example: If the bet is €100, the payout to the bank is €150.). If the round ends in a tie, the whole bet is returned to the player’s bank.`
+        text: `The player starts the game with the amount of 1000 credits. Before the start of each round, the player has to place the initial bet. In case the round is won, the award is paid to the player in 3/2 ratio (example: If the bet is 100 credits, the payout to the player is 150 credits.). If the round ends in a tie, the whole bet is returned to the player.`
     },
     {
         title: `INITIAL DEAL`,
@@ -13,22 +13,22 @@ let help = [{
     },
     {
         title: `HIT/STAND`,
-        text: `By pressing the “Hit” button, a new card is added to the player’s hand. The player can draw new cards until there is maximum of 5 cards in the player’s hand or until the total score exceeds 21 which ends with “bust”. By pressing the “Stand” button, the player ends the turn and the dealer is on the move.`
+        text: `By pressing the “Hit” button, a new card is added to the player’s hand. The player can draw new cards until there is maximum of 5 cards in the player’s hand or until the total score exceeds 21 which ends with “bust” and round is lost. By pressing the “Stand” button, the player ends the turn and the dealer is on the move.`
     },
     {
         title: `DOUBLE`,
         text: `By pressing the “Double” button, the amount of the original bet is doubled. The player can draw only one new card after and in case the game does not end with bust, it is the dealer’s turn to play.
-        In case the round is won, the award is paid to the player’s bank in 2/1 ratio (example: If the bet is €100, the payout to the bank is €200.). If the round ends in a tie, the whole bet is returned to the player’s bank.`
+        In case the round is won, the award is paid to the player in 2/1 ratio (example: If the bet is 100 credits, the payout to the player is 200 credits.). If the round ends in a tie, the whole bet is returned to the player.`
     },
     {
         title: `INSURANCE`,
-        text: `Insurance gives an option to the player to bet on whether the dealer has Blackjack in his initial hand. This option is activated in case if the only visible card in the dealer’s hand is an ace or value of ten.
-        This bet is separate from the original bet. In case insurance bet is won, player loses the original bet. The insurance payout is paid to the player’s bank in 3/2 ratio (example: If the bet is €100, the payout to the bank is €150.).
+        text: `Insurance gives an option to the player to bet on whether the dealer has Blackjack in his initial hand. This option is available only in case if the visible card in the dealer’s hand is an ace or value of ten.
+        This bet is separate from the original bet. In case insurance bet is won, player loses the original bet. The insurance payout is paid to the player bank in 2/1 ratio (example: If the bet is 100 credits, the payout to the player is 200 credits.).
         In case the dealer does not have Blackjack, the player loses the insurance bet but the game continues.`
     },
     {
         title: `END OF GAME`,
-        text: `The player can “Cash-out” at any time which ends the game. In case the amount in the player’s bank drops to €0, the game is automatically lost.`
+        text: `The player can “Cash-out” at any time which ends the game. In case that the player doesn't have at least 25 credits to place minimum bet, the game is automatically lost.`
     }
 ];
 
