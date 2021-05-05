@@ -231,6 +231,7 @@ body {
 .undo-btn {
     background-color: red;
     padding: 10px;
+    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* FOOTER */
@@ -306,7 +307,6 @@ footer {
 .options-close {
     border: none;
     background-color: black;
-    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
     color: white;
     align-self: flex-end;
     padding: 0 5px;
