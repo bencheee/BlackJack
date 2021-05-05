@@ -19,11 +19,19 @@ $('.controls-container').hide();
 $('.options-container').hide();
 
 $('#new-game').click(function () {
+    $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
     $('.nav-container').show();
     $('.playing-container').show();
     $('.controls-container').show();
     $('.menu-container').hide();
-    $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
+    $('.chip').addClass('chip-off');
+
+    popUpOn(`Welcome to 'Blackjack The Game'. Place your first bet by pressing one of the chip buttons. Good luck!`);
+    $('.pop-up-box button').click(function () {
+        popUpOff();
+        $('.chip').removeClass('chip-off');
+    });
+
 }); // end listener
 
 $('#options').click(function () {
