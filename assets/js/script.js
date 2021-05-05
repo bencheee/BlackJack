@@ -345,6 +345,7 @@ function aceCorrect(handValue, score) {
 function checkBlackjack() {
     if (playerScore === 21) {
         popUpOn(`Player has Blackjack! Dealer's turn!`);
+        $('#insurance').addClass('play-btn-disabled');
         $('.pop-up-box button').click(function () {
             popUpOff();
             if (dealerScore === 21) {
