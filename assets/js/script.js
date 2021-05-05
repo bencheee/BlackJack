@@ -344,18 +344,18 @@ function aceCorrect(handValue, score) {
 
 function checkBlackjack() {
     if (playerScore === 21) {
-        popUpOn(`Player has Blackjack! Dealer's turn!`);
+        popUpOn(`You have Blackjack! It's dealer's turn now!`);
         $('#insurance').addClass('play-btn-disabled');
         $('.pop-up-box button').click(function () {
             popUpOff();
             if (dealerScore === 21) {
-                popUpOn(`Player and Dealer have Blackjack! It's a tie!`);
+                popUpOn(`You and Dealer have Blackjack! It's a tie!`);
                 creditsAvailable += totalBet;
                 // Shows first dealer's card
                 $('#dealer-cards').children(":first")
                     .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
             } else {
-                popUpOn('Player wins with Blackjack!');
+                popUpOn('You win with Blackjack!');
                 creditsAvailable += (totalBet * 1.5);
 
                 $('#dealer-score').text(dealerScore);
@@ -375,13 +375,13 @@ function checkBlackjack() {
 function checkScore() {
     // Player bust if score > 21
     if (playerScore > 21) {
-        popUpOn('Player bust! Dealer wins!');
+        popUpOn('You bust! Dealer wins!');
         $('.pop-up-box button').click(function () {
             popUpOff();
             setTimeout(resetRound, 1000);
         }); // end event listener 
     } else if (playerScore === 21) {
-        popUpOn(`Player has Blackjack! Dealer's turn!`);
+        popUpOn(`You have Blackjack! It's dealer's turn now!`);
         $('.pop-up-box button').click(function () {
             popUpOff();
             dealerTurn();
@@ -390,7 +390,7 @@ function checkScore() {
 
     // Checks and limits amount of player's drawn cards to 5 
     if (playerHandString.length === 5 && playerScore < 21) {
-        popUpOn(`This was last card. Dealer's turn!`);
+        popUpOn(`This was your last card. It's dealer's turn now!`);
         // prevents running dealerTurn function before continue btn is clicked
         $('.pop-up-box button').click(function () {
             popUpOff();
@@ -429,7 +429,7 @@ function dealerTurn() {
             console.log(`Dealer decided to play!`);
             console.log(`------`);
             if (dealerScore === 21) {
-                popUpOn(`Player and Dealer have Blackjack! It's a tie!`);
+                popUpOn(`You and dealer have Blackjack! It's a tie!`);
                 creditsAvailable += totalBet;
                 // Shows first dealer's card
                 $('#dealer-cards').children(":first")
@@ -469,7 +469,7 @@ function dealerTurn() {
                     return;
                 }
 
-                popUpOn('Dealer bust! Player wins!');
+                popUpOn('Dealer busts! You win!');
 
                 if (doubleMode) {
                     creditsAvailable += (totalBet * 2);
@@ -515,7 +515,7 @@ function dealerDraws() {
             decideWinner();
             return;
         } else {
-            popUpOn('Dealer bust! Player wins!');
+            popUpOn('Dealer busts! You win!');
 
             if (doubleMode) {
                 creditsAvailable += (totalBet * 2);
@@ -534,8 +534,8 @@ function dealerDraws() {
 function decideWinner() {
     if (dealerScore === playerScore) {
         (dealerScore === 21) ?
-        popUpOn(`Player and Dealer have Blackjack! It's a tie!`):
-            popUpOn(`Player and dealer have the same score. It's a tie!`);
+        popUpOn(`You and dealer have Blackjack! It's a tie!`):
+            popUpOn(`You and dealer have the same score. It's a tie!`);
         creditsAvailable += totalBet;
 
         $('.pop-up-box button').click(function () {
@@ -551,7 +551,7 @@ function decideWinner() {
             setTimeout(resetRound, 1000);
         }); // end event listener 
     } else {
-        popUpOn('Player wins with higher score!');
+        popUpOn('You win with higher score!');
 
         if (doubleMode) {
             creditsAvailable += (totalBet * 2);
@@ -685,7 +685,7 @@ function insurance() {
     }; // end if 
 
     // displays pop-up message with yes/no option
-    popUpOn(`You will place separate bet of ${totalBet / 2} credits. Do you wish to proceed?`);
+    popUpOn(`You will bet ${totalBet / 2} credits on whether dealer has Blackjack or not. Do you wish to proceed?`);
     $('.pop-up-box button').remove();
     let container = $('<div></div>').addClass('flex-centered');
     let yes = $('<button></button>').text('YES').attr('id', 'yes');
@@ -712,7 +712,7 @@ function insurance() {
             $('#dealer-cards').children(":first")
                 .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
 
-            popUpOn(`Dealer wins with Blackjack! Player wins insurance bet!`);
+            popUpOn(`Dealer wins with Blackjack! You win insurance bet!`);
             $('.pop-up-box button').click(function () {
                 popUpOff();
                 $('#bank-amount').text(creditsAvailable);
@@ -720,7 +720,7 @@ function insurance() {
             }); // end event listener
 
         } else {
-            popUpOn(`Dealer does not have Blackjack! Player lost insurance bet! Round continues...`);
+            popUpOn(`Dealer does not have Blackjack! Insurance bet is lost! Round continues...`);
 
             $('.pop-up-box button').click(function () {
                 popUpOff();
@@ -766,7 +766,8 @@ function resetRound() {
         doubleMode = false;
 
     if (creditsAvailable < 25) {
-        popUpOn(`Not enought credits to place bet. Game over!`);
+        popUpOn(`You don't have enough credits to place bet.`);
+        $('.pop-up-box button').text('GAME OVER');
         $('.pop-up-box button').click(function () {
             popUpOff();
             location.reload();
