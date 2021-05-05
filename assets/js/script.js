@@ -176,8 +176,8 @@ $('#bet').click(function () {
 
     checkBlackjack();
 
-    console.log('----Initial hand----');
-    logsInfo();
+    // console.log('----Initial hand----');
+    // logsInfo();
 
 }); // end event listener
 
@@ -193,7 +193,7 @@ $('#hit').click(function () {
     // disables insurance button
     $('#insurance').addClass('play-btn-disabled');
 
-    logsInfo();
+    // logsInfo();
 }); // end event listener
 
 
@@ -397,43 +397,65 @@ function checkScore() {
     }; // end if
 
 
-    console.log('------Next hand------');
-    logsInfo();
+    // console.log('------Next hand------');
+    // logsInfo();
 }; // end checkScore
 
 
 function dealerTurn() {
     // Keeps drawing cards as long as player is in the lead
-    if (dealerScore < playerScore) {
-        generateCard();
-        addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
-        updateTotal();
-        // Updates scoreboard in html for total score
-        $('#dealer-score').text(dealerScore);
-        // Shows first dealer's card
-        $('#dealer-cards').children(":first")
-            .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
-        // Limits cards drawn to 5 and checks the winner
-        if (dealerHandString.length === 5) {
-            if (dealerScore < 22) {
-                decideWinner();
-                return;
-            } else {
-                popUpOn('Dealer bust! Player wins!');
-                creditsAvailable += (totalBet * 1.5);
+    if (dealerScore <= playerScore) {
 
-                $('.pop-up-box button').click(function () {
-                    popUpOff();
-                    setTimeout(resetRound, 1000);
-                }); // end event listener 
-            }; // end if
+        if (dealerScore === playerScore && playStyle === 'conservative') {
+            // do nothing
+            console.log(`------`);
+            console.log(`DECIDING ON NEXT DRAW`);
+            console.log(`Dealer score: ${dealerScore}`);
+            console.log(`Player score: ${playerScore}`);
+            console.log(`Play Style: ${playStyle}`);
+            console.log(`Dealer decided not to play!`);
+            console.log(`------`);
+            decideWinner();
             return;
-        }; // end if
-        if (dealerScore < playerScore) {
-            dealerTurn();
+
+        } else {
+            console.log(`------`);
+            console.log(`DECIDING ON NEXT DRAW`);
+            console.log(`Dealer score: ${dealerScore}`);
+            console.log(`Player score: ${playerScore}`);
+            console.log(`Play Style: ${playStyle}`);
+            console.log(`Dealer decided to play!`);
+            console.log(`------`);
+
+            dealerDraws();
+        }
+
+        if (dealerScore <= playerScore) {
+
+            if (dealerScore === playerScore && playStyle === 'conservative') {
+                // do nothing
+                console.log(`------`);
+                console.log(`DECIDING ON NEXT DRAW`);
+                console.log(`Dealer score: ${dealerScore}`);
+                console.log(`Player score: ${playerScore}`);
+                console.log(`Play Style: ${playStyle}`);
+                console.log(`Dealer decided not to play!`);
+                console.log(`------`);
+                decideWinner();
+
+            } else {
+                if (dealerHandString.length === 5) {
+                    return;
+                }
+                dealerTurn();
+            }
             return;
         } else {
             if (dealerScore > 21) {
+                if (dealerHandString.length === 5) {
+                    return;
+                }
+
                 popUpOn('Dealer bust! Player wins!');
                 creditsAvailable += (totalBet * 1.5);
 
@@ -442,6 +464,10 @@ function dealerTurn() {
                     setTimeout(resetRound, 1000);
                 }); // end event listener 
             } else {
+                if (dealerHandString.length === 5) {
+                    return;
+                }
+
                 decideWinner();
                 return;
             }; // end if
@@ -456,6 +482,32 @@ function dealerTurn() {
     }; // end if
 }; // end dealerTurn
 
+function dealerDraws() {
+    generateCard();
+    addCard(dealerHandString, dealerHandValue, $('#dealer-cards'));
+    updateTotal();
+    // Updates scoreboard in html for total score
+    $('#dealer-score').text(dealerScore);
+    // Shows first dealer's card
+    $('#dealer-cards').children(":first")
+        .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+    // Limits cards drawn to 5 and checks the winner
+    if (dealerHandString.length === 5) {
+        if (dealerScore < 22) {
+            debugger;
+            decideWinner();
+            return;
+        } else {
+            popUpOn('Dealer bust! Player wins!');
+            creditsAvailable += (totalBet * 1.5);
+
+            $('.pop-up-box button').click(function () {
+                popUpOff();
+                setTimeout(resetRound, 1000);
+            }); // end event listener 
+        }; // end if
+    }; // end if
+}; // end dealerDraws
 
 function decideWinner() {
     if (dealerScore === playerScore) {
