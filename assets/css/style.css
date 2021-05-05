@@ -289,6 +289,31 @@ footer {
     font-weight: 300;
 }
 
+.help-title {
+    margin-bottom: 10px;
+}
+
+/* 
+CODE CREDIT: Below code was used to hide scrollbar on overflow
+but still keep it's functionality. Code was taken from www.w3schools.com
+Full link is in readme file. 
+*/
+
+.help-box p {
+    font-size: 1.3rem;
+    text-align: justify;
+    height: 75%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.help-box p::-webkit-scrollbar {
+    display: none;
+}
+
 .help-controls {
     flex-direction: column;
     width: 100%;
