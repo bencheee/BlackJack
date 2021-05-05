@@ -505,7 +505,6 @@ function dealerDraws() {
     // Limits cards drawn to 5 and checks the winner
     if (dealerHandString.length === 5) {
         if (dealerScore < 22) {
-            debugger;
             decideWinner();
             return;
         } else {
@@ -703,9 +702,11 @@ function insurance() {
 
         } else {
             popUpOn(`Dealer does not have Blackjack! Player lost insurance bet! Round continues...`);
+
             $('.pop-up-box button').click(function () {
                 popUpOff();
                 $('#hit, #stand').removeClass('play-btn-disabled');
+                $('#total-bet').text(`${totalBet}`);
             });
         }; // end if
 
