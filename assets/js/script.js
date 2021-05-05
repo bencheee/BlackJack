@@ -10,6 +10,8 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
+let playStyle = 'conservative';
+
 $('body').css("height", `${window.innerHeight}px`);
 
 $('.nav-container').hide();
@@ -38,27 +40,38 @@ $('#options').click(function () {
     $('.menu-container').hide();
     $('.options-container').show();
 
-    // enables or disables insurance option in game
-    $('#option-insurance').click(function () {
-        $('#option-insurance i').toggleClass('fa-check-square');
-        $('#option-insurance i').toggleClass('fa-square');
+    // dealer will not draw another card when score is equal to player's
+    $('#option-conservative').click(function () {
 
-        if ($("#option-insurance i").hasClass("fa-square")) {
-            $('#insurance').attr('id', 'insurance-disabled');
-        } else {
-            $('#insurance-disabled').attr('id', 'insurance');
-        }; // end if
+        if ($("#option-conservative i").hasClass("fa-square")) {
+            $('#option-conservative i').toggleClass('fa-square');
+            $('#option-conservative i').toggleClass('fa-check-square');
+            $('#option-aggressive i').toggleClass('fa-check-square');
+            $('#option-aggressive i').toggleClass('fa-square');
+
+            if ($("#option-conservative i").hasClass("fa-square")) {
+                playStyle = 'aggressive';
+            } else {
+                playStyle = 'conservative';
+            }; // end listener
+        }
     }); //end listener
 
-    // enables or disables double option in game
-    $('#option-double').click(function () {
-        $('#option-double i').toggleClass('fa-check-square');
-        $('#option-double i').toggleClass('fa-square');
+    // dealer will  draw another card when score is equal to player's
+    $('#option-aggressive').click(function () {
 
-        if ($("#option-double i").hasClass("fa-square")) {
-            $('#double').attr('id', 'double-disabled');
-        } else {
-            $('#double-disabled').attr('id', 'double');
+        if ($("#option-aggressive i").hasClass("fa-square")) {
+            $('#option-conservative i').toggleClass('fa-square');
+            $('#option-conservative i').toggleClass('fa-check-square');
+            $('#option-aggressive i').toggleClass('fa-check-square');
+            $('#option-aggressive i').toggleClass('fa-square');
+
+            if ($("#option-aggressive i").hasClass("fa-square")) {
+                playStyle = 'conservative';
+            } else {
+                playStyle = 'aggressive';
+            }; // end listener
+
         }; // end if
     }); //end listener
 
