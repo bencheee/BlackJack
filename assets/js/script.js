@@ -426,7 +426,18 @@ function dealerTurn() {
             console.log(`Play Style: ${playStyle}`);
             console.log(`Dealer decided to play!`);
             console.log(`------`);
-
+            if (dealerScore === 21) {
+                popUpOn(`Player and Dealer have Blackjack! It's a tie!`);
+                creditsAvailable += totalBet;
+                // Shows first dealer's card
+                $('#dealer-cards').children(":first")
+                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+                $('.pop-up-box button').click(function () {
+                    popUpOff();
+                    setTimeout(resetRound, 1000);
+                }); // end event listener   
+                return;
+            };
             dealerDraws();
         }
 
