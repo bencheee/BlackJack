@@ -10,7 +10,8 @@ let betPool = [],
     totalBet = 0,
     creditsAvailable = 1000;
 
-let playStyle = 'conservative';
+let playStyle = 'conservative',
+    doubleMode = false;
 
 $('body').css("height", `${window.innerHeight}px`);
 
@@ -176,8 +177,8 @@ $('#bet').click(function () {
 
     checkBlackjack();
 
-    // console.log('----Initial hand----');
-    // logsInfo();
+    console.log('----Initial hand----');
+    logsInfo();
 
 }); // end event listener
 
@@ -193,7 +194,7 @@ $('#hit').click(function () {
     // disables insurance button
     $('#insurance').addClass('play-btn-disabled');
 
-    // logsInfo();
+    logsInfo();
 }); // end event listener
 
 
@@ -397,8 +398,8 @@ function checkScore() {
     }; // end if
 
 
-    // console.log('------Next hand------');
-    // logsInfo();
+    console.log('------Next hand------');
+    logsInfo();
 }; // end checkScore
 
 
@@ -468,7 +469,12 @@ function dealerTurn() {
                 }
 
                 popUpOn('Dealer bust! Player wins!');
-                creditsAvailable += (totalBet * 1.5);
+
+                if (doubleMode) {
+                    creditsAvailable += (totalBet * 2);
+                } else {
+                    creditsAvailable += (totalBet * 1.5);
+                }; // end if
 
                 $('.pop-up-box button').click(function () {
                     popUpOff();
@@ -509,7 +515,12 @@ function dealerDraws() {
             return;
         } else {
             popUpOn('Dealer bust! Player wins!');
-            creditsAvailable += (totalBet * 1.5);
+
+            if (doubleMode) {
+                creditsAvailable += (totalBet * 2);
+            } else {
+                creditsAvailable += (totalBet * 1.5);
+            }; // end if
 
             $('.pop-up-box button').click(function () {
                 popUpOff();
@@ -540,7 +551,13 @@ function decideWinner() {
         }); // end event listener 
     } else {
         popUpOn('Player wins with higher score!');
-        creditsAvailable += (totalBet * 1.5);
+
+        if (doubleMode) {
+            creditsAvailable += (totalBet * 2);
+        } else {
+            creditsAvailable += (totalBet * 1.5);
+        }; // end if
+
         $('.pop-up-box button').click(function () {
             popUpOff();
             setTimeout(resetRound, 1000);
@@ -630,6 +647,7 @@ function double() {
         // disables all buttons
         $('.play-btn').addClass('play-btn-disabled');
         popUpOff();
+        doubleMode = true;
         // doubles the current bet
         creditsAvailable -= totalBet;
         totalBet *= 2;
@@ -743,7 +761,8 @@ function resetRound() {
         playerScore = 0,
         dealerScore = 0,
         betPool = [],
-        totalBet = 0;
+        totalBet = 0,
+        doubleMode = false;
 
     if (creditsAvailable < 25) {
         popUpOn(`Not enought credits to place bet. Game over!`);
