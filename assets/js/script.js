@@ -528,6 +528,7 @@ function double() {
         $('.pop-up-box button').click(function () {
             popUpOff();
             $('#hit, #stand').removeClass('play-btn-disabled');
+            $('#double').addClass('play-btn-disabled');
         });
         return;
     }; // end if 
@@ -576,6 +577,7 @@ function insurance() {
         $('.pop-up-box button').click(function () {
             popUpOff();
             $('#hit, #stand').removeClass('play-btn-disabled');
+            $('#insurance').addClass('play-btn-disabled');
         });
         return;
     }; // end if 
