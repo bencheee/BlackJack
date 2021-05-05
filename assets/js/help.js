@@ -9,11 +9,11 @@ let help = [{
     },
     {
         title: `INITIAL DEAL`,
-        text: `At the start of each round two cards are dealt to the player and the dealer. The dealer’s first card remains hidden until it’s the dealer’s turn to play. In case the player does not have Blackjack, the additional options become available (“Hit”, “Stand” or “Double”).`
+        text: `At the start of each round two cards are dealt to the player and the dealer. The dealer’s first card remains hidden until it’s the dealer’s turn to play. In case the player does not have Blackjack on initial deal, the additional options become available (“Hit”, “Stand” or “Double”).`
     },
     {
-        title: `HIT/STAND`,
-        text: `By pressing the “Hit” button, a new card is added to the player’s hand. The player can draw new cards until there is maximum of 5 cards in the player’s hand or until the total score exceeds 21 which ends with “bust” and round is lost. By pressing the “Stand” button, the player ends the turn and the dealer is on the move.`
+        title: `HIT / STAND`,
+        text: `By pressing the “Hit” button, a new card is added to the player’s hand. The player can draw new cards until there is maximum of 5 cards in the player’s hand or until the total score exceeds 21 which ends with “bust” and loss of the round. By pressing the “Stand” button, the player ends the turn and the dealer is on the move.`
     },
     {
         title: `DOUBLE`,
@@ -23,12 +23,12 @@ let help = [{
     {
         title: `INSURANCE`,
         text: `Insurance gives an option to the player to bet on whether the dealer has Blackjack in his initial hand. This option is available only in case if the visible card in the dealer’s hand is an ace or value of ten.
-        This bet is separate from the original bet. In case insurance bet is won, player loses the original bet. The insurance payout is paid to the player bank in 2/1 ratio (example: If the bet is 100 credits, the payout to the player is 200 credits.).
-        In case the dealer does not have Blackjack, the player loses the insurance bet but the game continues.`
+        This bet is separate from the original bet. In case insurance bet is won, player loses the original bet. The insurance payout is paid to the player in 2/1 ratio (example: If the bet is 100 credits, the payout to the player is 200 credits.).
+        In case the dealer does not have Blackjack, the player loses the insurance bet and the game continues.`
     },
     {
         title: `END OF GAME`,
-        text: `The player can “Cash-out” at any time which ends the game. In case that the player doesn't have at least 25 credits to place minimum bet, the game is automatically lost.`
+        text: `There are two ways to end the game. First on is to use “Cash-out” option at any time which ends the game. Second one is to spend all credits. In case that the player doesn't have at least 25 credits to place minimum bet, the game is automatically lost.`
     }
 ];
 
