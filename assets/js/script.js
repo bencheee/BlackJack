@@ -599,13 +599,16 @@ function decideWinner() {
 
 
 function popUpOn(message) {
-    $('#playing-section-middle').hide();
+    $('.playing-section-middle--item').hide();
+
+    let overlay = $('<div></div>').addClass('overlay');
 
     let playSectionDealer = $('.playing-section--dealer');
     let popUpBox = $('<div></div>').addClass('pop-up-box flex-centered');
     let popUpTxt = $('<div></div>').text(message);
     let popUpBtn = $('<button></button>').text('CONTINUE');
 
+    $('footer').after(overlay);
     playSectionDealer.after(popUpBox);
     popUpBox.append(popUpTxt);
     popUpBox.append(popUpBtn);
@@ -618,8 +621,9 @@ function popUpOn(message) {
 }; // end popUpOn
 
 function popUpOff() {
+    $('.overlay').remove();
     $('.pop-up-box').remove();
-    $('#playing-section-middle').show();
+    $('.playing-section-middle--item').show();
     $('.main-area--playing').removeClass('pop-up-bg-green');
     $('.main-area--bank').removeClass('pop-up-bg-blue');
 
