@@ -39,8 +39,12 @@ a {
 body {
     background: url('../images/bg-color.jpg') no-repeat center rgb(128, 128, 128);
     background-size: cover;
-    height: 100vh;
     width: 100vw;
+}
+
+.desktop-container {
+    height: 95%;
+    width: 100%;
 }
 
 .main-area {
@@ -69,7 +73,7 @@ body {
 /* PLAYING AREA */
 
 .playing-container {
-    height: 55%;
+    height: 65%;
 }
 
 .main-area--playing {
@@ -273,7 +277,7 @@ footer {
 /* HELP */
 
 .help-container {
-    height: 90%;
+    height: 100%;
 }
 
 .help-box,
@@ -327,7 +331,7 @@ footer {
 
 .menu-container {
     flex-direction: column;
-    height: 95%;
+    height: 100%;
     width: 100%;
 }
 
@@ -361,7 +365,7 @@ footer {
 /* OPTIONS */
 
 .options-container {
-    height: 95%;
+    height: 100%;
 }
 
 .options-box {
@@ -383,6 +387,7 @@ footer {
     bottom: 20px;
     right: 20px;
 }
+
 
 /* MEDIA QUERIES */
 
@@ -461,4 +466,20 @@ footer {
         align-items: center;
     }
 
+    .playing-container {
+        height: 80%;
+        width: 50%;
+    }
+
+    .controls-container {
+        height: 80%;
+        width: 25%;
+    }
+
+    .pop-up-box {
+        width: 50vw;
+        z-index: 1;
+        position: absolute;
+        left: 23%;
+    }
 }

@@ -23,7 +23,14 @@ $('.controls-container').hide();
 $('.options-container').hide();
 
 $('#new-game').click(function () {
+
+    $('.desktop-container').css('height', '90%');
     $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
+
+    if (window.innerWidth >= 1200) {
+        $('.desktop-container').addClass('flex-centered');
+    };
+
     $('.nav-container').show();
     $('.playing-container').show();
     $('.controls-container').show();
@@ -87,14 +94,12 @@ $('#options').click(function () {
 $('#rules').click(function () {
     $('.menu-container').hide();
     $('.help-container').show();
-    $('.help-container').css('height', '95%');
     let btn = $('<button></button>').addClass('help-close').text('CLOSE');
     $('.help-controls').append(btn);
 
     $('.help-close').click(function () {
         $('.menu-container').show();
         $('.help-container').hide();
-        $('.help-container').css('height', '90%');
         $('.help-close').remove();
     }); // end listener
 }); // end listener
