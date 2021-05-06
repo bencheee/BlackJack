@@ -476,6 +476,10 @@ footer {
         align-items: center;
     }
 
+    .help-box p {
+        overflow: auto;
+    }
+
     .playing-container {
         height: 80%;
         width: 50%;
