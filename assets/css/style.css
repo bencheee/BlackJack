@@ -59,8 +59,6 @@ body {
     height: 95%;
     width: 95%;
     flex-direction: column;
-    position: absolute;
-    top: 0;
     box-shadow: 0 0 5px 2px black;
 }
 
