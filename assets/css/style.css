@@ -482,4 +482,25 @@ footer {
         position: absolute;
         left: 23%;
     }
+
+    .double,
+    .insurance {
+        width: 12vw;
+    }
+
+    .main-area--bank {
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+    }
+
+    .chip {
+        height: 4vw;
+        width: 4vw;
+        border: dashed 0.4vw black;
+    }
+
+    .chip-inner {
+        font-size: 1.2vw;
+    }
+
 }
