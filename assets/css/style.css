@@ -397,3 +397,71 @@ Full link is in readme file.
     bottom: 20px;
     right: 20px;
 }
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) {
+
+    body {
+        font-size: 2rem;
+    }
+
+    .play-btn,
+    .play-controls-btn,
+    .nav-container button,
+    .chip,
+    .main-btn,
+    .undo-btn,
+    .help-close,
+    .options-close,
+    .pop-up-box button {
+        font-size: 2rem;
+    }
+
+    .help-box p {
+        font-size: 2.5rem;
+    }
+
+    .arrows i {
+        font-size: 4rem;
+    }
+
+    .option-btns {
+        font-size: 3.5rem;
+    }
+
+    .score-container {
+        height: 50px;
+        margin: 20px;
+    }
+
+    .card {
+        width: 14%;
+    }
+
+    .chip {
+        height: 100px;
+        width: 100px;
+        border: dashed 10px black;
+    }
+
+    .main-btn {
+        width: 20vw;
+        height: 5vh;
+    }
+
+    .undo-btn {
+        padding: 15px;
+    }
+
+    .help-text {
+        padding: 0 5%;
+    }
+
+    .pop-up-box button {
+        margin: 20px 10px 0px 10px;
+    }
+
+}
