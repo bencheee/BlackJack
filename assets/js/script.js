@@ -231,7 +231,7 @@ $('#hit').click(function () {
 
 $('#stand').click(function () {
 
-    popUpOn(`You have ${playerScore} points! It's dealer's turn now!`);
+    popUpOn(`You have ${playerScore} points in your hand! It's dealer's turn now!`);
 
     $('.pop-up-box button').click(function () {
         popUpOff();
@@ -701,7 +701,15 @@ function double() {
         checkScore();
 
         if (playerScore < 21) {
-            dealerTurn();
+
+            popUpOn(`You have ${playerScore} points! It's dealer's turn now!`);
+
+            $('.pop-up-box button').click(function () {
+                popUpOff();
+                dealerTurn();
+                // disables all buttons
+            });
+
         }; // end if
     }); // end event listener
 
