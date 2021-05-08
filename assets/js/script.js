@@ -426,7 +426,7 @@ function checkScore() {
 
     // Checks and limits amount of player's drawn cards to 5 
     if (playerHandString.length === 5 && playerScore < 21) {
-        popUpOn(`This was your last card. It's dealer's turn now!`);
+        popUpOn(`This was your last card. You have ${playerScore} points. It's dealer's turn now!`);
         // prevents running dealerTurn function before continue btn is clicked
         $('.pop-up-box button').click(function () {
             popUpOff();
@@ -571,7 +571,7 @@ function decideWinner() {
     if (dealerScore === playerScore) {
         (dealerScore === 21) ?
         popUpOn(`You and dealer have Blackjack! It's a tie!`):
-            popUpOn(`You and dealer have the same score. It's a tie!`);
+            popUpOn(`You and dealer have ${playerScore} points. It's a tie!`);
         creditsAvailable += totalBet;
 
         $('.pop-up-box button').click(function () {
@@ -581,13 +581,13 @@ function decideWinner() {
     } else if (dealerScore > playerScore) {
         (dealerScore === 21) ?
         popUpOn('Dealer wins with Blackjack!'):
-            popUpOn('Dealer wins with higher score!');
+            popUpOn(`Dealer wins with ${dealerScore} points!`);
         $('.pop-up-box button').click(function () {
             popUpOff();
             setTimeout(resetRound, 1000);
         }); // end event listener 
     } else {
-        popUpOn('You win with higher score!');
+        popUpOn(`You win with ${playerScore} points!`);
 
         if (doubleMode) {
             creditsAvailable += (totalBet * 2);
@@ -707,9 +707,7 @@ function double() {
             $('.pop-up-box button').click(function () {
                 popUpOff();
                 dealerTurn();
-                // disables all buttons
             });
-
         }; // end if
     }); // end event listener
 
