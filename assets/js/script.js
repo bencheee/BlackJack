@@ -446,6 +446,7 @@ function dealerTurn() {
 
         if (dealerScore === playerScore && playStyle === 'conservative') {
             // do nothing
+            // FIX TO ADD: SHOW DEALERS CARD !
             console.log(`------`);
             console.log(`DECIDING ON NEXT DRAW`);
             console.log(`Dealer score: ${dealerScore}`);
@@ -569,6 +570,9 @@ function dealerDraws() {
 
 function decideWinner() {
     if (dealerScore === playerScore) {
+
+        // FIX TO ADD: Show dealers card!
+
         (dealerScore === 21) ?
         popUpOn(`You and dealer have Blackjack! It's a tie!`):
             popUpOn(`You and dealer have ${playerScore} points. It's a tie!`);
