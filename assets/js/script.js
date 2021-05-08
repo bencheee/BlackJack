@@ -230,10 +230,15 @@ $('#hit').click(function () {
 
 
 $('#stand').click(function () {
-    dealerTurn();
-    // disables all buttons
-    $('.play-btn').addClass('play-btn-disabled');
 
+    popUpOn(`You have ${playerScore} points! It's dealer's turn now!`);
+
+    $('.pop-up-box button').click(function () {
+        popUpOff();
+        dealerTurn();
+        // disables all buttons
+        $('.play-btn').addClass('play-btn-disabled');
+    });
 });
 
 $('#double').click(double);
