@@ -477,6 +477,22 @@ footer {
 
 @media only screen and (min-width: 1200px) {
 
+    body {
+        font-size: 1.3rem;
+    }
+
+    .play-btn,
+    .play-controls-btn,
+    .nav-container button,
+    .chip,
+    .main-btn,
+    .undo-btn,
+    .help-close,
+    .options-close,
+    .pop-up-box button {
+        font-size: 1.3rem;
+    }
+
     .nav-container button:hover {
         text-shadow: 1px 1px 2px rgb(0, 0, 0);
         color: rgba(255, 255, 255, 0.7);
@@ -489,10 +505,16 @@ footer {
         border-radius: 3%;
     }
 
+    .main-btn {
+        width: 15vw;
+    }
+
     .help-box,
     .options-box {
         box-shadow: 0 0 30px 5px black;
         border-radius: 1%;
+        height: 60%;
+        width: 50%;
     }
 
 
@@ -503,6 +525,11 @@ footer {
 
     .help-box p {
         overflow: auto;
+        font-size: 1.5rem;
+    }
+
+    .option-btns {
+        font-size: 2.5rem;
     }
 
     .playing-container {
@@ -552,7 +579,7 @@ footer {
 
     .double,
     .insurance {
-        width: 12vw;
+        width: 8vw;
     }
 
     .main-area--bank {
