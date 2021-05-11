@@ -1,7 +1,10 @@
 # BlackJack the game
 
+[Click for live website demo](https://bencheee.github.io/BlackJack/)
+
 **BlackJack the game** is web based game and it is part of my 2nd milestone project in **Code Institute's Full Stack Software Development Course**. This is a classic game of BlackJack also known by the name of '21' in some countries. Main objective of the game is to beat the dealer by having greater score but not to exceed total score of 21 which would result in automatic loss. More detailed rules are explained in help section of the game. This site is made to be fully responsive on range of devices and screen sizes.
 
+![Mockup image](/documentation/images/mockup.JPG)
 
 ---
 

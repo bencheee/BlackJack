@@ -1,5 +1,5 @@
 <a name="top"></a>
-# Testing of JavaScript and jQuery
+# Testing of JavaScript and jQuery code
 
 Testing of the JavaScript and jQuery code is divided in two sections. 
 
@@ -8,6 +8,8 @@ In first section focus is on testing manipulation of the DOM. This test assumes 
 In second section game functions are tested to make sure all calculations are done correctly (example: no duplicate cards are dealt, cards are limited to 5 per hand, bets and scores are calculated correctly, etc.).
 
 Most of the testing is done in Chrome developer tools. Console logging is used in combination with debugger command in JS to fix the code step by step in case of errors. It is important to emphasize that layout / sizing / graphic aspect of the site is not tested in this section. Therefore all in-game screenshots will be in desktop size as functionality of the code is the same regardless of the screen resolution.
+
+---
 
 ## TABLE OF CONTENTS
 
@@ -66,6 +68,8 @@ Most of the testing is done in Chrome developer tools. Console logging is used i
 [3. Calculating the score](#calculatescore)
 
 [4. Calculating payouts](#payouts)
+
+---
 
 <a name="dom"></a>
 ## TESTING DOM MANIPULATION
@@ -470,6 +474,8 @@ Expected outcome: Pop up message should appear with message: 'This was your last
 - Expected outcome: Pop up message should appear with message: 'Player wins with ${playerScore} points!'.  After pressing continue button dealer's hidden card should be shown and delaer's score should be updated to sum of dealer's card values.
 
 [Back to Table of contents](#mainmenu)
+
+---
 
 <a name="functions"></a>
 ## TESTING GAME FUNCTIONS
