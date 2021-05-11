@@ -14,6 +14,7 @@ Every test is then divided into three sub sections:
 2.	Running the test and providing testing evidence
 3.	Result of the test
 
+<a name="domtoc"></a>
 ## DOM MANIPULATION
 
 [1.	MAIN MENU](#mainmenu)
@@ -67,6 +68,8 @@ Main menu consists of three main buttons – ‘New game’, ‘Options’ and �
 
 ![test001](/documentation/testing/images/DOM/001.png)
 
+[Back to Table of contents](#mainmenu)
+
 <a name="newgame"></a>
 #### 1.1 New game
 
@@ -77,6 +80,8 @@ Test outcome:
 ![test002](/documentation/testing/images/DOM/002.png)
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="options"></a>
 #### 1.2 Options
@@ -89,6 +94,8 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="modes"></a>
 ##### 1.2.1	Conservative / aggressive mode
 Expected outcome: By pressing ‘conservative’ option empty box icon next to it should change to ticked box icon. Ticked box icon next to ‘aggressive’ option should change to empty box icon. The same outcome is expected in opposite situation.
@@ -98,6 +105,8 @@ Test outcome:
 ![test004](/documentation/testing/images/DOM/004.png)
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="closeoptions"></a>
 ##### 1.2.2	Close button
@@ -110,6 +119,8 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="rules"></a>
 #### 1.3 Rules
 
@@ -120,6 +131,8 @@ Test outcome:
 ![test006](/documentation/testing/images/DOM/006.png)
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="arrows"></a>
 ##### 1.3.1	Left / right arrow
@@ -132,6 +145,8 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="closerules"></a>
 ##### 1.3.2	Close button
 
@@ -143,11 +158,15 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="gamescreen"></a>
 ### 2. GAME SCREEN
 Game screen consists of two main sections – ‘playing section’ and ‘controls section’. Playing section is green area where majority of card game is played out. It consists of card containers (this is area where cards are put after dealing) and score boards for player and dealer. Also, buttons for ‘double’ and ‘insurance’ game modes are in the same section. Controls section is blue area where game control buttons are placed (bet, hit and stand). This area also consists of chip buttons and info about ‘total bet’ and ‘available credits’. When game starts all buttons except chip buttons are inactive.
 
 ![test009](/documentation/testing/images/DOM/009.png)
+
+[Back to Table of contents](#mainmenu)
 
 <a name="chipbtns"></a>
 #### 2.1 Chip buttons
@@ -159,6 +178,8 @@ Test outcome:
 ![test010](/documentation/testing/images/DOM/010.png)
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="undobtn"></a>
 #### 2.2 Undo button
@@ -173,10 +194,14 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="commbtns"></a>
 #### 2.3 Command buttons
 
 ‘Command buttons’ are the blue squared buttons (when active) placed in both sections. They are labelled as ‘Bet’, ‘Hit’, ‘Stand’, ‘Double’ and ‘Insurance’.
+
+[Back to Table of contents](#mainmenu)
 
 <a name="bet"></a>
 ##### 2.3.1	Bet
@@ -215,6 +240,8 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="hit"></a>
 ##### 2.3.2	Hit
 
@@ -224,6 +251,8 @@ Test outcome: Please see list of game outcomes.
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="stand"></a>
 ##### 2.3.3	Stand
 
@@ -231,6 +260,8 @@ Expected outcome: By pressing ‘Stand’ button Pop up message should appear wi
 Test outcome: Please see list of [game outcomes](#outcomes). Since at this stage player will never have 5 cards in hand only outcomes only those outcomes can be applied.
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="double"></a>
 ##### 2.3.4	Double
@@ -244,6 +275,8 @@ Test outcome:
 ![test017](/documentation/testing/images/DOM/017.png)
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="insurance"></a>
 ##### 2.3.5	Insurance
@@ -262,15 +295,21 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="popupbtns"></a>
 #### 2.4 Pop-up buttons
 
 Pop up buttons are part of pop up messages and allow player to perform an action on them. These buttons are ‘Continue’, ‘Yes’ and ‘No’. When pop up message appears on screen all other buttons which are not part of pop up message should become temporarily inactive and black opaque layer should be applied over the whole screen except over the pop up message itself. By pressing any of the buttons pop up message should be removed from the screen and black opaque layer should be removed and game should resume depending on the selected choice. All these buttons were already tested as a part of the previous examples so there is no need to test them specifically.
 
+[Back to Table of contents](#mainmenu)
+
 <a name="navbtns"></a>
 ### 3. NAV BUTTONS
 
 Navigation buttons are placed at top of the screen while player is already in game. Navigation buttons are hidden in main screen.
+
+[Back to Table of contents](#mainmenu)
 
 <a name="cashout"></a>
 #### 3.1 Cash-out
@@ -289,6 +328,8 @@ Test outcome:
 
 Result: Passed all criteria
 
+[Back to Table of contents](#mainmenu)
+
 <a name="help"></a>
 #### 3.2 Help
 
@@ -299,6 +340,8 @@ Test outcome:
 ![test026](/documentation/testing/images/DOM/026.png)
 
 Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
 
 <a name="outcomes"></a>
 ### Game outcomes
@@ -416,5 +459,8 @@ Expected outcome: Pop up message should appear with message: 'This was your last
 *Dealer has 5 cards, score is less than 21 and less than player's score:*
 
 - Expected outcome: Pop up message should appear with message: 'Player wins with ${playerScore} points!'.  After pressing continue button dealer's hidden card should be shown and delaer's score should be updated to sum of dealer's card values.
+
+[Back to Table of contents](#mainmenu)
+
 
 ## GAME FUNCTIONS
