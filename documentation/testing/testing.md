@@ -1,3 +1,4 @@
+<a name="top"></a>
 # Testing of JavaScript and jQuery
 
 Testing of the JavaScript and jQuery code is divided in two sections. 
@@ -6,16 +7,11 @@ In first section focus is on testing manipulation of the DOM. This test assumes 
 
 In second section game functions are tested to make sure all calculations are done correctly (example: no duplicate cards are dealt, cards are limited to 5 per hand, bets and scores are calculated correctly, etc.).
 
-Most of the testing is done in Chrome developer tools. Console logging is used in combination with debugger command in JS to run the code step by step. It is important to emphasize that layout / sizing / graphic aspect of the site is not tested in this section. Therefore all in-game screenshots will be in desktop size as functionality of the code is the same regardless of the screen resolution.
+Most of the testing is done in Chrome developer tools. Console logging is used in combination with debugger command in JS to fix the code step by step in case of errors. It is important to emphasize that layout / sizing / graphic aspect of the site is not tested in this section. Therefore all in-game screenshots will be in desktop size as functionality of the code is the same regardless of the screen resolution.
 
-Every test is then divided into three sub sections:
+## TABLE OF CONTENTS
 
-1.	Defining expected outcome
-2.	Running the test and providing testing evidence
-3.	Result of the test
-
-<a name="domtoc"></a>
-## DOM MANIPULATION
+[TESTING DOM MANIPULATION](#dom)
 
 [1.	MAIN MENU](#mainmenu)
 
@@ -60,6 +56,19 @@ Every test is then divided into three sub sections:
 - [3.2 Help](#help)
 
 [Game outcomes](#outcomes)
+
+[TESTING GAME FUNCTIONS](#functions)
+
+[1. Generating random card](#generatecard)
+
+[2. Adding generated card to player’s / dealer’s hand, getting card values and scores](#addcard)
+
+[3. Calculating the score](#calculatescore)
+
+[Calculating payouts](#payouts)
+
+<a name="dom"></a>
+## TESTING DOM MANIPULATION
 
 <a name="mainmenu"></a>
 ### 1. MAIN MENU
@@ -462,5 +471,97 @@ Expected outcome: Pop up message should appear with message: 'This was your last
 
 [Back to Table of contents](#mainmenu)
 
+<a name="functions"></a>
+## TESTING GAME FUNCTIONS
 
-## GAME FUNCTIONS
+This section is focused on testing functions which are used to calculate and manipulate data such as card strings, card values, total scores, etc. Please note that logical comparisons and game outcomes will not be tested here as they were already tested in [game outcome](#outcomes) section.
+
+[Back to Table of contents](#mainmenu)
+
+<a name="generatecard"></a>
+### 1. Generating random card
+
+For this purpose, *generateCard()* function is used. This function should generate random card string where first character of the string represents value of the card and second character represents card color. This string combination then should be stored into *cardsDrawn* array. Function should also check if generated string combination already exists in which case it should be discarded and new string combination should be generated. 
+
+**Testing procedure:** 
+
+In console, loop is created to call *generateCard()* function 53 times. This should result in generating 52 unique card string combinations which should be stored in *cardsDrawn* array. On last attempt function should log an error as there should not be any more unique card string combinations available.
+
+**Testing result:** Code is working correctly
+
+![test001](/documentation/testing/images/functions/001.JPG)
+
+[Back to Table of contents](#mainmenu)
+
+<a name="addcard"></a>
+### 2. Adding generated card to player’s / dealer’s hand, getting card values and scores
+
+For this purpose, *addCard()* function is used. This function should add card string combination to *handString* array (separate arrays for player and dealer). Then string combination of each card should be converted to numeric value which should then be stored in *handValue* array (separate arrays for player and dealer). Please note that ace card at this stage is always converted to *NaN* value because this card can have multiple values (1 or 11) depending on situation and has to be evaluated separately.
+
+**Testing procedure:**
+
+In console, *addCard()* function is called to store first card of *cardsDrawn* array to player’s and then dealer’s arrays.  Function *testLog()* is then created to log *handString* and *handValue* arrays for player and dealer. As outcome player’s and dealer’s arrays should now be populated with the same card / value.
+
+**Testing result:** Code is working properly
+
+![test002](/documentation/testing/images/functions/002.JPG)
+
+[Back to Table of contents](#mainmenu)
+
+<a name="calculatescore"></a>
+###  3. Calculating the score
+
+For this purpose, combination of functions is used.
+
+*getHandValue()* – This function should return the sum of all values in player’s / dealer’s *handValue* array. Also, function should check if there is an ace card in array (*NaN* value) and assign it value of 1 (if total score is greater than 21) or 11 (if total score is less than 21).
+
+*aceCorrect()* – This function should additionally check ace card in the whole *handValue* array. This is to ensure that ace card which was previously assigned value of 11 is given value of 1 if total score changes later in the round. It should look for all values of 11 in *handValue* array and assign them value of 1  if total score is greater than 21. 
+
+*updateTotal()* – This function calls previous two functions and then it should update player’s or dealer’s score.
+
+**Testing procedure:** 
+
+In console, *updateTotal()* function is called. Then *playerScore* and *dealerScore* variables are logged. As outcome, *playerScore* and *dealerScore* variables should both return value of 11.
+
+**Testing result:** Code is working properly
+
+![test003](/documentation/testing/images/functions/003.JPG)
+
+[Back to Table of contents](#mainmenu)
+
+<a name="payouts"></a>
+### 4. Calculating payouts
+
+Payouts should be updated every time player wins or draws the round. There is no specific function which calculates payouts as this is part of many different functions.
+
+**Testing procedure:**
+
+In console, all possible scenarios are simulated where payouts should be calculated. For testing purposes value of all initial bets will be 100 credits. There are few possible scenarios:
+
+Player wins
+- *Payout should be 150 credits, and creditsAvailable variable should have value of 1050*
+
+Player and dealer draw
+- *Payout should be 100 credits, and creditsAvailable variable should have value of 1000*
+
+Player wins double bet
+- *Bet is doubled to 200 credits*
+- *Payout should be 400 credits, and creditsAvailable variable should have value of 1200*
+
+Player wins insurance bet
+- *Additional bet is 50 credits*
+- *Payout should be 100 credits, and creditsAvailable variable should have value of 950*
+
+**Testing result:** Code is working properly
+
+![test004](/documentation/testing/images/functions/004.JPG)
+
+![test005](/documentation/testing/images/functions/005.JPG)
+
+![test006](/documentation/testing/images/functions/006.JPG)
+
+![test007](/documentation/testing/images/functions/007.JPG)
+
+[Back to top of the document](#top)
+
+
