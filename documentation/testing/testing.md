@@ -65,7 +65,7 @@ Most of the testing is done in Chrome developer tools. Console logging is used i
 
 [3. Calculating the score](#calculatescore)
 
-[Calculating payouts](#payouts)
+[4. Calculating payouts](#payouts)
 
 <a name="dom"></a>
 ## TESTING DOM MANIPULATION
@@ -75,7 +75,7 @@ Most of the testing is done in Chrome developer tools. Console logging is used i
 
 Main menu consists of three main buttons – ‘New game’, ‘Options’ and ‘Rules’.
 
-![test001](/documentation/testing/images/DOM/001.png)
+![test001](/documentation/testing/images/DOM/001.jpg)
 
 [Back to Table of contents](#mainmenu)
 
@@ -86,7 +86,7 @@ Expected outcome: By pressing ‘New game’ button main menu section should be 
 
 Test outcome:
 
-![test002](/documentation/testing/images/DOM/002.png)
+![test002](/documentation/testing/images/DOM/002.jpg)
 
 Result: Passed all criteria
 
@@ -99,7 +99,7 @@ Expected outcome: By pressing ‘Options’ button main menu buttons should be h
 
 Test outcome:
 
-![test003](/documentation/testing/images/DOM/003.png)
+![test003](/documentation/testing/images/DOM/003.jpg)
 
 Result: Passed all criteria
 
@@ -111,7 +111,7 @@ Expected outcome: By pressing ‘conservative’ option empty box icon next to i
 
 Test outcome:
 
-![test004](/documentation/testing/images/DOM/004.png)
+![test004](/documentation/testing/images/DOM/004.jpg)
 
 Result: Passed all criteria
 
@@ -124,7 +124,7 @@ Expected outcome: By pressing ‘close’ button options window should close and
 
 Test outcome:
 
-![test005](/documentation/testing/images/DOM/005.png)
+![test005](/documentation/testing/images/DOM/005.jpg)
 
 Result: Passed all criteria
 
@@ -137,7 +137,7 @@ Expected outcome: By pressing ‘rules’ button main menu buttons should be hid
 
 Test outcome:
 
-![test006](/documentation/testing/images/DOM/006.png)
+![test006](/documentation/testing/images/DOM/006.jpg)
 
 Result: Passed all criteria
 
@@ -150,7 +150,7 @@ Expected outcome: By pressing one of the ‘arrow’ buttons title and text sect
 
 Test outcome:
 
-![test007](/documentation/testing/images/DOM/007.png)
+![test007](/documentation/testing/images/DOM/007.jpg)
 
 Result: Passed all criteria
 
@@ -163,7 +163,7 @@ Expected outcome: By pressing ‘close’ button rules window should close and m
 
 Test outcome:
 
-![test008](/documentation/testing/images/DOM/008.png)
+![test008](/documentation/testing/images/DOM/008.jpg)
 
 Result: Passed all criteria
 
@@ -173,7 +173,7 @@ Result: Passed all criteria
 ### 2. GAME SCREEN
 Game screen consists of two main sections – ‘playing section’ and ‘controls section’. Playing section is green area where majority of card game is played out. It consists of card containers (this is area where cards are put after dealing) and score boards for player and dealer. Also, buttons for ‘double’ and ‘insurance’ game modes are in the same section. Controls section is blue area where game control buttons are placed (bet, hit and stand). This area also consists of chip buttons and info about ‘total bet’ and ‘available credits’. When game starts all buttons except chip buttons are inactive.
 
-![test009](/documentation/testing/images/DOM/009.png)
+![test009](/documentation/testing/images/DOM/009.jpg)
 
 [Back to Table of contents](#mainmenu)
 
@@ -184,7 +184,7 @@ Expected outcome: By pressing ‘chip’ button ‘bet’ button should be activ
 
 Test outcome:
 
-![test010](/documentation/testing/images/DOM/010.png)
+![test010](/documentation/testing/images/DOM/010.jpg)
 
 Result: Passed all criteria
 
@@ -199,7 +199,7 @@ Expected outcome: By pressing this button the last placed bet should be cancelle
 
 Test outcome:
 
-![test011](/documentation/testing/images/DOM/011.png)
+![test011](/documentation/testing/images/DOM/011.jpg)
 
 Result: Passed all criteria
 
@@ -233,19 +233,19 @@ Test outcome:
 
 -	If Player has Blackjack
 
-![test012](/documentation/testing/images/DOM/012.png)
+![test012](/documentation/testing/images/DOM/012.jpg)
 
 -	If Player wins with Blackjack
 
-![test013](/documentation/testing/images/DOM/013.png)
+![test013](/documentation/testing/images/DOM/013.jpg)
 
 -	If Player and Dealer have Blackjack
 
-![test014](/documentation/testing/images/DOM/014.png)
+![test014](/documentation/testing/images/DOM/014.jpg)
 
 -	If Player does not have Blackjack
 
-![test015](/documentation/testing/images/DOM/015.png)
+![test015](/documentation/testing/images/DOM/015.jpg)
 
 Result: Passed all criteria
 
@@ -279,9 +279,9 @@ Expected outcome: By pressing ‘Double’ button, game evaluates if player has 
 
 Test outcome:
 
-![test016](/documentation/testing/images/DOM/016.png)
+![test016](/documentation/testing/images/DOM/016.jpg)
 
-![test017](/documentation/testing/images/DOM/017.png)
+![test017](/documentation/testing/images/DOM/017.jpg)
 
 Result: Passed all criteria
 
@@ -294,13 +294,13 @@ By pressing ‘Insurance’ button, game evaluates if player has enough credits 
 
 Test outcome:
 
-![test018](/documentation/testing/images/DOM/018.png)
+![test018](/documentation/testing/images/DOM/018.jpg)
 
-![test019](/documentation/testing/images/DOM/019.png)
+![test019](/documentation/testing/images/DOM/019.jpg)
 
-![test020](/documentation/testing/images/DOM/020.png)
+![test020](/documentation/testing/images/DOM/020.jpg)
 
-![test021](/documentation/testing/images/DOM/021.png)
+![test021](/documentation/testing/images/DOM/021.jpg)
 
 Result: Passed all criteria
 
@@ -327,13 +327,13 @@ Expected outcome: By pressing ‘Cash-out’ button, there are few possible outc
 
 Test outcome:
 
-![test022](/documentation/testing/images/DOM/022.png)
+![test022](/documentation/testing/images/DOM/022.jpg)
 
-![test023](/documentation/testing/images/DOM/023.png)
+![test023](/documentation/testing/images/DOM/023.jpg)
 
-![test024](/documentation/testing/images/DOM/024.png)
+![test024](/documentation/testing/images/DOM/024.jpg)
 
-![test025](/documentation/testing/images/DOM/025.png)
+![test025](/documentation/testing/images/DOM/025.jpg)
 
 Result: Passed all criteria
 
@@ -346,7 +346,7 @@ Expected outcome: By pressing ‘Help’ outcome all items from game screen shou
 
 Test outcome:
 
-![test026](/documentation/testing/images/DOM/026.png)
+![test026](/documentation/testing/images/DOM/026.jpg)
 
 Result: Passed all criteria
 
@@ -489,7 +489,7 @@ In console, loop is created to call *generateCard()* function 53 times. This sho
 
 **Testing result:** Code is working correctly
 
-![test001](/documentation/testing/images/functions/001.JPG)
+![test001](/documentation/testing/images/functions/001.jpg)
 
 [Back to Table of contents](#mainmenu)
 
@@ -504,7 +504,7 @@ In console, *addCard()* function is called to store first card of *cardsDrawn* a
 
 **Testing result:** Code is working properly
 
-![test002](/documentation/testing/images/functions/002.JPG)
+![test002](/documentation/testing/images/functions/002.jpg)
 
 [Back to Table of contents](#mainmenu)
 
@@ -525,7 +525,7 @@ In console, *updateTotal()* function is called. Then *playerScore* and *dealerSc
 
 **Testing result:** Code is working properly
 
-![test003](/documentation/testing/images/functions/003.JPG)
+![test003](/documentation/testing/images/functions/003.jpg)
 
 [Back to Table of contents](#mainmenu)
 
@@ -554,13 +554,13 @@ Player wins insurance bet
 
 **Testing result:** Code is working properly
 
-![test004](/documentation/testing/images/functions/004.JPG)
+![test004](/documentation/testing/images/functions/004.jpg)
 
-![test005](/documentation/testing/images/functions/005.JPG)
+![test005](/documentation/testing/images/functions/005.jpg)
 
-![test006](/documentation/testing/images/functions/006.JPG)
+![test006](/documentation/testing/images/functions/006.jpg)
 
-![test007](/documentation/testing/images/functions/007.JPG)
+![test007](/documentation/testing/images/functions/007.jpg)
 
 [Back to top of the document](#top)
 
