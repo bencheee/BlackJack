@@ -14,7 +14,18 @@ let playStyle = 'conservative',
     doubleMode = false,
     placedBet = false;
 
-$('body').css("height", `${window.innerHeight}px`);
+if (window.innerHeigh < 768) {
+    $('body').css("height", `${window.innerHeight}px`);
+}
+
+$(window).resize(function () {
+    $('body').css("height", `${window.innerHeight}px`);
+    if (window.innerWidth >= 1200) {
+        $('.desktop-container').addClass('flex-centered');
+    } else {
+        $('.desktop-container').removeClass('flex-centered');
+    };
+})
 
 $('.nav-container').hide();
 $('.help-container').hide();
