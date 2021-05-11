@@ -195,13 +195,17 @@ This is where majority of player game choices takes place. It consists of Bank i
 <a name="testing"></a>
 ## 5. TESTING
 
+### JavaScript and jQuery tests
+
+Due to extensive testing, this section is provided in separate file which can be found on the following [link](documentation/testing/testing.md).
+
 ### Known bugs
 
 - Page height is bigger than screen height on mobile devices.
 
 ### Fixed bugs
 
-- Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](documentation/testing/images/001.png))
+- Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](documentation/testing/images/bugs/001.png))
 
 Solution: Added 'return' command to IF statement in dealerTurn() function.
 
