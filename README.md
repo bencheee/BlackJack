@@ -329,11 +329,36 @@ Due to extensive testing, this section is provided in separate file which can be
 <a name="testbugs"></a>
 ### 5.4 Known bugs
 
-- Value of ace card is not correctly calculated in cases where player draws an ace in the initial two cards and draws another ace in one of the next rounds. For example: If initial hand is Ace and 3, total score is calculated correctly (11 + 3 = 14), but if next card is also ace game is calculating this incorrectly (1 + 3 + 1 = 5) instead of 15 (11 + 3 + 1). 
-([example screenshot](documentation/testing/images/bugs/003.jpg))
+-
 
 <a name="testbugsfixed"></a>
 ### 5.5 Fixed bugs
+
+- Value of ace card is not correctly calculated in cases where player draws an ace in the initial two cards and draws another ace in one of the next rounds. For example: If initial hand is Ace and 3, total score is calculated correctly (11 + 3 = 14), but if next card is also ace game is calculating this incorrectly (1 + 3 + 1 = 5) instead of 15 (11 + 3 + 1). 
+([example screenshot](documentation/testing/images/bugs/003.jpg))
+
+Solution: Added *if* statement to *aceCorrect()* function
+
+```
+function aceCorrect(handValue, score) {
+    debugger;
+    // Adjusts value of ace card to 1 if total score is > 21
+    if (score > 21) {
+        for (i = 0; i < handValue.length; i++) {
+            if (handValue[i] === 11) {
+                handValue[i] = 1;
+                score -= 10;
+                // Function should break out in case score is under 22 again to prevent possible additional aces to be changed from 11 to 1
+                if (score < 22) {
+                    break;
+                } else {
+                    aceCorrect(handValue, score);
+                };
+            };
+        };
+    };
+};
+```
 
 - Page height is bigger than screen height on mobile and tablet devices. ([example screenshot](documentation/testing/images/bugs/002.png))
 

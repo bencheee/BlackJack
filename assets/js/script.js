@@ -372,17 +372,27 @@ function updateTotal() {
     $('#dealer-score').text(`${dealerHandValue[0]}`);
 }; // end updateTotal
 
-// Corrects the value of the Ace card
 function aceCorrect(handValue, score) {
+    debugger;
     // Adjusts value of ace card to 1 if total score is > 21
     if (score > 21) {
         for (i = 0; i < handValue.length; i++) {
             if (handValue[i] === 11) {
                 handValue[i] = 1;
+                score -= 10;
+                // Function should break out in case score is under 22 again to prevent possible additional aces to be changed from 11 to 1
+                if (score < 22) {
+                    break;
+                } else {
+                    aceCorrect(handValue, score);
+                };
             };
         };
     };
 };
+
+
+
 
 // Checks if player has Blackjack after initial two cards are dealt
 function checkBlackjack() {
