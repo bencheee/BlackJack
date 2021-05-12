@@ -198,6 +198,57 @@ This is where majority of player game choices takes place. It consists of Bank i
 <a name="testing"></a>
 ## 5. TESTING
 
+### Testing User Stories from User Experience (UX) Section
+
+1. First time player's goals
+
+As a first time player, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
+
+- Main menu of the page consists of only three buttons with clear description of the purpose of each button
+
+- Game screen is designed in a way that all the buttons are activated and deactivated depending on the situation in the game which makes the playing experience more intuitive 
+
+As a first time player, I want to see 'help' section so I can quickly understand the rules of the game.
+
+- Help section is available by pressing *help* button in navigation bar during the game or by pressing *rules* button in the main menu
+
+As a first time player, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
+
+- Every game outcome is explained through pop up messages, same as special functions such as *double*, *insurance* and *cash-out*
+
+As a first time player, I want to have fun playing the game.
+
+- This goal depends on the subjective opinion of the user. As a developer I believe game is fun to play and provides good overall user experience. 
+
+
+2. Casual player's goals
+
+As a casual player, I want to be challenged and entertained.
+
+- Different combinations of cards, different betting strategies and in game decisions made by user combined with many possible game outcomes make every round of the game a unique experience for the user.
+
+As a casual player, I want to get notified about the score in real time so I can adapt my strategy accordingly.
+
+- Using JavaScript, the whole page is highly interactive. Every change made by user is updated accordingly in real time.
+
+As a casual player, I want to see 'quit' button so I can restart the session whenever I wish.
+
+- In the top left corner of the navigation bar there is *Cash-out* button which gives the user the option to leave current session and get notified about the final score.
+
+3. Advanced player's goals
+
+As an advanced player, I want to be able to choose advanced options in order to make the game more interesting.
+
+- Under the *Options* section in the main menu, user can choose between *Conservative* and *Aggressive* mode which will impact dealer's approach to the game, forcing user to adapt and change playing style too.
+
+As an advanced player, I want to be able to keep my score so I can compare it with previous scores.
+
+- At the moment this function is not introduced.
+
+As an advanced player, I want to see virtual currency system so I can place bets in each round.
+
+- Currency system in the game exists, allowing the player to make bets and track progress during and after each round. Currency used in the game is called *'Credit'*.
+
 ### JavaScript and jQuery tests
 
 Due to extensive testing, this section is provided in separate file which can be found on the following [link](documentation/testing/testing.md).
