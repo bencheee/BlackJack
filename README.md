@@ -235,9 +235,55 @@ if (dealerHandString.length === 5) {
 <a name="deployment"></a>
 ## 6. DEPLOYMENT
 
+### GitHub Pages
+
+This project was deployed to GitHub Pages using following steps:
+
+1. Sign in to [GitHub account](https://github.com/bencheee) and open [Blackjack The Game repository](https://github.com/bencheee/BlackJack)
+
+2. Click on the *Settings* tab just below the repository name
+
+3. Click on the *Pages* section
+
+4. Under *Source* section select *master* branch and *root* directory from drop down menus and click *Save*
+
+5. Page is refreshed with the link of the published site (this can take up to few minutes)
+
+![Deployment to GitHub Pages](/documentation/deployment/001.jpg)
+
+### Forking repository
+
+To fork the repository use the following steps:
+
+1. Sign in to GitHub and open [Blackjack The Game repository](https://github.com/bencheee/BlackJack)
+
+2. Click on the *Fork* icon in the top right corner of the page
+
+![Forking the repository](/documentation/deployment/002.jpg)
+
+### Cloning repository
+
+To make a local clone of the repository use the following steps:
+
+1. Sign in to GitHub and open [Blackjack The Game repository](https://github.com/bencheee/BlackJack)
+
+2. At the top of the repository click on the *Code* icon
+
+3. Copy the provided HTTPS link
+
+4. Open Git Bash and change the current working directory to the location where the cloned directory should be made
+
+5. Type *git clone* and then paste the copied URL
+
+```
+$ git clone https://github.com/bencheee/BlackJack.git
+```
+
+6. Press *Enter* and local clone of the repository will be created
+
+![Cloning the repository](/documentation/deployment/003.jpg)
 
 ---
-
 
 <a name="credits"></a>
 ## 7. CREDITS
