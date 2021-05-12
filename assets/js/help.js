@@ -1,3 +1,5 @@
+// Due to large volume of text in help section, this part of the code is put in to separate file so it is not mixed with main part of the code and to maintain better overall readability.
+
 let help = [{
         title: `BASIC RULES`,
         text: `The main objective of the game is to have greater score than the dealer at the end of each round while the score must not exceed the total of 21. In case the score is greater than 21 at any point, this results with "bust" and the round is lost.
@@ -49,32 +51,29 @@ $('#help-ingame').click(function () {
         $('.controls-container').show();
         $('.help-container').hide();
         $('.help-close').remove();
-    }); // end listener
+    });
+});
 
-}); // end listener
-
-
-
+// Right arrow in help section
 $('#btn-right').click(function () {
     helpCounter += 1;
     if (helpCounter > 6) {
         helpCounter = 0;
     };
-
     helpText(helpCounter);
-}); // end listener
+});
 
+// Left arrow in help section
 $('#btn-left').click(function () {
     helpCounter -= 1;
     if (helpCounter < 0) {
         helpCounter = 6;
     };
-
     helpText(helpCounter);
-}); // end listener
+});
 
 
 function helpText(i) {
     $('.help-title').text(help[i].title)
     $('.help-text').text(help[i].text);
-}; // endhelpText
+};
