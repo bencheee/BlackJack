@@ -303,11 +303,11 @@ As an advanced player, I want to see virtual currency system so I can place bets
 
     - iPhone XR
 
-    There is an issue with screen height not showing properly. This is reported to known bugs and will be looked into.
+    ![mobile](/documentation/testing/images/resolutions/mobile.jpg)
 
     - Huawei Media Pad T3
 
-    There is an issue with screen height not showing properly. This is reported to known bugs and will be looked into.
+    ![tablet](/documentation/testing/images/resolutions/tablet.jpg)
 
     - HP Elitebook 840
 
