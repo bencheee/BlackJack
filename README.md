@@ -41,9 +41,29 @@
 
 [5. TESTING](#testing)
 
+- [5.1 Testing User Stories from User Experience (UX) Section](#testux)
+
+- [5.2 Further testing](#testfurther)
+
+- [5.3 JavaScript and jQuery tests](#testjs)
+
+- [5.4 Known bugs](#testbugs)
+
+- [5.5 Fixed bugs](#testbugsfixed)
+
 [6. DEPLOYMENT](#deployment)
 
+- [6.1 GitHub Pages](#pages)
+
+- [6.2 Forking repository](#forking)
+
+- [6.3 Cloning repository](#cloning)
+
 [7. CREDITS](#credits)
+
+- [7.1 Media](#media)
+
+- [7.2 Acknowledgements](#acknowledgements)
 
 
 ---
@@ -198,9 +218,10 @@ This is where majority of player game choices takes place. It consists of Bank i
 <a name="testing"></a>
 ## 5. TESTING
 
-### Testing User Stories from User Experience (UX) Section
+<a name="testux"></a>
+### 5.1 Testing User Stories from User Experience (UX) Section
 
-**1. First time player's goals**
+**First time player's goals**
 
 As a first time player, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
 
@@ -235,7 +256,7 @@ As a first time player, I want to have fun playing the game.
 - This goal depends on the subjective opinion of the user. As a developer I believe game is fun to play and provides good overall user experience. 
 
 
-**2. Casual player's goals**
+**Casual player's goals**
 
 As a casual player, I want to be challenged and entertained.
 
@@ -255,7 +276,7 @@ As a casual player, I want to see 'quit' button so I can restart the session whe
 
 [Example 10](/documentation/testing/images/ux/010.jpg)
 
-**3. Advanced player's goals**
+**Advanced player's goals**
 
 As an advanced player, I want to be able to choose advanced options in order to make the game more interesting.
 
@@ -271,7 +292,8 @@ As an advanced player, I want to see virtual currency system so I can place bets
 
 - Currency system in the game exists, allowing the player to make bets and track progress during and after each round. Currency used in the game is called *'Credit'*.
 
-### Further testing
+<a name="testfurther"></a>
+### 5.2 Further testing
 
 - Lighthouse test results for [desktop](/documentation/testing/lighthouse/desktop.pdf) and [mobile](/documentation/testing/lighthouse/mobile.pdf) .
 
@@ -299,17 +321,18 @@ As an advanced player, I want to see virtual currency system so I can place bets
 
     ![responsive](/documentation/testing/images/resolutions/responsive.JPG)
 
-![Testing in Chrome Developer Tools](/documentation/tests/dev_tools.jpg)
-
-### JavaScript and jQuery tests
+<a name="testjs"></a>
+### 5.3 JavaScript and jQuery tests
 
 Due to extensive testing, this section is provided in separate file which can be found on the following [link](documentation/testing/testing.md).
 
-### Known bugs
+<a name="testbugs"></a>
+### 5.4 Known bugs
 
 - Page height is bigger than screen height on mobile and tablet devices. ([example screenshot](documentation/testing/images/bugs/002.png))
 
-### Fixed bugs
+<a name="testbugsfixed"></a>
+### 5.5 Fixed bugs
 
 - Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](documentation/testing/images/bugs/001.png))
 
@@ -338,7 +361,8 @@ if (dealerHandString.length === 5) {
 <a name="deployment"></a>
 ## 6. DEPLOYMENT
 
-### GitHub Pages
+<a name="pages"></a>
+### 6.1 GitHub Pages
 
 This project was deployed to GitHub Pages using following steps:
 
@@ -354,7 +378,8 @@ This project was deployed to GitHub Pages using following steps:
 
 ![Deployment to GitHub Pages](/documentation/deployment/001.jpg)
 
-### Forking repository
+<a name="forking"></a>
+### 6.2 Forking repository
 
 To fork the repository use the following steps:
 
@@ -364,7 +389,8 @@ To fork the repository use the following steps:
 
 ![Forking the repository](/documentation/deployment/002.jpg)
 
-### Cloning repository
+<a name="cloning"></a>
+### 6.3 Cloning repository
 
 To make a local clone of the repository use the following steps:
 
@@ -391,4 +417,18 @@ $ git clone https://github.com/bencheee/BlackJack.git
 <a name="credits"></a>
 ## 7. CREDITS
 
-- [Joker logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu is downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
+<a name="media"></a>
+### 7.1 Media
+
+- [Joker hat logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu is downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
+
+- Main background image is made by Sandro Bencinic (developer)
+
+- All content was written by developer
+
+<a name="acknowledgements"></a>
+### 7.2 Acknowledgements
+
+- My mentor Aaron Sinnott for continuous helpful feedback
+
+- Tutor support at Code Institute for their support 

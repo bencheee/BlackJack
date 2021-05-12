@@ -3,79 +3,79 @@
 
 Testing of the JavaScript and jQuery code is divided in two sections. 
 
-In first section focus is on testing manipulation of the DOM. This test assumes that all in game calculations are done correctly and the only concern is to show, hide or update DOM elements depending on the player’s actions and game outcomes.
+In first section focus is on testing game events. This section is testing if all html elements and css properties are working correctly and are changing depending on the player’s actions and game outcomes.
 
-In second section game functions are tested to make sure all calculations are done correctly (example: no duplicate cards are dealt, cards are limited to 5 per hand, bets and scores are calculated correctly, etc.).
+In second section most important game functions are tested to make sure all calculations are done correctly (example: no duplicate cards are dealt, cards are limited to 5 per hand, bets and scores are calculated correctly, etc.).
 
-Most of the testing is done in Chrome developer tools. Console logging is used in combination with debugger command in JS to fix the code step by step in case of errors. It is important to emphasize that layout / sizing / graphic aspect of the site is not tested in this section. Therefore all in-game screenshots will be in desktop size as functionality of the code is the same regardless of the screen resolution.
+Most of the testing is done in Chrome developer tools. Console logging is used in combination with debugger command in JS to fix the code step by step in case of errors. It is important to emphasize that layout / sizing / graphic aspect of the site is not tested in this section. Therefore majority of the in-game screenshots will be in desktop size as functionality of the code is the same regardless of the screen resolution.
 
 ---
 
 ## TABLE OF CONTENTS
 
-[TESTING DOM MANIPULATION](#dom)
+[1. TESTING GAME EVENTS](#dom)
 
-[1.	MAIN MENU](#mainmenu)
+[1.1 MAIN MENU](#mainmenu)
 
-- [1.1 New game](#newgame)
+- [1.1.1 New game](#newgame)
 
-- [1.2 Options](#options)
+- [1.1.2 Options](#options)
 
-    - [1.2.1 Conservative / aggressive mode](#modes)
+    - [1.1.2.1 Conservative / aggressive mode](#modes)
 
-    - [1.2.2 Close button](#closeoptions)
+    - [1.1.2.2 Close button](#closeoptions)
 
-- [1.3 Rules](#rules)
+- [1.1.3 Rules](#rules)
 
-    - [1.3.1 Left / right arrow](#arrows)
+    - [1.1.3.1 Left / right arrow](#arrows)
 
-    - [1.3.2 Close button](#closerules)
+    - [1.1.3.2 Close button](#closerules)
 
-[2.	GAME SCREEN](#gamescreen)
+[1.2 GAME SCREEN](#gamescreen)
 
-- [2.1 Chip buttons](#chipbtns)
+- [1.2.1 Chip buttons](#chipbtns)
 
-- [2.2 Undo button](#undobtn)
+- [1.2.2 Undo button](#undobtn)
 
-- [2.3 Command buttons](#commbtns)
+- [1.2.3 Command buttons](#commbtns)
 
-    - [2.3.1 Bet](#bet)
+    - [1.2.3.1 Bet](#bet)
 
-    - [2.3.2 Hit](#hit)
+    - [1.2.3.2 Hit](#hit)
 
-    - [2.3.3 Stand](#stand)
+    - [1.2.3.3 Stand](#stand)
 
-    - [2.3.4 Double](#double)
+    - [1.2.3.4 Double](#double)
 
-    - [2.3.5 Insurance](#insurance)
+    - [1.2.3.5 Insurance](#insurance)
 
-- [2.4 Pop-up buttons](#popupbtns)
+- [1.2.4 Pop-up buttons](#popupbtns)
 
-[3.	NAV BUTTONS](#navbtns)
+[1.3 NAV BUTTONS](#navbtns)
 
-- [3.1 Cash-out](#cashout)
+- [1.3.1 Cash-out](#cashout)
 
-- [3.2 Help](#help)
+- [1.3.2 Help](#help)
 
-[Game outcomes](#outcomes)
+[1.4 Game outcomes](#outcomes)
 
-[TESTING GAME FUNCTIONS](#functions)
+[2. TESTING GAME FUNCTIONS](#functions)
 
-[1. Generating random card](#generatecard)
+[2.1 Generating random card](#generatecard)
 
-[2. Adding generated card to player’s / dealer’s hand, getting card values and scores](#addcard)
+[2.2 Adding generated card to player’s / dealer’s hand, getting card values and scores](#addcard)
 
-[3. Calculating the score](#calculatescore)
+[2.3 Calculating the score](#calculatescore)
 
-[4. Calculating payouts](#payouts)
+[2.4 Calculating payouts](#payouts)
 
 ---
 
 <a name="dom"></a>
-## TESTING DOM MANIPULATION
+## 1. TESTING GAME EVENTS
 
 <a name="mainmenu"></a>
-### 1. MAIN MENU
+### 1.1 MAIN MENU
 
 Main menu consists of three main buttons – ‘New game’, ‘Options’ and ‘Rules’.
 
@@ -84,7 +84,7 @@ Main menu consists of three main buttons – ‘New game’, ‘Options’ and �
 [Back to Table of contents](#mainmenu)
 
 <a name="newgame"></a>
-#### 1.1 New game
+#### 1.1.1 New game
 
 Expected outcome: By pressing ‘New game’ button main menu section should be hidden. Game screen elements should be shown on the screen along with nav buttons. Background should change from colour to greyscale. Pop up message should be displayed. All buttons on the page should be inactive.
 
@@ -97,7 +97,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="options"></a>
-#### 1.2 Options
+#### 1.1.2 Options
 
 Expected outcome: By pressing ‘Options’ button main menu buttons should be hidden and options window should appear on the screen. Inside the window there should be two options – ‘conservative’ and ‘aggressive’. Close button should be in bottom right corner.
 
@@ -110,7 +110,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="modes"></a>
-##### 1.2.1	Conservative / aggressive mode
+##### 1.1.2.1	Conservative / aggressive mode
 Expected outcome: By pressing ‘conservative’ option empty box icon next to it should change to ticked box icon. Ticked box icon next to ‘aggressive’ option should change to empty box icon. The same outcome is expected in opposite situation.
 
 Test outcome:
@@ -122,7 +122,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="closeoptions"></a>
-##### 1.2.2	Close button
+##### 1.1.2.2	Close button
 
 Expected outcome: By pressing ‘close’ button options window should close and main menu screen should appear on screen.
 
@@ -135,7 +135,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="rules"></a>
-#### 1.3 Rules
+#### 1.1.3 Rules
 
 Expected outcome: By pressing ‘rules’ button main menu buttons should be hidden and rules window should appear on the screen. Inside the window there should be title section, text section, two arrow buttons (left and right) and close button in bottom right corner.
 
@@ -148,7 +148,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="arrows"></a>
-##### 1.3.1	Left / right arrow
+##### 1.1.3.1	Left / right arrow
 
 Expected outcome: By pressing one of the ‘arrow’ buttons title and text sections should change their content. Looping should be allowed when all content is shown and starts from beginning.
 
@@ -161,7 +161,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="closerules"></a>
-##### 1.3.2	Close button
+##### 1.1.3.2	Close button
 
 Expected outcome: By pressing ‘close’ button rules window should close and main menu screen should appear on screen.
 
@@ -174,7 +174,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="gamescreen"></a>
-### 2. GAME SCREEN
+### 1.2 GAME SCREEN
 Game screen consists of two main sections – ‘playing section’ and ‘controls section’. Playing section is green area where majority of card game is played out. It consists of card containers (this is area where cards are put after dealing) and score boards for player and dealer. Also, buttons for ‘double’ and ‘insurance’ game modes are in the same section. Controls section is blue area where game control buttons are placed (bet, hit and stand). This area also consists of chip buttons and info about ‘total bet’ and ‘available credits’. When game starts all buttons except chip buttons are inactive.
 
 ![test009](/documentation/testing/images/dom/009.jpg)
@@ -182,7 +182,7 @@ Game screen consists of two main sections – ‘playing section’ and ‘contr
 [Back to Table of contents](#mainmenu)
 
 <a name="chipbtns"></a>
-#### 2.1 Chip buttons
+#### 1.2.1 Chip buttons
 
 Expected outcome: By pressing ‘chip’ button ‘bet’ button should be activated. Also ‘undo’ button should appear in the middle of player’s playing section. ‘Total bet’ and ‘Credits available’ text should update accordingly depending on the value of the pressed chip. Lastly, if value of any chip is bigger than available credits this chip should become inactive.
 
@@ -195,7 +195,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="undobtn"></a>
-#### 2.2 Undo button
+#### 1.2.2 Undo button
 
 ‘Undo button’ is the red button in the middle of player’s playing section which is shown only when there is an active bet. 
 
@@ -210,14 +210,14 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="commbtns"></a>
-#### 2.3 Command buttons
+#### 1.2.3 Command buttons
 
 ‘Command buttons’ are the blue squared buttons (when active) placed in both sections. They are labelled as ‘Bet’, ‘Hit’, ‘Stand’, ‘Double’ and ‘Insurance’.
 
 [Back to Table of contents](#mainmenu)
 
 <a name="bet"></a>
-##### 2.3.1	Bet
+##### 1.2.3.1	Bet
 
 Expected outcome: By pressing the ‘Bet’ button all chip buttons should become inactive. ‘Bet’ button itself should also become inactive. Two cards should appear in player’s and dealer’s card section, however dealer’s first card should remain hidden. Player’s score box should be updated with sum of player’s cards values. Dealer’s score box should be updated with the value of the dealer’s only visible card. 
 
@@ -256,7 +256,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="hit"></a>
-##### 2.3.2	Hit
+##### 1.2.3.2	Hit
 
 Expected outcome: By pressing ‘Hit’ button new card should be added to player’s card container. Player’s score box should be updated with sum of player’s cards values. If ‘Double’ and ‘Insurance’ buttons are active they should become inactive now. In order to make this file as short as possible list of all possible [outcomes](#outcomes) and how they affect manipulating the DOM is provided at the end of the file.
 
@@ -267,7 +267,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="stand"></a>
-##### 2.3.3	Stand
+##### 1.2.3.3	Stand
 
 Expected outcome: By pressing ‘Stand’ button Pop up message should appear with message: 'You have ${playerScore} points! It's dealer's turn now!'. 'Hit' and 'Stand' buttons should become inactive. 
 Test outcome: Please see list of [game outcomes](#outcomes). Since at this stage player will never have 5 cards in hand only outcomes only those outcomes can be applied.
@@ -277,7 +277,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="double"></a>
-##### 2.3.4	Double
+##### 1.2.3.4	Double
 
 Expected outcome: By pressing ‘Double’ button, game evaluates if player has enough credits to place the bet. If this is the case, pop up message should appear with message ‘You will place additional bet of ${totalBet * 2} credits and draw only one card. Do you wish to proceed?’. If NO is selected this should bring the player to previous stage. If YES is selected ‘Total bet’ and ‘Credits available’ text should be updated. Standard [game outcomes](#outcomes) are applied now. In case player does not have enough credits to place double bet, pop up message should appear with message ‘You don't have enough credit to place double bet!’. By pressing ‘Continue’ this should bring the player to previous stage, but ‘Double’ button should be inactive now.
 
@@ -292,7 +292,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="insurance"></a>
-##### 2.3.5	Insurance
+##### 1.2.3.5	Insurance
 
 By pressing ‘Insurance’ button, game evaluates if player has enough credits to place the bet. If this is the case, pop up message should appear with message ‘You will bet ${totalBet / 2} credits on whether dealer has Blackjack or not. Do you wish to proceed?’. If NO is selected this should bring the player to previous stage. If YES is selected ‘Total bet’ and ‘Credits available’ text should be updated. Game should check if dealer has Blackjack now. If dealer has Blackjack, pop up message should appear with message ‘Dealer wins with Blackjack! You win insurance bet!’. If dealer does not have Blackjack, pop up message should appear with message ‘Dealer does not have Blackjack! Insurance bet is lost! Round continues...’. In case player does not have enough credits to place insurance bet, pop up message should appear with message ‘You don't have enough credit to place insurance bet!’. By pressing ‘Continue’ this should bring the player to previous stage, but ‘Insurance’ button should be inactive now.
 
@@ -311,21 +311,21 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="popupbtns"></a>
-#### 2.4 Pop-up buttons
+#### 1.2.4 Pop-up buttons
 
 Pop up buttons are part of pop up messages and allow player to perform an action on them. These buttons are ‘Continue’, ‘Yes’ and ‘No’. When pop up message appears on screen all other buttons which are not part of pop up message should become temporarily inactive and black opaque layer should be applied over the whole screen except over the pop up message itself. By pressing any of the buttons pop up message should be removed from the screen and black opaque layer should be removed and game should resume depending on the selected choice. All these buttons were already tested as a part of the previous examples so there is no need to test them specifically.
 
 [Back to Table of contents](#mainmenu)
 
 <a name="navbtns"></a>
-### 3. NAV BUTTONS
+### 1.3 NAV BUTTONS
 
 Navigation buttons are placed at top of the screen while player is already in game. Navigation buttons are hidden in main screen.
 
 [Back to Table of contents](#mainmenu)
 
 <a name="cashout"></a>
-#### 3.1 Cash-out
+#### 1.3.1 Cash-out
 
 Expected outcome: By pressing ‘Cash-out’ button, there are few possible outcomes. If this is pressed during the round, pop up should appear with message ‘You can't cash out in the middle of the round!’. If this is pressed before the round starts, but the bet is already placed, pop up should appear with message ‘Please remove all bets before leaving!’. In all other cases pop up should appear with message ‘You will cash out ${creditsAvailable} credits and end the game. Do you wish to proceed?’. If yes is pressed, pop up should appear with message ‘Congratulations! You won ${creditsAvailable} credits. Good job!’. By pressing continue, the whole page should reload and the player should be taken to the main menu.
 
@@ -344,7 +344,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="help"></a>
-#### 3.2 Help
+#### 1.3.2 Help
 
 Expected outcome: By pressing ‘Help’ outcome all items from game screen should be hidden and window with rules should appear on screen. By pressing close button player should be taken back where he left off in the game.
 
@@ -357,7 +357,7 @@ Result: Passed all criteria
 [Back to Table of contents](#mainmenu)
 
 <a name="outcomes"></a>
-### Game outcomes
+### 1.4 Game outcomes
 
 In all stages of the game there is a high number of different outcomes depending on combination of player’s and dealer’s score at that stage. Due to high number of outcomes, screenshots are not provided for this as it would take a lot of space and make file hard to read. List of possible outcomes are below.
 
@@ -478,14 +478,14 @@ Expected outcome: Pop up message should appear with message: 'This was your last
 ---
 
 <a name="functions"></a>
-## TESTING GAME FUNCTIONS
+## 2. TESTING GAME FUNCTIONS
 
 This section is focused on testing functions which are used to calculate and manipulate data such as card strings, card values, total scores, etc. Please note that logical comparisons and game outcomes will not be tested here as they were already tested in [game outcome](#outcomes) section.
 
 [Back to Table of contents](#mainmenu)
 
 <a name="generatecard"></a>
-### 1. Generating random card
+### 2.1 Generating random card
 
 For this purpose, *generateCard()* function is used. This function should generate random card string where first character of the string represents value of the card and second character represents card color. This string combination then should be stored into *cardsDrawn* array. Function should also check if generated string combination already exists in which case it should be discarded and new string combination should be generated. 
 
@@ -500,7 +500,7 @@ In console, loop is created to call *generateCard()* function 53 times. This sho
 [Back to Table of contents](#mainmenu)
 
 <a name="addcard"></a>
-### 2. Adding generated card to player’s / dealer’s hand, getting card values and scores
+### 2.2 Adding generated card to player’s / dealer’s hand, getting card values and scores
 
 For this purpose, *addCard()* function is used. This function should add card string combination to *handString* array (separate arrays for player and dealer). Then string combination of each card should be converted to numeric value which should then be stored in *handValue* array (separate arrays for player and dealer). Please note that ace card at this stage is always converted to *NaN* value because this card can have multiple values (1 or 11) depending on situation and has to be evaluated separately.
 
@@ -515,7 +515,7 @@ In console, *addCard()* function is called to store first card of *cardsDrawn* a
 [Back to Table of contents](#mainmenu)
 
 <a name="calculatescore"></a>
-###  3. Calculating the score
+###  2.3 Calculating the score
 
 For this purpose, combination of functions is used.
 
@@ -536,7 +536,7 @@ In console, *updateTotal()* function is called. Then *playerScore* and *dealerSc
 [Back to Table of contents](#mainmenu)
 
 <a name="payouts"></a>
-### 4. Calculating payouts
+### 2.4 Calculating payouts
 
 Payouts should be updated every time player wins or draws the round. There is no specific function which calculates payouts as this is part of many different functions.
 
@@ -569,5 +569,3 @@ Player wins insurance bet
 ![test007](/documentation/testing/images/functions/007.jpg)
 
 [Back to top of the document](#top)
-
-
