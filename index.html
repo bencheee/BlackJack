@@ -14,16 +14,15 @@
 </head>
 
 <body>
-
-
-
+    <!-- Nav Bar (hidden by default) -->
     <nav class="nav-container flex-centered">
         <button id="cash-out">CASH OUT</button>
         <button id="help-ingame">HELP</button>
     </nav>
 
+    <!-- Container for all elements (changes flex direction from column to row on screens wider than 1200px) -->
     <div class="desktop-container">
-
+        <!-- Main menu container -->
         <section class="menu-container flex-centered">
             <div class="logo-container flex-centered">
                 <img src="assets/images/logo.gif" alt="logo">
@@ -34,7 +33,7 @@
                 <button id="rules" class="main-btn">RULES</button>
             </div>
         </section>
-
+        <!-- Options container (hidden by default) -->
         <section class="options-container flex-centered">
             <div class="options-box flex-centered">
                 <div class="options-btns-container flex-centered">
@@ -52,12 +51,11 @@
                     <p class="option-text"><em>Dealer will play more aggressively and will always draw another card in
                             tie
                             situations.</em></p>
-
                 </div>
                 <button class="options-close">CLOSE</button>
             </div>
         </section>
-
+        <!-- Help container (hidden by default) -->
         <section class="help-container flex-centered">
             <div class="help-box flex-centered">
                 <h2 class="help-title"></h2>
@@ -70,62 +68,51 @@
                 </div>
             </div>
         </section>
-
+        <!-- Wrapper for main game elements -->
         <section class="playing-container flex-centered">
-
+            <!-- Playing area (green surface) -->
             <div class="main-area main-area--playing flex-centered">
-
                 <div class="playing-section playing-section--dealer flex-centered">
                     <div id="dealer-cards" class="dealer-cards flex-centered"></div>
                 </div>
-
                 <div id="playing-section-middle" class="playing-section flex-centered">
                     <div class="playing-section-middle--item score-container score-container--dealer flex-centered">
                         <span>DEALER:</span>
                         <span id="dealer-score" class="score-value">0</span>
                     </div>
-
                     <div class="playing-section-middle--item flex-centered">
                         <button id="double" class=" double play-btn">Double</button>
                         <button id="insurance" class=" insurance play-btn">Insurance</button>
                     </div>
-
                     <div class="playing-section-middle--item score-container score-container--player flex-centered">
                         <span>PLAYER:</span>
                         <span id="player-score" class="score-value">0</span>
                     </div>
                 </div>
-
                 <div class="playing-section playing-section--player flex-centered">
                     <div id="player-cards" class="player-cards flex-centered"></div>
                 </div>
-
             </div>
-
         </section>
-
+        <!-- Controls area (blue surface) -->
         <section class="controls-container flex-centered">
 
             <div class="main-area main-area--bank flex-centered">
-
                 <div class="play-controls flex-centered">
                     <button id="stand" class="play-btn">STAND</button>
                     <button id="bet" class="play-btn">BET</button>
                     <button id="hit" class="play-btn">HIT</button>
                 </div>
-
                 <div class="bet-bank-container">
                     <div id="bet-info" class="bet-info flex-centered">
                         <span id="bet-info-txt">Total bet: </span>
                         <span id="total-bet"> 0 </span>
                     </div>
-
                     <div class="bank-info">
                         <span>Credits available:</span>
                         <span id="bank-amount">0</span>
                     </div>
                 </div>
-
                 <div class="chips-container flex-centered">
                     <button class="chip chip--1">
                         <div class="chip-inner flex-centered">25</div>
@@ -143,11 +130,8 @@
                         <div class="chip-inner flex-centered">500</div>
                     </button>
                 </div>
-
             </div>
-
         </section>
-
     </div>
 
     <footer>© 2021, Made by Sandro Bencinic</footer>
