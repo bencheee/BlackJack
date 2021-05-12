@@ -580,9 +580,14 @@ function dealerDraws() {
 }; // end dealerDraws
 
 function decideWinner() {
-    if (dealerScore === playerScore) {
 
-        // FIX TO ADD: Show dealers card!
+    // Updates scoreboard in html for total score
+    $('#dealer-score').text(dealerScore);
+    // Shows first dealer's card
+    $('#dealer-cards').children(":first")
+        .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+
+    if (dealerScore === playerScore) {
 
         (dealerScore === 21) ?
         popUpOn(`You and dealer have Blackjack! It's a tie!`):

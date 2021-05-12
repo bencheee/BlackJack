@@ -331,20 +331,27 @@ Due to extensive testing, this section is provided in separate file which can be
 
 - Page height is bigger than screen height on mobile and tablet devices. ([example screenshot](documentation/testing/images/bugs/002.png))
 
-- Value of ace card is not correctly calculated in cases where player draws an ace in the initial two cards and draws another ace in one of the next rounds. For example: If initial hand is Ace and 3, total score is calculated correctly (11 + 3 = 14), but if next card is also ace game is calculating this incorrectly (1 + 3 + 1 = 5) instead of 15 (11 + 3 + 1).
-
-[example screenshot](documentation/testing/images/bugs/003.jpg))
-
-- In case when game is tied and dealer had to draw all 5 cards, dealer's first card is not revealed and dealer's score is not updated.
-
-[example screenshot](documentation/testing/images/bugs/004.jpg))
+- Value of ace card is not correctly calculated in cases where player draws an ace in the initial two cards and draws another ace in one of the next rounds. For example: If initial hand is Ace and 3, total score is calculated correctly (11 + 3 = 14), but if next card is also ace game is calculating this incorrectly (1 + 3 + 1 = 5) instead of 15 (11 + 3 + 1). 
+([example screenshot](documentation/testing/images/bugs/003.jpg))
 
 <a name="testbugsfixed"></a>
 ### 5.5 Fixed bugs
 
+- In case when game is tied and dealer had to draw all 5 cards, dealer's first card is not revealed and dealer's score is not updated. ([example screenshot](documentation/testing/images/bugs/004.jpg))
+
+Solution: Added code to reveal card and update score to *decideWinner()* function.
+
+```
+// Updates scoreboard in html for total score
+$('#dealer-score').text(dealerScore);
+// Shows first dealer's card
+$('#dealer-cards').children(":first")
+    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+```
+
 - Game shows two pop-up messages on screen when dealer reaches 5 cards and busts ([example screenshot](documentation/testing/images/bugs/001.png))
 
-Solution: Added 'return' command to IF statement in dealerTurn() function.
+Solution: Added 'return' command to IF statement in *dealerTurn()* function.
 
 ```
 if (dealerHandString.length === 5) {
