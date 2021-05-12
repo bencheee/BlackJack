@@ -27,7 +27,12 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 // Sets the height of the body to inner window height in order to avoid issues with phones and tablets where css 'height: 100vh' does not work properly
 $('body').css("height", `${window.innerHeight}px`);
 
-// Sets the height of the body to inner window height every time resize event fires. Also, changes the layout of .desktop-container depending on the screen width
+// Adds .flex-centered class to .desktop-container if wider than 1200px
+if (window.innerWidth >= 1200) {
+    $('.desktop-container').addClass('flex-centered');
+}
+
+// Sets the height of the body to inner window height every time resize event fires to allow dynamic responsiveness. Also, changes the layout of .desktop-container depending on the screen width
 $(window).resize(function () {
     $('body').css("height", `${window.innerHeight}px`);
     if (window.innerWidth >= 1200) {
@@ -373,7 +378,6 @@ function updateTotal() {
 }; // end updateTotal
 
 function aceCorrect(handValue, score) {
-    debugger;
     // Adjusts value of ace card to 1 if total score is > 21
     if (score > 21) {
         for (i = 0; i < handValue.length; i++) {
@@ -390,9 +394,6 @@ function aceCorrect(handValue, score) {
         };
     };
 };
-
-
-
 
 // Checks if player has Blackjack after initial two cards are dealt
 function checkBlackjack() {
