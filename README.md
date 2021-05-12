@@ -200,7 +200,7 @@ This is where majority of player game choices takes place. It consists of Bank i
 
 ### Testing User Stories from User Experience (UX) Section
 
-1. First time player's goals
+**1. First time player's goals**
 
 As a first time player, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
 
@@ -235,7 +235,7 @@ As a first time player, I want to have fun playing the game.
 - This goal depends on the subjective opinion of the user. As a developer I believe game is fun to play and provides good overall user experience. 
 
 
-2. Casual player's goals
+**2. Casual player's goals**
 
 As a casual player, I want to be challenged and entertained.
 
@@ -252,9 +252,10 @@ As a casual player, I want to see 'quit' button so I can restart the session whe
 - In the top left corner of the navigation bar there is *Cash-out* button which gives the user the option to leave current session and get notified about the final score.
 
 [Example 9](/documentation/testing/images/ux/009.jpg)
+
 [Example 10](/documentation/testing/images/ux/010.jpg)
 
-3. Advanced player's goals
+**3. Advanced player's goals**
 
 As an advanced player, I want to be able to choose advanced options in order to make the game more interesting.
 
@@ -270,13 +271,43 @@ As an advanced player, I want to see virtual currency system so I can place bets
 
 - Currency system in the game exists, allowing the player to make bets and track progress during and after each round. Currency used in the game is called *'Credit'*.
 
+### Further testing
+
+- Lighthouse test results for [desktop](/documentation/testing/lighthouse/desktop.pdf) and [mobile](/documentation/testing/lighthouse/mobile.pdf) .
+
+- The website was tested on [Google Chrome](documentation/tests/browser_chrome.JPG), [Internet Explorer](documentation/tests/browser_ie.JPG), [Microsoft Edge](documentation/tests/browser_edge.JPG), [Mozilla Firefox](documentation/tests/browser_firefox.JPG) and [Opera](documentation/tests/browser_opera.JPG) browsers.
+
+- The website was viewed on a mobile, tablet and laptop devices such as iPhone XR, Huawei Media Pad T3 and HP Elitebook 840.
+
+    - iPhone XR
+
+    There is an issue with screen height not showing properly. This is reported to known bugs and will be looked into.
+
+    - Huawei Media Pad T3
+
+    There is an issue with screen height not showing properly. This is reported to known bugs and will be looked into.
+
+    - HP Elitebook 840
+
+    ![laptop 1](/documentation/testing/images/resolutions/laptop1.JPG)
+
+    ![laptop 2](/documentation/testing/images/resolutions/laptop2.JPG)
+
+    ![laptop 3](/documentation/testing/images/resolutions/laptop3.JPG)
+
+- The website was tested on desktop and laptop computers on a variety of screen sizes using device toolbar option in Google Chrome developer tools.
+
+    ![responsive](/documentation/testing/images/resolutions/responsive.JPG)
+
+![Testing in Chrome Developer Tools](/documentation/tests/dev_tools.jpg)
+
 ### JavaScript and jQuery tests
 
 Due to extensive testing, this section is provided in separate file which can be found on the following [link](documentation/testing/testing.md).
 
 ### Known bugs
 
-- Page height is bigger than screen height on mobile devices.
+- Page height is bigger than screen height on mobile and tablet devices. ([example screenshot](documentation/testing/images/bugs/002.png))
 
 ### Fixed bugs
 
