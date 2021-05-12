@@ -206,15 +206,29 @@ As a first time player, I want to see simple design with clear instructions whic
 
 - Main menu of the page consists of only three buttons with clear description of the purpose of each button
 
+[Example 1](/documentation/testing/images/ux/001.jpg)
+
 - Game screen is designed in a way that all the buttons are activated and deactivated depending on the situation in the game which makes the playing experience more intuitive 
+
+[Example 2](/documentation/testing/images/ux/002.jpg)
 
 As a first time player, I want to see 'help' section so I can quickly understand the rules of the game.
 
 - Help section is available by pressing *help* button in navigation bar during the game or by pressing *rules* button in the main menu
 
+[Example 3](/documentation/testing/images/ux/003.jpg)
+
+[Example 4](/documentation/testing/images/ux/004.jpg)
+
+[Example 5](/documentation/testing/images/ux/005.jpg)
+
+[Example 6](/documentation/testing/images/ux/006.jpg)
+
 As a first time player, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
 
 - Every game outcome is explained through pop up messages, same as special functions such as *double*, *insurance* and *cash-out*
+
+[Example 7](/documentation/testing/images/ux/007.jpg)
 
 As a first time player, I want to have fun playing the game.
 
@@ -231,15 +245,22 @@ As a casual player, I want to get notified about the score in real time so I can
 
 - Using JavaScript, the whole page is highly interactive. Every change made by user is updated accordingly in real time.
 
+[Example 8](/documentation/testing/images/ux/008.jpg)
+
 As a casual player, I want to see 'quit' button so I can restart the session whenever I wish.
 
 - In the top left corner of the navigation bar there is *Cash-out* button which gives the user the option to leave current session and get notified about the final score.
+
+[Example 9](/documentation/testing/images/ux/009.jpg)
+[Example 10](/documentation/testing/images/ux/010.jpg)
 
 3. Advanced player's goals
 
 As an advanced player, I want to be able to choose advanced options in order to make the game more interesting.
 
 - Under the *Options* section in the main menu, user can choose between *Conservative* and *Aggressive* mode which will impact dealer's approach to the game, forcing user to adapt and change playing style too.
+
+[Example 11](/documentation/testing/images/ux/011.jpg)
 
 As an advanced player, I want to be able to keep my score so I can compare it with previous scores.
 
