@@ -14,9 +14,9 @@ let playStyle = 'conservative',
     doubleMode = false,
     placedBet = false;
 
-if (window.innerHeigh < 768) {
-    $('body').css("height", `${window.innerHeight}px`);
-}
+
+$('body').css("height", `${window.innerHeight}px`);
+
 
 $(window).resize(function () {
     $('body').css("height", `${window.innerHeight}px`);
