@@ -329,7 +329,9 @@ Due to extensive testing, this section is provided in separate file which can be
 <a name="testbugs"></a>
 ### 5.4 Known bugs
 
--
+- JavaScript code does not work in Internet Explorer 11 which causes page elements to display incorrectly on load, and none of the events work. 
+
+- AdBlock plugin is preventing Ace of Diamonds card image to display. This is because the string value of this card in JavaScript code is *'AD'* and this word is automatically blocked by the plugin. This bug does not affect the outcome of the game, it just prevents card image to display. It is recommended to disable AdBlock plugin while playing the game.
 
 <a name="testbugsfixed"></a>
 ### 5.5 Fixed bugs
