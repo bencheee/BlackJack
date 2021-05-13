@@ -513,7 +513,7 @@ $(window).resize(function () {
 
 **CODE CREDIT: https://www.quora.com/How-can-I-prevent-default-double-click-behavior-with-JavaScript**
 
-Code was used to prevent double click event on site. The main reason for this was to improve user experience on mobile and tablet devices. Main issue was that the whole screen would zoom in when user would double tap the screen to place or undo bets, which resulted in poor playing experience. On desktop computers there was no such issue, but since any of the other in game events did not require double click function I have decided to disable it completely.
+Code was used to prevent double click event on site. The main reason for this was to improve user experience on mobile and tablet devices. Main issue was that the whole screen would zoom in when user would double tap the screen to place or undo bets, which resulted in poor playing experience. On desktop computers there was no such issue, but since other game events did not require double click function I have decided to disable it completely.
 
 ```
 $(document).dblclick(function (event) {
