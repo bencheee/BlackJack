@@ -3,9 +3,9 @@
 
 Testing of the JavaScript and jQuery code is divided in two sections. 
 
-In first section focus is on testing game events. This section is testing if all html elements and css properties are working correctly and are changing depending on the player’s actions and game outcomes.
+In first section focus is on testing game events. This section is testing if all HTML elements and CSS selectors/properties are working correctly and are changing depending on the player’s actions and game outcomes.
 
-In second section most important game functions are tested to make sure all calculations are done correctly (example: no duplicate cards are dealt, cards are limited to 5 per hand, bets and scores are calculated correctly, etc.).
+In second section, most important game functions are tested to make sure all calculations are done correctly (example: no duplicate cards are dealt, cards are limited to 5 per hand, bets and scores are calculated correctly, etc.).
 
 Most of the testing is done in Chrome developer tools. Console logging is used in combination with debugger command in JS to fix the code step by step in case of errors. It is important to emphasize that layout / sizing / graphic aspect of the site is not tested in this section. Therefore majority of the in-game screenshots will be in desktop size as functionality of the code is the same regardless of the screen resolution.
 
@@ -379,7 +379,7 @@ Expected outcome: Pop up message should appear with message: 'You have Blackjack
 
 *Dealer has less than 5 cards and score is less than 21*
 
-- Expected outcome: New card should be added to dealer's card container and delaer's score should be updated to sum of dealer's card values.
+- Expected outcome: New card should be added to dealer's card container and delaer's score should be updated to sum of dealer's card values. The outcome should be than evaluated again until one of the end scenarios apply.
 
 *Dealer has 5 cards and bust*
 
@@ -395,7 +395,7 @@ Expected outcome: Pop up message should appear with message: 'You have Blackjack
 
 **Player has less than 5 cards and score is less than 21**
 
-Expected outcome: No further changes.
+Expected outcome: No further changes. Waiting for next player's move.
 
 **Player has 5 cards and bust**
 
@@ -415,7 +415,7 @@ Expected outcome: Pop up message should appear with message: 'You have Blackjack
 
 *Dealer has less than 5 cards and score is less than 21*
 
-- Expected outcome: Expected outcome: New card should be added to dealer's card container and delaer's score should be updated to sum of dealer's card values.
+- Expected outcome: New card should be added to dealer's card container and delaer's score should be updated to sum of dealer's card values. The outcome should be than evaluated again until one of the end scenarios apply.
 
 *Dealer has 5 cards and bust*
 
@@ -480,7 +480,7 @@ Expected outcome: Pop up message should appear with message: 'This was your last
 <a name="functions"></a>
 ## 2. TESTING GAME FUNCTIONS
 
-This section is focused on testing functions which are used to calculate and manipulate data such as card strings, card values, total scores, etc. Please note that logical comparisons and game outcomes will not be tested here as they were already tested in [game outcome](#outcomes) section.
+This section is focused on testing functions which are used to calculate and manipulate data such as card strings, card values, total scores, etc. Please note that game outcomes will not be tested here as they were already tested in [game outcome](#outcomes) section.
 
 [Back to Table of contents](#mainmenu)
 

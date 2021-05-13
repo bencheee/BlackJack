@@ -78,31 +78,31 @@
 <a name="first"></a>
 #### 1.1.1 First time player's goals
 
-*As a first time player*, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
+- *As a first time player*, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
 
-*As a first time player*, I want to see 'help' section so I can quickly understand the rules of the game.
+- *As a first time player*, I want to see 'help' section so I can quickly understand the rules of the game.
 
-*As a first time player*, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
+- *As a first time player*, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
 
-*As a first time player*, I want to have fun playing the game.
+- *As a first time player*, I want to have fun playing the game.
 
 <a name="casual"></a>
 #### 1.1.2 Casual player's goals
 
-*As a casual player*, I want to be challenged and entertained.
+- *As a casual player*, I want to be challenged and entertained.
 
-*As a casual player*, I want to get notified about the score in real time so I can adapt my strategy accordingly.
+- *As a casual player*, I want to get notified about the score in real time so I can adapt my strategy accordingly.
 
-*As a casual player*, I want to see 'quit' button so I can restart the session whenever I wish.
+- *As a casual player*, I want to see 'quit' button so I can restart the session whenever I wish.
 
 <a name="advanced"></a>
 #### 1.1.3 Advanced player's goals
 
-*As an advanced player*, I want to be able to choose advanced options in order to make the game more interesting.
+- *As an advanced player*, I want to be able to choose advanced options in order to make the game more interesting.
 
-*As an advanced player*, I want to be able to keep my score so I can compare it with previous scores.
+- *As an advanced player*, I want to be able to keep my score so I can compare it with previous scores.
 
-*As an advanced player*, I want to see virtual currency system so I can place bets in each round.
+- *As an advanced player*, I want to see virtual currency system so I can place bets in each round.
 
 
 ---
@@ -134,7 +134,7 @@
 
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the site design process.
 
-- [jQuery](https://jquery.com/)
+- [jQuery](https://jquery.com/) was used along with JavaScript to manipulate the DOM, CSS and handling JavaScript events in simpler way.
 
 - [Google Fonts](https://fonts.google.com/) were used to import 'Oswald' font which is the only font used throughout the site.
 
@@ -157,9 +157,9 @@
 <a name="design"></a>
 ## 4. DESIGN
 
-Design is very simplistic using only one photo as main background and all other elements are on top with added opacity so the background can be visible all the time. Background image is showing game of BlackJack in action which suits the theme of the site.
+Design is very simplistic using only one photo as main background and all other elements are on top with added opacity so the background can be visible all the time. Background image shows a game of BlackJack in action which suits the theme of the site.
 
-Color scheme consists of two main colors. Light green for main playing area where cards are displayed, and deep blue for controls area where most of the playing buttons are placed. Throught the game pop up screens (modals) are displayed. They are made in grey color with added opacity. Font which is used throughout the site is 'Oswald' with 'Sans Serif' as the fallback font in case for any reason main font is not loaded.
+Color scheme consists of two main colors. Light green for main playing area where cards are displayed, and deep blue for controls area where most of the playing buttons are placed. Throught the game pop up messages are displayed to explain current status of the game to the user and sometimes to decide on the next step. They are made in white color with black text. Font which is used throughout the site is 'Oswald' with 'Sans Serif' as the fallback font in case for any reason main font is not loaded.
 
 <a name="layout"></a>
 ### 4.1 Layout and Functionality
@@ -167,18 +167,18 @@ Color scheme consists of two main colors. Light green for main playing area wher
 <a name="start"></a>
 #### 4.1.1 Start Screen
 
-First thing shown on the site is 'Start screen' with three buttons to select from: 'Start new game', 'Options' and 'Rules'. By selecting 'Start new game' as expected new game of BlackJack will start. By selecting 'Options' button player will have two options to enable / disable. This will control whether these options will be available in the game, as some player may prefer never to use them. Lastly, 'Rules' button will display basic rules of the game in a box with arrow buttons and 'close' button for easier navigation.
+First thing shown on the site is 'Start screen' with three buttons to select from: 'New game', 'Options' and 'Rules'. By selecting 'New game' as expected new game of BlackJack will start. By selecting 'Options' button player will have be able to choose from 'Conservative' and 'Aggressive' modes. This will control the way dealer will make decisions during the round. Lastly, 'Rules' button will display basic rules of the game in a box with arrow buttons and 'close' button for easier navigation.
 
 <a name="nav"></a>
 #### 4.1.2 Navigation
 
-##### End game
+##### Cash-out
 
-This option will prompt a modal with a simple yes/no choice whether player wants to end current game session or not. If 'yes' is selected this will reload the page and bring player to Start screen.
+This option will prompt a pop up message with a simple yes/no choice whether player wants to end current game session or not. If 'yes' is selected this will inform the player of the final score and reload the page, bringing the player to main menu.
 
-##### Rules
+##### Help
 
-This option will show the same rules as the button on Start screen. Rules box is interactive and allows the player to easily navigate through all rules by selecting on of the arrows. Every rule has it's title and text explaining the rule.
+This option will show the same rules window as the button in the main menu. Rules window is interactive and allows the player to easily navigate through all rules by selecting on of the arrows. Every rule has it's title and text explaining the rule.
 
 <a name="main"></a>
 #### 4.1.3 Main game area
@@ -191,21 +191,21 @@ This is where majority of the card game takes place. It consists of 2 card conta
 
 * *Score boxes* - Their purpose is to show sum of the drawn card values. Because of the game mechanic players score box gets updated in real time after every new card is drawn. Dealers score box shows only the value of the one visible card in dealer's container. If dealer gets a chance to play and to show the cards in the end of the round then this score box is updated with total sum of card values too.
 
-* *Bet-info box* - Shows total value of the bet in the round. It adds or deducts total value of the bet depending on player's actions and updates the value in real time. After the cards are dealt this value can not be changed until the end of the round (only exception is if player decides to play double game which will double the bet).
-
 * *Undo bet button* - It is enabled only after at least one bet is placed and before cards are dealt. By selecting in the last bet will be cancelled and credits will be returned to player. If all bets are cancelled button gets disabled again.
 
 * *Double button* - It is enabled only after initial cards are dealt. If player decides to choose other action at this stage (hit / stand / insurance) Double button gets disabled again until the end of the round.
 
-* *Insurance button* - It gets enabled only in situation when after initial dealing of cards dealer's visible card is Ace. If player decides to activate insurance button separate bet will be placed. Pop-up message will be shown informing the player of the outcome of insurance bet and game will continue.
+* *Insurance button* - It gets enabled only in situation when after initial dealing of cards dealer's visible card is Ace or any card which has value of 10. If player decides to activate insurance button separate bet will be placed. Pop-up message will be shown informing the player of the outcome of insurance bet and game will continue.
 
-* *Message box* - It gets visible only when game needs to inform player about game outcome (win, loss, draw or insurance bet). Message box is shown in the same section on the screen where scores and double/insurance buttons are so when it gets activated it will automatically disable the latter.
+* *Pop up message box* - It gets visible only when game needs to inform player about game outcome (win, loss, draw or insurance bet). Message box is shown in the same section on the screen where scores and double/insurance buttons are so when it gets activated it will automatically disable the latter.
 
 ##### Controls section
 
 This is where majority of player game choices takes place. It consists of Bank info which shows current amount of credits in the bank, chip buttons which are used to place bets and three game buttons (bet / hit / stand).
 
 * *Bank info* - Shows current amount of credits left for player to place as a bet. It gets updated in real time depending on player's bets and potential winnings.
+
+* *Bet-info* - Shows total value of the bet in the round. It adds or deducts total value of the bet depending on player's actions and updates the value in real time. After the cards are dealt this value can not be changed until the end of the round (only exception is if player decides to play double game which will double the bet or insurance game which will display separate bet in brackets).
 
 * *Chip buttons* - There are 5 chip buttons with different values and colors. By selecting any of them a bet of the assigned value in credits will be placed. If there is no enough credits left in the bank to place a bet of certain chip value this will disable the chip button. If the amount gets available again (for example by undoing the last bet) chip button gets activated. Once the bet is placed and initial cards are dealt all chip buttons get deactivated until the beginning of the new round.
 
@@ -223,74 +223,74 @@ This is where majority of player game choices takes place. It consists of Bank i
 
 **First time player's goals**
 
-As a first time player, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
+- As a first time player, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
 
-- Main menu of the page consists of only three buttons with clear description of the purpose of each button
+    - Main menu of the page consists of only three buttons with clear description of the purpose of each button
 
-[Example 1](/documentation/testing/images/ux/001.jpg)
+    [Example 1](/documentation/testing/images/ux/001.jpg)
 
-- Game screen is designed in a way that all the buttons are activated and deactivated depending on the situation in the game which makes the playing experience more intuitive 
+    - Game screen is designed in a way that all the buttons are activated and deactivated depending on the situation in the game which makes the playing experience more intuitive 
 
-[Example 2](/documentation/testing/images/ux/002.jpg)
+    [Example 2](/documentation/testing/images/ux/002.jpg)
 
-As a first time player, I want to see 'help' section so I can quickly understand the rules of the game.
+- As a first time player, I want to see 'help' section so I can quickly understand the rules of the game.
 
-- Help section is available by pressing *help* button in navigation bar during the game or by pressing *rules* button in the main menu
+    - Help section is available by pressing *help* button in navigation bar during the game or by pressing *rules* button in the main menu
 
-[Example 3](/documentation/testing/images/ux/003.jpg)
+    [Example 3](/documentation/testing/images/ux/003.jpg)
 
-[Example 4](/documentation/testing/images/ux/004.jpg)
+    [Example 4](/documentation/testing/images/ux/004.jpg)
 
-[Example 5](/documentation/testing/images/ux/005.jpg)
+    [Example 5](/documentation/testing/images/ux/005.jpg)
 
-[Example 6](/documentation/testing/images/ux/006.jpg)
+    [Example 6](/documentation/testing/images/ux/006.jpg)
 
-As a first time player, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
+- As a first time player, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
 
-- Every game outcome is explained through pop up messages, same as special functions such as *double*, *insurance* and *cash-out*
+    - Every game outcome is explained through pop up messages, same as special functions such as *double*, *insurance* and *cash-out*
 
-[Example 7](/documentation/testing/images/ux/007.jpg)
+    [Example 7](/documentation/testing/images/ux/007.jpg)
 
-As a first time player, I want to have fun playing the game.
+- As a first time player, I want to have fun playing the game.
 
-- This goal depends on the subjective opinion of the user. As a developer I believe game is fun to play and provides good overall user experience. 
+    - This goal depends on the subjective opinion of the user. As a developer I believe game is fun to play and provides good overall user experience. 
 
 
 **Casual player's goals**
 
-As a casual player, I want to be challenged and entertained.
+- As a casual player, I want to be challenged and entertained.
 
-- Different combinations of cards, different betting strategies and in game decisions made by user combined with many possible game outcomes make every round of the game a unique experience for the user.
+    - Different combinations of cards, different betting strategies and in game decisions made by user combined with many possible game outcomes make every round of the game a unique experience for the user.
 
-As a casual player, I want to get notified about the score in real time so I can adapt my strategy accordingly.
+- As a casual player, I want to get notified about the score in real time so I can adapt my strategy accordingly.
 
-- Using JavaScript, the whole page is highly interactive. Every change made by user is updated accordingly in real time.
+    - Using JavaScript, the whole page is highly interactive. Every change made by user is updated accordingly in real time.
 
-[Example 8](/documentation/testing/images/ux/008.jpg)
+    [Example 8](/documentation/testing/images/ux/008.jpg)
 
-As a casual player, I want to see 'quit' button so I can restart the session whenever I wish.
+- As a casual player, I want to see 'quit' button so I can restart the session whenever I wish.
 
-- In the top left corner of the navigation bar there is *Cash-out* button which gives the user the option to leave current session and get notified about the final score.
+    - In the top left corner of the navigation bar there is *Cash-out* button which gives the user the option to leave current session and get notified about the final score.
 
-[Example 9](/documentation/testing/images/ux/009.jpg)
+    [Example 9](/documentation/testing/images/ux/009.jpg)
 
-[Example 10](/documentation/testing/images/ux/010.jpg)
+    [Example 10](/documentation/testing/images/ux/010.jpg)
 
 **Advanced player's goals**
 
-As an advanced player, I want to be able to choose advanced options in order to make the game more interesting.
+- As an advanced player, I want to be able to choose advanced options in order to make the game more interesting.
 
-- Under the *Options* section in the main menu, user can choose between *Conservative* and *Aggressive* mode which will impact dealer's approach to the game, forcing user to adapt and change playing style too.
+    - Under the *Options* section in the main menu, user can choose between *Conservative* and *Aggressive* mode which will impact dealer's approach to the game, forcing user to adapt and change playing style too.
 
-[Example 11](/documentation/testing/images/ux/011.jpg)
+    [Example 11](/documentation/testing/images/ux/011.jpg)
 
-As an advanced player, I want to be able to keep my score so I can compare it with previous scores.
+- As an advanced player, I want to be able to keep my score so I can compare it with previous scores.
 
-- At the moment this function is not introduced.
+    - At the moment this function is not introduced.
 
-As an advanced player, I want to see virtual currency system so I can place bets in each round.
+- As an advanced player, I want to see virtual currency system so I can place bets in each round.
 
-- Currency system in the game exists, allowing the player to make bets and track progress during and after each round. Currency used in the game is called *'Credit'*.
+    - Currency system in the game exists, allowing the player to make bets and track progress during and after each round. Currency used in the game is called *'Credit'*.
 
 <a name="testfurther"></a>
 ### 5.2 Further testing
@@ -468,11 +468,15 @@ $ git clone https://github.com/bencheee/BlackJack.git
 <a name="media"></a>
 ### 7.1 Media
 
-- [Joker hat logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu is downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
+- [Joker hat logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu wass downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
 
-- Main background image is made by Sandro Bencinic (developer)
+- Main background photo was taken and edited by Sandro Bencinic (developer)
 
-- All content was written by developer
+- Card images used in the game are downloaded form [American Contract Bridge League Website](http://acbl.mybigcommerce.com/52-playing-cards/) and are free to use for non-commercial purpose. Design for the image of the back of the card is made by developer.
+
+- [Blackjack article on Wikipedia](https://en.wikipedia.org/wiki/Blackjack) was used when writing the rules of the game.
+
+- All content was written by developer.
 
 <a name="acknowledgements"></a>
 ### 7.2 Acknowledgements
