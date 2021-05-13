@@ -218,6 +218,20 @@ This is where majority of player game choices takes place. It consists of Bank i
 <a name="testing"></a>
 ## 5. TESTING
 
+The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) services were used to validate the code of the project to ensure there were no syntax errors.
+
+* HTML Code Test Results:
+
+  - [index.html](documentation/testing/images/code_validation/html_test.jpg)
+
+    - No errors were found in HTML code. However there are 4 warnings. They are all suggesting to change sections to heading tags. Since those sections were used to divide different areas of the game, they have no text content so I have decided to still use section tags.
+    
+* CSS Code Test Results:
+
+  - [CSS](documentation/testing/images/code_validation/css_test.jpg)
+
+    - No errors were found in CSS code.
+
 <a name="testux"></a>
 ### 5.1 Testing User Stories from User Experience (UX) Section
 
