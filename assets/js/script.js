@@ -24,48 +24,50 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 ###################################################
 */
 
-/*
-Sets the height of the body to inner window height in order to avoid issues with phones and tablets where css 'height: 100vh' does not work properly
-CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
-*/
-$('body').css("height", `${window.innerHeight}px`);
-
-/*
-Adds .flex-centered class to .desktop-container if wider than 1200px
-CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
-*/
-if (window.outerWidth >= 1024) {
-    $('.desktop-container').addClass('flex-centered');
-}
-
-/*
-Sets the height of the body to inner window height every time resize event fires to allow dynamic responsiveness. Also, changes the layout of .desktop-container depending on the screen width
-CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
-*/
-$(window).resize(function () {
+jQuery.ready(function () {
+    /*
+    Sets the height of the body to inner window height in order to avoid issues with phones and tablets where css 'height: 100vh' does not work properly
+    CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
+    */
     $('body').css("height", `${window.innerHeight}px`);
+
+    /*
+    Adds .flex-centered class to .desktop-container if wider than 1200px
+    CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
+    */
     if (window.outerWidth >= 1024) {
         $('.desktop-container').addClass('flex-centered');
-    } else {
-        $('.desktop-container').removeClass('flex-centered');
-    };
-});
+    }
 
-/*
-Disables zoom on double click
-CODE CREDIT: https://www.quora.com/How-can-I-prevent-default-double-click-behavior-with-JavaScript
-*/
-$(document).dblclick(function (event) {
-    event.preventDefault();
-});
+    /*
+    Sets the height of the body to inner window height every time resize event fires to allow dynamic responsiveness. Also, changes the layout of .desktop-container depending on the screen width
+    CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
+    */
+    $(window).resize(function () {
+        $('body').css("height", `${window.innerHeight}px`);
+        if (window.outerWidth >= 1024) {
+            $('.desktop-container').addClass('flex-centered');
+        } else {
+            $('.desktop-container').removeClass('flex-centered');
+        };
+    });
 
-$('.nav-container').hide();
-$('.help-container').hide();
-$('.playing-container').hide();
-$('.controls-container').hide();
-$('.options-container').hide();
-$('.play-btn').addClass('play-btn-disabled');
-$('#bank-amount').text(creditsAvailable);
+    /*
+    Disables zoom on double click
+    CODE CREDIT: https://www.quora.com/How-can-I-prevent-default-double-click-behavior-with-JavaScript
+    */
+    $(document).dblclick(function (event) {
+        event.preventDefault();
+    });
+
+    $('.nav-container').hide();
+    $('.help-container').hide();
+    $('.playing-container').hide();
+    $('.controls-container').hide();
+    $('.options-container').hide();
+    $('.play-btn').addClass('play-btn-disabled');
+    $('#bank-amount').text(creditsAvailable);
+});
 
 /*
 ###############
