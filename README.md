@@ -61,9 +61,11 @@
 
 [7. CREDITS](#credits)
 
-- [7.1 Media](#media)
+- [7.1 Code credits](#code)
 
-- [7.2 Acknowledgements](#acknowledgements)
+- [7.2 Media](#media)
+
+- [7.3 Acknowledgements](#acknowledgements)
 
 
 ---
@@ -481,8 +483,46 @@ $ git clone https://github.com/bencheee/BlackJack.git
 <a name="credits"></a>
 ## 7. CREDITS
 
+<a name="code"></a>
+### 7.1 Code credits
+
+**CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp**
+
+Code was used to fix screen height on mobile and tablet devices. While on desktop computers it was enough to add CSS property *'height: 100 vh'*, on mobile and tablet devices screen was still higher than the screen size. This code and it's variations was used in below segments of *script.js* file.
+
+```
+$('body').css("height", `${window.innerHeight}px`);
+```
+
+```
+if (window.outerWidth >= 1024) {
+    $('.desktop-container').addClass('flex-centered');
+}
+```
+
+```
+$(window).resize(function () {
+    $('body').css("height", `${window.innerHeight}px`);
+    if (window.outerWidth >= 1024) {
+        $('.desktop-container').addClass('flex-centered');
+    } else {
+        $('.desktop-container').removeClass('flex-centered');
+    };
+});
+```
+
+**CODE CREDIT: https://www.quora.com/How-can-I-prevent-default-double-click-behavior-with-JavaScript**
+
+Code was used to prevent double click event on site. The main reason for this was to improve user experience on mobile and tablet devices. Main issue was that the whole screen would zoom in when user would double tap the screen to place or undo bets, which resulted in poor playing experience. On desktop computers there was no such issue, but since any of the other in game events did not require double click function I have decided to disable it completely.
+
+```
+$(document).dblclick(function (event) {
+    event.preventDefault();
+});
+```
+
 <a name="media"></a>
-### 7.1 Media
+### 7.2 Media
 
 - [Joker hat logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu wass downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
 
@@ -495,7 +535,7 @@ $ git clone https://github.com/bencheee/BlackJack.git
 - All content was written by developer.
 
 <a name="acknowledgements"></a>
-### 7.2 Acknowledgements
+### 7.3 Acknowledgements
 
 - My mentor Aaron Sinnott for continuous helpful feedback
 
