@@ -28,14 +28,14 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 $('body').css("height", `${window.innerHeight}px`);
 
 // Adds .flex-centered class to .desktop-container if wider than 1200px
-if (window.innerWidth >= 1200) {
+if (window.outerWidth >= 1024) {
     $('.desktop-container').addClass('flex-centered');
 }
 
 // Sets the height of the body to inner window height every time resize event fires to allow dynamic responsiveness. Also, changes the layout of .desktop-container depending on the screen width
 $(window).resize(function () {
     $('body').css("height", `${window.innerHeight}px`);
-    if (window.innerWidth >= 1200) {
+    if (window.outerWidth >= 1024) {
         $('.desktop-container').addClass('flex-centered');
     } else {
         $('.desktop-container').removeClass('flex-centered');
