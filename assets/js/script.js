@@ -34,8 +34,8 @@ $('body').css("height", `${window.innerHeight}px`);
 Adds .flex-centered class to .desktop-container if wider than 1024px
 CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
 */
-if (window.outerWidth < 1024) {
-    $('.desktop-container').removeClass('flex-centered');
+if (window.outerWidth >= 1024) {
+    $('.desktop-container').addClass('flex-centered');
 }
 
 /*
@@ -74,6 +74,12 @@ EVENT LISTENERS
 */
 
 $('#new-game').click(function () {
+
+    // Adds .flex-centered class to container in case it was not added on load (this was an issue with some browsers) 
+    if (window.outerWidth >= 1024) {
+        $('.desktop-container').addClass('flex-centered');
+    }
+
     // Changes height of .desktop-container to 90% due to .nav-container is now displayed
     $('.desktop-container').css('height', '90%');
     $("body").css("background-image", "url('assets/images/bg-bw.jpg')");
