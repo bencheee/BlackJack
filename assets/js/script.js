@@ -753,7 +753,7 @@ function insurance() {
 
 // Checks which chip buttons should activate/deactivate depending on the available player's credit left
 function chipsToggle() {
-    $('.chip div').each(function () {
+    $('.chip span').each(function () {
         if (creditsAvailable < Number(this.innerHTML)) {
             $(this.parentNode).addClass('chip-off');
         } else {

@@ -258,7 +258,7 @@ footer {
     text-align: center;
 }
 
-/* CLASSES USED BY SCRIPT.JS */
+/* POP UP MESSAGES */
 
 .pop-up-bg-green {
     background-color: rgb(0, 80, 0, 0.7);
@@ -291,7 +291,7 @@ footer {
     padding: 0 5px;
 }
 
-/* HELP */
+/* HELP SECTION */
 
 .help-container {
     height: 100%;
@@ -602,5 +602,4 @@ footer {
         text-shadow: 1px 1px 4px rgb(0 0 0);
         font-size: 1rem;
     }
-
 }
