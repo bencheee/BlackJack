@@ -31,11 +31,11 @@ CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
 $('body').css("height", `${window.innerHeight}px`);
 
 /*
-Adds .flex-centered class to .desktop-container if wider than 1200px
+Adds .flex-centered class to .desktop-container if wider than 1024px
 CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
 */
-if (window.outerWidth >= 1024) {
-    $('.desktop-container').addClass('flex-centered');
+if (window.outerWidth < 1024) {
+    $('.desktop-container').removeClass('flex-centered');
 }
 
 /*
