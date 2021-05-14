@@ -213,7 +213,7 @@ $('#bet').click(function () {
 
     // Hides first dealer's card
     $('#dealer-cards').children(":first")
-        .replaceWith(`<img src="assets/images/Red_back.jpg" class="card"></img>`);
+        .replaceWith(`<img src="assets/images/Red_back.jpg" class="card">`);
 
     // Stores numeric values of current score for dealer / player 
     playerScore = getHandValue(playerHandValue);
@@ -328,7 +328,7 @@ function generateCard() {
 function addCard(handString, handValue, container) {
 
     // Creates and adds new card element to index.html
-    let card = $(`<img src="assets/images/${cardsDrawn[0]}.jpg"></img>`).addClass('card');
+    let card = $(`<img src="assets/images/${cardsDrawn[0]}.jpg">`).addClass('card');
     container.append(card);
 
     // Updates handString array for player / dealer with string value of drawn card
@@ -424,13 +424,13 @@ function checkBlackjack() {
                 popUpOn(`You and Dealer have Blackjack! It's a tie!`);
                 creditsAvailable += totalBet;
                 $('#dealer-cards').children(":first")
-                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
             } else {
                 popUpOn('You win with Blackjack!');
                 creditsAvailable += (totalBet * 1.5);
                 $('#dealer-score').text(dealerScore);
                 $('#dealer-cards').children(":first")
-                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
             };
             $('.pop-up-box button').click(function () {
                 popUpOff();
@@ -479,7 +479,7 @@ function dealerTurn() {
                 popUpOn(`You and dealer have Blackjack! It's a tie!`);
                 creditsAvailable += totalBet;
                 $('#dealer-cards').children(":first")
-                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+                    .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
                 $('.pop-up-box button').click(function () {
                     popUpOff();
                     setTimeout(resetRound, 1000);
@@ -524,7 +524,7 @@ function dealerTurn() {
     } else {
         $('#dealer-score').text(dealerScore);
         $('#dealer-cards').children(":first")
-            .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+            .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
         decideWinner();
     };
 };
@@ -537,7 +537,7 @@ function dealerDraws() {
 
     $('#dealer-score').text(dealerScore);
     $('#dealer-cards').children(":first")
-        .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+        .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
 
     // Limits cards drawn to 5 and checks the winner
     if (dealerHandString.length === 5) {
@@ -563,11 +563,11 @@ function dealerDraws() {
 function decideWinner() {
     $('#dealer-score').text(dealerScore);
     $('#dealer-cards').children(":first")
-        .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+        .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
 
     if (dealerScore === playerScore) {
         (dealerScore === 21) ?
-        popUpOn(`You and dealer have Blackjack! It's a tie!`):
+            popUpOn(`You and dealer have Blackjack! It's a tie!`) :
             popUpOn(`You and dealer have ${playerScore} points. It's a tie!`);
         creditsAvailable += totalBet;
 
@@ -577,7 +577,7 @@ function decideWinner() {
         });
     } else if (dealerScore > playerScore) {
         (dealerScore === 21) ?
-        popUpOn('Dealer wins with Blackjack!'):
+            popUpOn('Dealer wins with Blackjack!') :
             popUpOn(`Dealer wins with ${dealerScore} points!`);
         $('.pop-up-box button').click(function () {
             popUpOff();
@@ -745,7 +745,7 @@ function insurance() {
             creditsAvailable += totalBet;
             $('#dealer-score').text(dealerScore);
             $('#dealer-cards').children(":first")
-                .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card"></img>`);
+                .replaceWith(`<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`);
 
             popUpOn(`Dealer wins with Blackjack! You win insurance bet!`);
             $('.pop-up-box button').click(function () {
