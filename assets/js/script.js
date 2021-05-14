@@ -16,7 +16,8 @@ let cardsDrawn = [],
     creditsAvailable = 1000,
     playStyle = 'conservative',
     doubleMode = false,
-    placedBet = false;
+    placedBet = false,
+    undoBtnContainer = $('<div></div>').addClass('undo-container');
 
 /*
 ###################################################
@@ -31,11 +32,12 @@ CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
 $('body').css("height", `${window.innerHeight}px`);
 
 /*
-Adds .flex-centered class to .desktop-container if wider than 1024px
+Adds .flex-centered class to .desktop-container and .undo-container to .bet-bank-container if wider than 1024px
 CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
 */
 if (window.outerWidth >= 1024) {
     $('.desktop-container').addClass('flex-centered');
+    $('.bet-bank-container').prepend(undoBtnContainer);
 }
 
 /*
@@ -46,8 +48,10 @@ $(window).resize(function () {
     $('body').css("height", `${window.innerHeight}px`);
     if (window.outerWidth >= 1024) {
         $('.desktop-container').addClass('flex-centered');
+        $('.bet-bank-container').prepend(undoBtnContainer);
     } else {
         $('.desktop-container').removeClass('flex-centered');
+        $('.bet-bank-container').remove(undoBtnContainer);
     };
 });
 
@@ -630,10 +634,16 @@ function popUpOff() {
 // Cancels last bet in totalBet array and changes DOM elements accordingly
 function undoBtn() {
     // Makes sure undo button is not duplicated
-    if ($('#player-cards').is(':empty')) {
+    if ($('#player-cards').is(':empty') && $('.undo-container').is(':empty')) {
 
         let undoBtn = $('<button></button>').addClass('undo-btn');
-        $('#player-cards').append(undoBtn.text('UNDO BET '));
+
+        if (window.outerWidth >= 1024) {
+            $('.undo-container').append(undoBtn.text('UNDO BET '));
+        } else {
+            $('#player-cards').append(undoBtn.text('UNDO BET '));
+        };
+
 
         // Removes last bet
         $('.undo-btn').click(function () {

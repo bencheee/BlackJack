@@ -588,6 +588,27 @@ footer {
         flex-direction: column-reverse;
     }
 
+    .bet-bank-container {
+        width: 50%;
+    }
+
+    .bet-info {
+        margin: 0;
+    }
+
+    .undo-container {
+        height: 2.1rem;
+        margin-bottom: 4px;
+    }
+
+    .undo-btn {
+        padding: 0;
+        width: 100%;
+        height: 2.1rem;
+        border: none;
+        box-shadow: none;
+    }
+
     .chip {
         height: 4vw;
         width: 4vw;
