@@ -72,7 +72,7 @@ $("#new-game").click(function () {
     $(".playing-container").show();
     $(".controls-container").show();
     $(".menu-container").hide();
-    $(".chip").addClass("chip-off");
+    //$(".chip").addClass("chip-off");
 
     popUpOn(
         `Welcome to "Blackjack The Game". Place your first bet by pressing one of the chip buttons. Good luck!`
@@ -877,7 +877,7 @@ function checkScreenSize() {
         if ((window.innerWidth < 992) && ($("div").hasClass("pop-up-box") === false)) {
 
             popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
-
+            $(".overlay").css("height", `${window.innerHeight}px`);
             $(".nav-container").hide();
 
             $(".pop-up-box button").click(function () {
