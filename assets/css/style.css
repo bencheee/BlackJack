@@ -711,3 +711,67 @@ footer {
   }
   
 }
+
+/* DESKTOP */
+@media only screen and (min-width: 1200px) {
+
+  body, button, a {
+    font-size: 1.3rem;
+  }
+
+  .main-btn {
+    width: 150px;
+  }
+
+  .main-area {
+    box-shadow: 0 0 20px 5px black;
+  }
+
+  .playing-container,
+  .controls-container {
+    height: 80%;
+  }
+
+  .playing-container {
+    width: 50vw;
+  }
+  
+  .card {
+    width: 13%;
+  }
+
+  .double, .insurance {
+    width: 8vw;
+  }
+
+  .controls-container {
+    width: 30vw;
+  }
+
+  .chip {
+    height: 4.5vw;
+    width: 4.5vw;
+  }
+
+  .chip-inner {
+    font-size: 1.3vw;
+  }
+
+  .pop-up-box {
+    left: 39%;
+  }
+
+  .pop-up-box button {
+    font-size: 1.3rem;
+  }
+
+  .option-btns {
+    font-size: 2rem;
+  }
+
+  #btn-left, #btn-right {
+    font-size: 3rem;
+    margin: 0 40px;
+  }
+
+} 
