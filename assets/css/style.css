@@ -124,18 +124,16 @@ body {
 .score-container {
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
-    line-height: 1;
 }
 
 .score-container--dealer,
 .score-container--player {
-    height: 25px;
     margin: 5px;
 }
 
 .score-container span {
     display: inline-block;
-    padding: 5px;
+    padding: 0 5px;
 }
 
 .score-value {
@@ -285,7 +283,7 @@ footer {
 .pop-up-box button {
     background-color: black;
     color: white;
-    width: 20vw;
+    width: 24vw;
     font-size: 0.9rem;
     margin: 10px 10px 0px 10px;
     padding: 0 5px;
@@ -305,7 +303,7 @@ footer {
     flex-direction: column;
     box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
     height: 70%;
-    width: 70%;
+    width: 70vw;
     padding: 20px;
     font-weight: 300;
 }
@@ -341,7 +339,7 @@ footer {
     background-color: black;
     color: white;
     align-self: flex-end;
-    padding: 0 5px;
+    padding: 2px 10px;
 }
 
 /* MAIN MENU */
@@ -395,7 +393,7 @@ footer {
 }
 
 .option-btns {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -405,222 +403,88 @@ footer {
     right: 20px;
 }
 
-
 /* MEDIA QUERIES */
 
-/* Tablet */
+/* Mobile - Landscape */
+@media only screen
+  and (max-width: 767px)
+  and (orientation: landscape) {
+  
+  .main-btn {
+    font-size: 0.7rem;
+    margin: 5px auto;
+  }
 
-@media only screen and (min-width: 768px) {
+  .playing-container,
+  .controls-container {
+    height: 90%;
+  }
 
-    body {
-        font-size: 2rem;
-    }
+  .playing-container {
+    width: 60vw;
+  }
 
-    .play-btn,
-    .play-controls-btn,
-    .nav-container button,
-    .chip,
-    .main-btn,
-    .undo-btn,
-    .help-close,
-    .options-close,
-    .pop-up-box button {
-        font-size: 2rem;
-    }
+  .controls-container {
+    width: 40vw;
+  }
 
-    .help-box p {
-        font-size: 2.5rem;
-    }
+  .play-controls button {
+    height: 10vh;
+  }
 
-    .arrows i {
-        font-size: 4rem;
-    }
+  .card {
+    width: 10%
+  }
 
-    .option-btns {
-        font-size: 3.5rem;
-    }
+  .double, .insurance {
+    width: 12vw;
+    height: 9vh;
+  }
 
-    .score-container {
-        height: 50px;
-        margin: 20px;
-    }
+  .main-area--bank {
+    justify-content: space-evenly;
+  }
 
-    .card {
-        width: 12%;
-    }
+  .bet-info {
+    margin-top: 4px;
+  }
 
-    .chip {
-        height: 100px;
-        width: 100px;
-        border: dashed 10px black;
-    }
+  .undo-container {
+    height: 1.5rem;
+  }
 
-    .main-btn {
-        width: 20vw;
-        height: 5vh;
-    }
+  .undo-btn {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
 
-    .undo-btn {
-        padding: 15px;
-    }
+  .chips-container {
+    justify-content: center;
+  }
 
-    .help-text {
-        padding: 0 5%;
-    }
+  .chip {
+    height: 40px;
+    width: 40px;
+    margin: 10px 4px;
+    border: dashed 3px black;
+  }
 
-    .pop-up-box button {
-        margin: 20px 10px 0px 10px;
-    }
+  .chip-inner {
+    font-size: 90%;
+  }
 
-}
+  .pop-up-box {
+    width: 60vw;
+    left: 30%;
+  }
 
-/* Desktop */
+  .pop-up-box button {
+    width: 15vw;
+    height: 10vh;
+  }
 
-@media only screen and (min-width: 1024px) {
-
-    body {
-        font-size: 1.3rem;
-    }
-
-    .play-btn,
-    .play-controls-btn,
-    .nav-container button,
-    .chip,
-    .main-btn,
-    .undo-btn,
-    .help-close,
-    .options-close,
-    .pop-up-box button {
-        font-size: 1.3rem;
-    }
-
-    .nav-container button:hover {
-        text-shadow: 1px 1px 2px rgb(0, 0, 0);
-        color: rgba(255, 255, 255, 0.7);
-    }
-
-    .main-area,
-    .help-box,
-    .options-box {
-        box-shadow: 0 0 20px 5px black;
-        border-radius: 3%;
-    }
-
-    .main-btn {
-        width: 15vw;
-    }
-
-    .help-box,
-    .options-box {
-        box-shadow: 0 0 30px 5px black;
-        border-radius: 1%;
-        height: 60%;
-        width: 50%;
-    }
-
-
-    .help-text {
-        display: flex;
-        align-items: center;
-    }
-
-    .help-box p {
-        overflow: auto;
-        font-size: 1.5rem;
-    }
-
-    .option-btns {
-        font-size: 2.5rem;
-    }
-
-    .playing-container {
-        height: 80%;
-        width: 50%;
-    }
-
-    .controls-container {
-        height: 80%;
-        width: 30%;
-    }
-
-    .pop-up-box {
-        box-shadow: 0px 0px 20px 5px rgb(0 0 0);
-        border-radius: 2%;
-        width: 32vw;
-        left: 40%;
-    }
-
-    .pop-up-box button {
-        width: 8vw;
-    }
-
-    .play-btn,
-    .undo-btn {
-        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
-    }
-
-    .play-btn:hover,
-    .undo-btn:hover,
-    .chip:hover,
-    .main-btn:hover {
-        box-shadow: 0px 0px 20px rgb(255, 255, 255);
-    }
-
-    .help-close:hover,
-    .options-close:hover,
-    .pop-up-box button:hover {
-        box-shadow: 0px 0px 20px rgb(0, 0, 0);
-    }
-
-    .arrows i:hover,
-    .options-box i:hover {
-        text-shadow: 0px 0px 20px rgb(0, 0, 0);
-
-    }
-
-    .double,
-    .insurance {
-        width: 8vw;
-    }
-
-    .main-area--bank {
-        justify-content: space-evenly;
-        flex-direction: column-reverse;
-    }
-
-    .bet-bank-container {
-        width: 50%;
-    }
-
-    .bet-info {
-        margin: 0;
-    }
-
-    .undo-container {
-        height: 2.1rem;
-        margin-bottom: 4px;
-    }
-
-    .undo-btn {
-        padding: 0;
-        width: 100%;
-        height: 2.1rem;
-        border: none;
-        box-shadow: none;
-    }
-
-    .chip {
-        height: 4vw;
-        width: 4vw;
-        border: dashed 0.4vw black;
-    }
-
-    .chip-inner {
-        font-size: 1.2vw;
-    }
-
-    footer {
-        text-shadow: 1px 1px 4px rgb(0 0 0);
-        font-size: 1rem;
-    }
+  footer {
+    font-size: 0.5rem;
+  }
 }
