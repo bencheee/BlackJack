@@ -532,3 +532,83 @@ footer {
     font-size: 1.5rem
   }
 }
+
+/* LANDSCAPE */
+@media only screen
+  and (min-width: 768px)
+  and (orientation: landscape) {
+  
+  .playing-container,
+  .controls-container {
+    height: 90%;
+  }
+
+  .playing-container {
+    width: 60vw;
+  }
+
+  .controls-container {
+    width: 40vw;
+  }
+
+  .play-controls button {
+    height: 10vh;
+  }
+
+  .card {
+    width: 10%
+  }
+
+  .double, .insurance {
+    width: 12vw;
+    height: 9vh;
+  }
+
+  .main-area--bank {
+    justify-content: space-evenly;
+  }
+
+  .bet-info {
+    margin-top: 4px;
+  }
+
+  .undo-container {
+    height: 1.5rem;
+  }
+
+  .undo-btn {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .chips-container {
+    justify-content: space-evenly;
+  }
+
+  .chip {
+    height: 40px;
+    width: 40px;
+    margin: 10px 4px;
+    border: dashed 3px black;
+  }
+
+  .chip-inner {
+    font-size: 90%;
+  }
+
+  .pop-up-box {
+    width: 40vw;
+    left: 50%;
+  }
+
+  .pop-up-box button {
+    width: 10vw;
+    height: 5vh;
+  }
+
+  .help-box p {
+    display: flex;
+    align-items: center;
+  }
+}
