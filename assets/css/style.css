@@ -17,10 +17,11 @@ a {
 }
 
 .play-btn {
-    border: 1px black solid;
     outline: none;
-    background-color: rgba(0, 0, 255, 0.65);
-    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    border: 1px rgba(0, 255, 0, 0.3) solid;
+    background-image: linear-gradient(45deg, rgba(0, 0, 255, 0.9), rgba(0, 0, 255, 0.4));
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0);
     text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.4);
     font-weight: 300;
 }
@@ -30,7 +31,7 @@ a {
     background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
     color: rgba(0, 0, 0, 0.4);
     text-shadow: 4px 2px 2px rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     pointer-events: none;
 }
 
@@ -243,9 +244,9 @@ body {
 }
 
 .undo-btn {
-    background-color: red;
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(255, 0, 0, 0.4));
     padding: 10px;
-    border: 1px black solid;
+    border: 1px rgba(255, 0, 0, 0.3) solid;
     outline: none;
     box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -274,6 +275,7 @@ footer {
     margin: auto;
     padding: 5px;
     flex-direction: column;
+    justify-content: space-evenly;
     font-weight: 300;
     line-height: 1;
     z-index: 1;
@@ -481,7 +483,7 @@ footer {
 
   .pop-up-box button {
     width: 15vw;
-    height: 10vh;
+    height: 7vh;
   }
 
   footer {
@@ -604,7 +606,6 @@ footer {
 
   .pop-up-box button {
     width: 10vw;
-    height: 5vh;
   }
 
   .help-box p {
@@ -659,6 +660,10 @@ footer {
   
   body, button, a {
     font-size: 1.1rem;
+  }
+
+  .main-area {
+    border-radius: 15px;
   }
 
   .playing-container,
@@ -719,8 +724,26 @@ footer {
     font-size: 1.3rem;
   }
 
+  .nav-container button:hover {
+    text-shadow: 2px 2px 2px black;
+  }
+
   .main-btn {
     width: 150px;
+    box-shadow: none;
+  }
+
+  .play-btn:hover,
+  .chip:hover,
+  .undo-btn:hover {
+    box-shadow: 0 0 20px 0 white;
+  }
+
+  .main-btn:hover,
+  .pop-up-box button:hover,
+  .help-close:hover,
+  .options-close:hover {
+    box-shadow: 0 0 20px 0 black;
   }
 
   .main-area {
@@ -751,6 +774,7 @@ footer {
   .chip {
     height: 4.5vw;
     width: 4.5vw;
+    border: dashed 8px black;
   }
 
   .chip-inner {
@@ -763,10 +787,28 @@ footer {
 
   .pop-up-box button {
     font-size: 1.3rem;
+    box-shadow: none;
+  }
+
+  .help-box p {
+      font-size: 1.8rem;
+      overflow: auto;
   }
 
   .option-btns {
     font-size: 2rem;
+  }
+
+  .option-btns i:hover,
+  #btn-left i:hover,
+  #btn-right i:hover {
+    box-shadow: 0 0 40px 10px black;
+    line-height: 0;
+  }
+
+  .help-close,
+  .options-close {
+      box-shadow: none;
   }
 
   #btn-left, #btn-right {
