@@ -23,11 +23,16 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 ###################################################
 */
 
-/*
-Sets the height of the body to inner window height in order to avoid issues with phones and tablets where css "height: 100vh" does not work properly. Also, adds .flex-centered class to .desktop-container and .undo-container to .bet-bank-container if in landscape mode
-CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
-*/
-$("body").css("height", `${window.innerHeight}px`);
+$(window).ready(checkScreenSize);
+
+// Displays the message about recommended screen size / orientation when in landscape mode on mobile and tablet devices.
+if ((window.innerWidth < 992) && (window.innerWidth > window.innerHeight)) {
+    popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
+
+    $(".pop-up-box button").click(function () {
+        popUpOff();
+    });
+};
 
 
 /*
@@ -58,9 +63,6 @@ EVENT LISTENERS
 */
 
 $("#new-game").click(function () {
-
-    // Adds .flex-centered class to container in case it was not added on load (this was an issue with some browsers) 
-    checkScreenSize();
 
     // Changes height of .desktop-container to 90% due to .nav-container is now displayed
     $(".desktop-container").css("height", "90%");
@@ -860,11 +862,43 @@ function resetRound() {
     $(".play-btn").addClass("play-btn-disabled");
 };
 
+
+/*
+Adds .flex-centered class to .desktop-container if in landscape mode.
+Shows the message about recommended screen size / orientation when in landscape mode on mobile and tablet devices. 
+Sets the height of the body to inner window height in order to avoid issues with phones and tablets where css "height: 100vh" does not work properly.
+CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp
+*/
 function checkScreenSize() {
     if (window.innerWidth > window.innerHeight) {
         $(".desktop-container").addClass("flex-centered");
+
+        if (window.innerWidth < 992) {
+            popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
+
+            $(".pop-up-box button").click(function () {
+                popUpOff();
+            });
+        };
+
     } else {
         $(".desktop-container").removeClass("flex-centered");
     };
     $("body").css("height", `${window.innerHeight}px`);
+};
+
+function popUpWarning(message) {
+
+    let overlay = $("<div></div>").addClass("overlay flex-centered");
+    overlay.css("height", "100vh");
+    let popUpBox = $("<div></div>").addClass("pop-up-box flex-centered");
+    popUpBox.css("left", "auto");
+    let popUpTxt = $("<div></div>").text(message);
+    let popUpBtn = $("<button></button>").text("CONTINUE");
+    popUpBtn.css("height", "8vh");
+
+    $(".desktop-container").append(overlay);
+    overlay.append(popUpBox);
+    popUpBox.append(popUpTxt);
+    popUpBox.append(popUpBtn);
 };
