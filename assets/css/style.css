@@ -651,3 +651,63 @@ footer {
   }
 
 }
+
+/* LANDSCAPE */
+@media only screen
+  and (min-width: 992px)
+  and (orientation: landscape) {
+  
+  body, button, a {
+    font-size: 1.1rem;
+  }
+
+  .playing-container,
+  .controls-container {
+    height: 90%;
+  }
+
+  .playing-container {
+    width: 55vw;
+  }
+  
+  .card {
+    width: 15%;
+  }
+
+  .controls-container {
+    width: 35vw;
+  }
+
+  .undo-container {
+    height: 2.1rem;
+  }
+
+  .chip {
+    height: 5vw;
+    width: 5vw;
+    border: dashed 5px black;
+  }
+
+  .chip-inner {
+    font-size: 1.5vw;
+  }
+
+  .pop-up-box button {
+    font-size: 1rem;
+  }
+
+  .help-box,
+  .options-box {
+    width: 50vw;
+  }
+
+  .help-box p {
+    font-size: 1.3rem;
+  }
+
+  #btn-left, #btn-right {
+    font-size: 3rem;
+    margin: 0 40px;
+  }
+  
+}
