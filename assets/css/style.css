@@ -488,3 +488,47 @@ footer {
     font-size: 0.5rem;
   }
 }
+
+/* Tablets - Standard Size */
+
+/* PORTRAIT */
+@media only screen
+  and (min-width: 768px)
+  and (orientation: portrait) {
+  
+  body, button, a {
+    font-size: 1.5rem;
+  }
+
+  .main-btn {
+    width: 150px;
+  }
+
+  .option-btns {
+    font-size: 2.3rem;
+  }
+
+  .card {
+    width: 12%
+  }
+
+  .chip {
+    height: 75px;
+    width: 75px;
+    border: dashed 7px black;
+  }
+
+  .help-text {
+    display: flex;
+    align-items: center;
+  }
+
+  #btn-left, #btn-right {
+    font-size: 3rem;
+    margin: 0 50px;
+  }
+
+  .pop-up-box button {
+    font-size: 1.5rem
+  }
+}
