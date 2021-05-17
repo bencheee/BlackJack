@@ -23,21 +23,9 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 ###################################################
 */
 
+
+// Checks screen size / layout
 $(window).ready(checkScreenSize);
-
-// Displays the message about recommended screen size / orientation when in landscape mode on mobile and tablet devices.
-if ((window.innerWidth < 992) && (window.innerWidth > window.innerHeight)) {
-    popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
-
-    $(".pop-up-box button").click(function () {
-        popUpOff();
-    });
-};
-
-
-/*
-Sets the height of the body to inner window height every time resize event fires or orientation changes to allow dynamic responsiveness. Also, changes the layout of .desktop-container depending on the screen width
-*/
 $(window).resize(checkScreenSize);
 
 /*
@@ -890,6 +878,7 @@ function checkScreenSize() {
         $(".desktop-container").removeClass("flex-centered");
         if ($("div").hasClass("check-screen")) {
             popUpOff();
+            $(".nav-container").show();
         };
     };
     $("body").css("height", `${window.innerHeight}px`);
