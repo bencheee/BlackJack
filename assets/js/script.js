@@ -873,7 +873,9 @@ function checkScreenSize() {
     if (window.innerWidth > window.innerHeight) {
         $(".desktop-container").addClass("flex-centered");
 
-        if (window.innerWidth < 992) {
+        // It will not pop up message if another pop up is active
+        if ((window.innerWidth < 992) && ($("div").hasClass("pop-up-box") === false)) {
+
             popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
 
             $(".nav-container").hide();
@@ -886,6 +888,7 @@ function checkScreenSize() {
 
     } else {
         $(".desktop-container").removeClass("flex-centered");
+        popUpOff();
     };
     $("body").css("height", `${window.innerHeight}px`);
 };
