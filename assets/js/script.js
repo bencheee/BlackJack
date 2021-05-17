@@ -888,14 +888,16 @@ function checkScreenSize() {
 
     } else {
         $(".desktop-container").removeClass("flex-centered");
-        popUpOff();
+        if ($("div").hasClass("check-screen")) {
+            popUpOff();
+        };
     };
     $("body").css("height", `${window.innerHeight}px`);
 };
 
 function popUpWarning(message) {
 
-    let overlay = $("<div></div>").addClass("overlay flex-centered");
+    let overlay = $("<div></div>").addClass("overlay check-screen flex-centered");
     overlay.css("height", "100vh");
     let popUpBox = $("<div></div>").addClass("pop-up-box flex-centered");
     popUpBox.css("left", "auto");
