@@ -876,8 +876,11 @@ function checkScreenSize() {
         if (window.innerWidth < 992) {
             popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
 
+            $(".nav-container").hide();
+
             $(".pop-up-box button").click(function () {
                 popUpOff();
+                $(".nav-container").show();
             });
         };
 
@@ -901,4 +904,5 @@ function popUpWarning(message) {
     overlay.append(popUpBox);
     popUpBox.append(popUpTxt);
     popUpBox.append(popUpBtn);
+
 };
