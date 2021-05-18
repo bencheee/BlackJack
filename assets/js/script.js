@@ -41,6 +41,7 @@ $(".help-container").hide();
 $(".playing-container").hide();
 $(".controls-container").hide();
 $(".options-container").hide();
+$(".top-scores-container").hide();
 $(".play-btn").addClass("play-btn-disabled");
 $("#bank-amount").text(creditsAvailable);
 

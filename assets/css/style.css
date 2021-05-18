@@ -293,12 +293,14 @@ footer {
 
 /* HELP SECTION */
 
-.help-container {
+.help-container,
+.top-scores-container {
     height: 100%;
 }
 
 .help-box,
-.options-box {
+.options-box,
+.top-scores-box {
     background-color: white;
     color: black;
     justify-content: space-between;
@@ -405,6 +407,44 @@ footer {
     right: 20px;
 }
 
+/* TOP SCORES */
+
+.top-scores-box {
+    justify-content: start;
+}
+
+table {
+    height: 80%;
+    width: 100%;
+}
+
+.table-heading {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+}
+
+tbody {
+    color: white;
+    width: 90%;
+}
+
+tr {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+td {
+    margin: 2% 0;
+    width: 30%;
+}
+
+
+
 /* MEDIA QUERIES */
 
 /* Mobile - Landscape */
@@ -485,6 +525,14 @@ footer {
     width: 15vw;
     height: 7vh;
   }
+
+  .table-heading {
+    margin-bottom: 0;
+}
+
+td {
+    margin: 0;
+}
 
   footer {
     font-size: 0.5rem;
@@ -612,6 +660,14 @@ footer {
     display: flex;
     align-items: center;
   }
+
+    .table-heading {
+    margin-bottom: 0;
+    }
+
+    td {
+        margin: 0;
+    }
 }
 
 /* Tablets - XL */
@@ -702,7 +758,8 @@ footer {
   }
 
   .help-box,
-  .options-box {
+  .options-box,
+  .top-scores-box {
     width: 50vw;
   }
 
@@ -714,6 +771,14 @@ footer {
     font-size: 3rem;
     margin: 0 40px;
   }
+
+      .table-heading {
+    margin-bottom: 5%;
+    }
+
+    td {
+        margin: 2%;
+    }
   
 }
 
