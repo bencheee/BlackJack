@@ -129,32 +129,7 @@ $("#rules").click(function () {
     });
 });
 
-$("#cash-out").click(function () {
-    if (placedBet) {
-        popUpOn(`You can't cash out in the middle of the round!`);
-        $(".pop-up-box button").click(function () {
-            popUpOff();
-            $("#stand").removeClass("play-btn-disabled");
-            $("#hit").removeClass("play-btn-disabled");
-        });
-    } else {
-        if (totalBet != 0) {
-            popUpOn(`Please remove all bets before leaving!`);
-            $("#bet").addClass("play-btn-disabled");
-            $(".undo-btn").hide();
-            $(".chip").addClass("chip-off");
 
-            $(".pop-up-box button").click(function () {
-                popUpOff();
-                $("#bet").removeClass("play-btn-disabled");
-                $(".undo-btn").show();
-                chipsToggle();
-            });
-        } else {
-            cashOut();
-        };
-    };
-});
 
 $(".chip").click(function () {
     // Activates "bet" button
@@ -784,38 +759,6 @@ function chipsToggle() {
     });
 };
 
-// Runs when "cash-out" button is pressed
-function cashOut() {
-    // Displays pop-up message with yes/no option
-    popUpOn(
-        `You will cash out ${creditsAvailable} credits and end the game. Do you wish to proceed?`
-    );
-    $(".pop-up-box button").remove();
-    let container = $("<div></div>").addClass("flex-centered");
-    let yes = $("<button></button>").text("YES").attr("id", "yes");
-    let no = $("<button></button>").text("NO").attr("id", "no");
-    container.append(yes);
-    container.append(no);
-    $(".pop-up-box").append(container);
-    $(".chip").addClass("chip-off");
-    $("#cash-out").css("pointer-events", "none");
-
-    yes.click(function () {
-        popUpOff();
-        popUpOn(
-            `Congratulations! You won ${creditsAvailable} credits. Good job!`)
-        $(".pop-up-box button").click(function () {
-            popUpOff();
-            location.reload();
-        });
-    });
-
-    no.click(function () {
-        popUpOff();
-        $(".chip").removeClass("chip-off");
-        $("#cash-out").css("pointer-events", "auto");
-    });
-};
 
 // Resets everything except available credits to default values
 function resetRound() {
