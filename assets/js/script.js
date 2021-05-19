@@ -578,8 +578,6 @@ function popUpOn(message) {
     popUpBox.append(popUpTxt);
     popUpBox.append(popUpBtn);
 
-    //    $(".main-area--playing").addClass("pop-up-bg-green");
-    //    $(".main-area--bank").addClass("pop-up-bg-blue");
     $("#hit, #stand").addClass("play-btn-disabled");
 };
 
@@ -810,11 +808,9 @@ function checkScreenSize() {
 
             popUpWarning("TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices.");
             $(".overlay").css("height", `${window.innerHeight}px`);
-            $(".nav-container").hide();
 
             $(".pop-up-box button").click(function () {
                 popUpOff();
-                $(".nav-container").show();
             });
         };
 
@@ -838,7 +834,7 @@ function popUpWarning(message) {
     let popUpBtn = $("<button></button>").text("CONTINUE");
     popUpBtn.css("height", "8vh");
 
-    $(".desktop-container").append(overlay);
+    $("footer").after(overlay);
     overlay.append(popUpBox);
     popUpBox.append(popUpTxt);
     popUpBox.append(popUpBtn);
