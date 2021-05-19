@@ -104,6 +104,7 @@ function enterPlayerName() {
     popUpOn(
         `Congratulations! You won ${creditsAvailable} credits, which is all time top 5 result! Please enter your name!`);
 
+    $(".pop-up-box").css("height", "50%");
     let input = $("<input></input>");
     input.attr({ type: "text", id: "name", name: "name" });
 
@@ -114,8 +115,13 @@ function enterPlayerName() {
 };
 
 function saveHighScore() {
-    currentScore = { name: $("#name").val(), score: creditsAvailable };
-    calculateHighScores();
+    if ($("#name").val() === "") {
+        alert("required field");
+    } else {
+        currentScore = { name: $("#name").val(), score: creditsAvailable };
+        calculateHighScores();
+    };
+
 };
 
 function calculateHighScores() {

@@ -435,6 +435,14 @@ td {
     width: 30%;
 }
 
+#name {
+font-family: 'Oswald';
+    text-align: center;
+    width: 24vw;
+    height: 15%;
+    font-size: 1rem;
+}
+
 
 
 /* MEDIA QUERIES */
@@ -526,6 +534,10 @@ td {
     margin: 0;
 }
 
+#name {
+    font-size: 1rem;
+}
+
   footer {
     font-size: 0.5rem;
   }
@@ -573,6 +585,10 @@ td {
   .pop-up-box button {
     font-size: 1.5rem
   }
+
+  #name {
+    font-size: 2rem;
+}
 }
 
 /* LANDSCAPE */
@@ -660,6 +676,10 @@ td {
     td {
         margin: 0;
     }
+
+    #name {
+    font-size: 1.5rem;
+}
 }
 
 /* Tablets - XL */
