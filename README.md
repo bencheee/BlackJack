@@ -169,7 +169,7 @@ Color scheme consists of two main colors. Light green for main playing area wher
 <a name="start"></a>
 #### 4.1.1 Start Screen
 
-First thing shown on the site is 'Start screen' with three buttons to select from: 'New game', 'Options' and 'Rules'. By selecting 'New game' as expected new game of BlackJack will start. By selecting 'Options' button player will have be able to choose from 'Conservative' and 'Aggressive' modes. This will control the way dealer will make decisions during the round. Lastly, 'Rules' button will display basic rules of the game in a box with arrow buttons and 'close' button for easier navigation.
+First thing shown on the site is 'Start screen' with three buttons to select from: 'New game', 'Options', 'Rules' and additional 'Top Scores' button which is displayed only after there is at least one entry on top scores list. By selecting 'New game' as expected new game of BlackJack will start. By selecting 'Options' button player will have be able to choose from 'Conservative' and 'Aggressive' modes. This will control the way dealer will make decisions during the round. Lastly, 'Rules' button will display basic rules of the game in a box with arrow buttons and 'close' button for easier navigation. 'Tops scores' button will display list of top 5 scores stored in local memory.
 
 <a name="nav"></a>
 #### 4.1.2 Navigation
@@ -302,7 +302,9 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
 - As an advanced player, I want to be able to keep my score so I can compare it with previous scores.
 
-    - At the moment this function is not introduced.
+    - In the main menu there is a 'Top Scores' button which will show list of all time top 5 scores stored in local memory of the browser.
+
+    [Example 12](/documentation/testing/images/ux/012.jpg)
 
 - As an advanced player, I want to see virtual currency system so I can place bets in each round.
 
