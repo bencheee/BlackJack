@@ -121,6 +121,7 @@ $("#options").click(function () {
 
     $(".options-close").click(function () {
         $(".menu-container").show();
+        $("h1").show();
         $(".options-container").hide();
     });
 
@@ -217,7 +218,7 @@ $("#hit").click(function () {
 });
 
 $("#stand").click(function () {
-    popUpOn(`You have ${playerScore} points! It"s dealer's turn now!`);
+    popUpOn(`You have ${playerScore} points! It's dealer's turn now!`);
 
     $(".pop-up-box button").click(function () {
         popUpOff();
