@@ -615,11 +615,11 @@ For this purpose following functions are used:
 
 *calculateHighScores()* - It manipulates the local storage. There can be 3 possible scenarios: 
     
-    - There are no previou entries in local storage: In this case object with user name and current score should be written directly in to the local storage.
+- There are no previou entries in local storage: In this case object with user name and current score should be written directly in to the local storage.
 
-    - There are less than 5 entries in local storage: In this case object with user name and current score should be written directly in to the local storage, then all objects from local storage should be copied in to the *topFive* array. *topFive* array should then be sorted by the *score* value of each object in the array. When all objects are sorted, local storage should be cleared and all content from the array written back in to it.
+- There are less than 5 entries in local storage: In this case object with user name and current score should be written directly in to the local storage, then all objects from local storage should be copied in to the *topFive* array. *topFive* array should then be sorted by the *score* value of each object in the array. When all objects are sorted, local storage should be cleared and all content from the array written back in to it.
 
-    - There are 5 entries in the local storage: In this case all objects from local storage should be copied in to the *topFive* array, which should then be sorted by the *score* value of each object in the array. Object with lowest score value should then be removed from the array, and object with user name and current score should be put in to the array. Array should then be sorted by the *score* value of each object in the array again. When all objects are sorted, local storage should be cleared and all content from the array written in to it.
+- There are 5 entries in the local storage: In this case all objects from local storage should be copied in to the *topFive* array, which should then be sorted by the *score* value of each object in the array. Object with lowest score value should then be removed from the array, and object with user name and current score should be put in to the array. Array should then be sorted by the *score* value of each object in the array again. When all objects are sorted, local storage should be cleared and all content from the array written in to it.
 
 **Testing procedure:**
 
@@ -627,25 +627,25 @@ Outcome of the four possible scenarios is tested by manipulating data in local s
 
 - Case 1: There are no entries in local storage.
 
-![test029](/documentation/testing/images/functions/029.jpg)
+![test008](/documentation/testing/images/functions/008.jpg)
 
 - Case 2: There is less than 5 entries in local storage.
 
-![test030](/documentation/testing/images/functions/030.jpg)
+![test009](/documentation/testing/images/functions/009.jpg)
 
-![test031](/documentation/testing/images/functions/031.jpg)
+![test010](/documentation/testing/images/functions/010.jpg)
 
 - Case 3: There are 5 entires in local storage, and score is in top 5
 
-![test032](/documentation/testing/images/functions/032.jpg)
+![test011](/documentation/testing/images/functions/011.jpg)
 
-![test033](/documentation/testing/images/functions/033.jpg)
+![test012](/documentation/testing/images/functions/012.jpg)
 
 - Case 4: There are 5 entires in local storage, and score is not in top 5
 
-![test034](/documentation/testing/images/functions/034.jpg)
+![test013](/documentation/testing/images/functions/013.jpg)
 
-![test035](/documentation/testing/images/functions/035.jpg)
+![test014](/documentation/testing/images/functions/014.jpg)
 
 **Testing result:** Code is working properly
 
