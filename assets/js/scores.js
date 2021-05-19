@@ -84,9 +84,18 @@ function decideWhichPopUp() {
         $(".pop-up-box button").click(function () {
             saveHighScore();
         });
+        $("#name").keypress(function (e) {
+            if (e.which == 13) {
+                saveHighScore();
+            }
+        });
+
     } else if ((localStorage.length > 4) && (creditsAvailable > lowestScore)) {
         enterPlayerName();
         $(".pop-up-box button").click(function () {
+            saveHighScore();
+        });
+        $("#name").keypress(function (e) {
             saveHighScore();
         });
     } else {
