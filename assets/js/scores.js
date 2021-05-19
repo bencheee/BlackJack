@@ -4,6 +4,7 @@ let lowestScore;
 let topFive = [];
 
 // If local storage is full, stores lowest score for future comparison
+// CODE CREDIT: https://www.codegrepper.com/code-examples/javascript/local+storage+jquery
 if (localStorage.length > 4) {
     lowestScore = JSON.parse(localStorage.getItem("highScore4")).score
 };
@@ -132,6 +133,7 @@ function saveHighScore() {
 
 function calculateHighScores() {
     // Saves current score to local storage if local storage is empty. If there is at least one item in local storage but less then 5 items, all items from local storage are copied to topFive array. Current score is also pushed to the array, which is then sorted, local storage cleared and sorted items from topFive array are then put back to local storage.
+    // CODE CREDIT: https://www.codegrepper.com/code-examples/javascript/local+storage+jquery
     debugger;
     if (localStorage.length < 5) {
         if (localStorage.length === 0) {

@@ -465,6 +465,18 @@ function compare(a, b) {
 }
 ```
 
+**// CODE CREDIT: https://www.codegrepper.com/code-examples/javascript/local+storage+jquery**
+
+Code was uset to get/set score values in local storage.
+
+```
+localStorage.setItem("highScore0", JSON.stringify(currentScore));
+```
+
+```
+JSON.parse(localStorage.getItem("highScore4")).score;
+```
+
 
 ### 7.2 Media
 
