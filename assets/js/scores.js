@@ -9,10 +9,7 @@ if (localStorage.length > 4) {
 };
 
 // If there is at least one item in local storage, shows 'top score' button in main menu
-if (localStorage.length != 0) {
-    let scoresBtn = $("<button></button>").addClass("main-btn").attr("id", "top-scores").text("TOP SCORES");
-    $(".buttons-container").append(scoresBtn);
-};
+checkLocalStorage();
 
 // Event listener for 'top scores' button in main menu
 $("#top-scores").click(showTopScores);
@@ -199,6 +196,14 @@ function copyFromLocal() {
     };
 };
 
+// If there is at least one item in local storage, shows 'top score' button in main menu
+function checkLocalStorage() {
+    if (localStorage.length != 0) {
+        let scoresBtn = $("<button></button>").addClass("main-btn").attr("id", "top-scores").text("TOP SCORES");
+        $(".buttons-container").append(scoresBtn);
+    };
+};
+
 // Displays all localStorage objects in html
 function updateDom() {
     for (i = 0; i < localStorage.length; i++) {
@@ -228,6 +233,7 @@ function showTopScores() {
     $(".top-scores-box").append(btn);
 
     $(".options-close").click(function () {
+        checkLocalStorage();
         $(".menu-container").show();
         $(".top-scores-container").hide();
     });
