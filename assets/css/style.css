@@ -259,14 +259,6 @@ footer {
 
 /* POP UP MESSAGES */
 
-.pop-up-bg-green {
-    background-color: rgb(0, 80, 0, 0.7);
-}
-
-.pop-up-bg-blue {
-    background-color: rgb(0, 0, 80, 0.7);
-}
-
 .pop-up-box {
     background-color: white;
     color: black;

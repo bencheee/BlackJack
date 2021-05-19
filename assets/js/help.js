@@ -40,7 +40,7 @@ $('.help-title').text(help[0].title)
 $('.help-text').text(help[0].text);
 
 $('#help-ingame').click(function () {
-    $('#help-ingame').css("pointer-events", "none");
+    $('nav button').css("pointer-events", "none");
     $('.playing-container').hide();
     $('.controls-container').hide();
     $('.help-container').show();
@@ -48,7 +48,7 @@ $('#help-ingame').click(function () {
     $('.help-controls').append(btn);
 
     $('.help-close').click(function () {
-        $('#help-ingame').css("pointer-events", "auto");
+        $('nav button').css("pointer-events", "auto");
         $('.playing-container').show();
         $('.controls-container').show();
         $('.help-container').hide();

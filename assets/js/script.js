@@ -578,8 +578,8 @@ function popUpOn(message) {
     popUpBox.append(popUpTxt);
     popUpBox.append(popUpBtn);
 
-    $(".main-area--playing").addClass("pop-up-bg-green");
-    $(".main-area--bank").addClass("pop-up-bg-blue");
+    //    $(".main-area--playing").addClass("pop-up-bg-green");
+    //    $(".main-area--bank").addClass("pop-up-bg-blue");
     $("#hit, #stand").addClass("play-btn-disabled");
 };
 
@@ -588,8 +588,8 @@ function popUpOff() {
     $(".overlay").remove();
     $(".pop-up-box").remove();
     $(".playing-section-middle--item").show();
-    $(".main-area--playing").removeClass("pop-up-bg-green");
-    $(".main-area--bank").removeClass("pop-up-bg-blue");
+    $('nav button').css("pointer-events", "auto");
+
 };
 
 // Cancels last bet in totalBet array and changes DOM elements accordingly

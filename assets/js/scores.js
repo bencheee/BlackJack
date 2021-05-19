@@ -60,9 +60,10 @@ function cashOut() {
     container.append(no);
     $(".pop-up-box").append(container);
 
-    // Deactivates 'chip' buttons and 'cash out' button
+    // Deactivates 'chip' buttons and 'nav' buttons
     $(".chip").addClass("chip-off");
-    $("#cash-out").css("pointer-events", "none");
+    $('nav button').css("pointer-events", "none");
+
 
     yes.click(function () {
         popUpOff();
@@ -72,12 +73,11 @@ function cashOut() {
     no.click(function () {
         popUpOff();
         $(".chip").removeClass("chip-off");
-        $("#cash-out").css("pointer-events", "auto");
+        $('nav button').css("pointer-events", "auto");
     });
 };
 
 function decideWhichPopUp() {
-
     // If there is less than 5 items in local storage or if final score is higher then lowest top 5 score, shows pop up with input field for players name
     if (localStorage.length < 5) {
         enterPlayerName();
@@ -131,10 +131,7 @@ function calculateHighScores() {
             localStorage.clear();
             copyToLocal()
         };
-        updateDom();
-        $(".playing-container").hide();
-        $(".controls-container").hide();
-
+        popUpOff();
         showTopScores()
 
     } else {
@@ -151,7 +148,7 @@ function calculateHighScores() {
             topFive.sort(compare);
             localStorage.clear();
             copyToLocal()
-            updateDom();
+            popUpOff();
             showTopScores();
         };
 
@@ -204,11 +201,16 @@ function updateDom() {
 
 
 function showTopScores() {
+    updateDom();
+    $(".nav-container").hide();
     $(".menu-container").hide();
+    $(".playing-container").hide();
+    $(".controls-container").hide();
+    $(".overlay").remove();
+    $("body").css("background-image", "url('assets/images/bg-color.jpg')");
     $(".top-scores-container").show();
     let btn = $("<button></button>").addClass("options-close").text("CLOSE");
     $(".top-scores-box").append(btn);
-    updateDom();
 
     $(".options-close").click(function () {
         $(".menu-container").show();
