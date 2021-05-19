@@ -8,76 +8,10 @@
 
 ---
 
-
-## TABLE OF CONTENTS
-
-[1. USER EXPERIENCE](#ux)
-
-- [1.1 User Stories](#stories)
-
-  - [1.1.1 First time player's goals](#first)
-
-  - [1.1.2 Casual player's goals](#casual)
-
-  - [1.1.3 Advanced player's goals](#advanced)
-
-[2. WIREFRAMES](#wireframes)
-
-[3. TECHNOLOGIES USED](#technologies)
-
-- [3.1 Languages](#languages)
-
-- [3.2 Frameworks, libraries and programs](#frameworks)
-
-[4. DESIGN](#design)
-
-- [4.1 Layout and Functionality](#layout)
-
-  - [4.1.1 Start Screen](#start)
-
-  - [4.1.2 Navigation](#nav)
-
-  - [4.1.3 Main game area](#main)
-
-[5. TESTING](#testing)
-
-- [5.1 Testing User Stories from User Experience (UX) Section](#testux)
-
-- [5.2 Further testing](#testfurther)
-
-- [5.3 JavaScript and jQuery tests](#testjs)
-
-- [5.4 Known bugs](#testbugs)
-
-- [5.5 Fixed bugs](#testbugsfixed)
-
-[6. DEPLOYMENT](#deployment)
-
-- [6.1 GitHub Pages](#pages)
-
-- [6.2 Forking repository](#forking)
-
-- [6.3 Cloning repository](#cloning)
-
-[7. CREDITS](#credits)
-
-- [7.1 Code credits](#code)
-
-- [7.2 Media](#media)
-
-- [7.3 Acknowledgements](#acknowledgements)
-
-
----
-
-
-<a name="ux"></a>
 ## 1. USER EXPERIENCE (UX)
 
-<a name="stories"></a>
 ### 1.1 User Stories
 
-<a name="first"></a>
 #### 1.1.1 First time player's goals
 
 - *As a first time player*, I want to see simple design with clear instructions which will allow me to easily navigate through the site.
@@ -88,7 +22,6 @@
 
 - *As a first time player*, I want to have fun playing the game.
 
-<a name="casual"></a>
 #### 1.1.2 Casual player's goals
 
 - *As a casual player*, I want to be challenged and entertained.
@@ -97,7 +30,6 @@
 
 - *As a casual player*, I want to see 'quit' button so I can restart the session whenever I wish.
 
-<a name="advanced"></a>
 #### 1.1.3 Advanced player's goals
 
 - *As an advanced player*, I want to be able to choose advanced options in order to make the game more interesting.
@@ -110,7 +42,6 @@
 ---
 
 
-<a name="wireframes"></a>
 ## 2. WIREFRAMES
 
 - [Mobile view](documentation/wireframes/mobile.pdf)
@@ -121,17 +52,14 @@
 ---
 
 
-<a name="technologies"></a>
 ## 3. TECHNOLOGIES USED
 
-<a name="languages"></a>
 ### 3.1 Languages
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/CSS) 
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-<a name="frameworks"></a>
 ### 3.2 Frameworks, libraries and programs
 
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the site design process.
@@ -156,22 +84,18 @@
 ---
 
 
-<a name="design"></a>
 ## 4. DESIGN
 
 Design is very simplistic using only one photo as main background and all other elements are on top with added opacity so the background can be visible all the time. Background image shows a game of BlackJack in action which suits the theme of the site.
 
 Color scheme consists of two main colors. Light green for main playing area where cards are displayed, and deep blue for controls area where most of the playing buttons are placed. Throught the game pop up messages are displayed to explain current status of the game to the user and sometimes to decide on the next step. They are made in white color with black text. Font which is used throughout the site is 'Oswald' with 'Sans Serif' as the fallback font in case for any reason main font is not loaded.
 
-<a name="layout"></a>
 ### 4.1 Layout and Functionality
 
-<a name="start"></a>
 #### 4.1.1 Start Screen
 
 First thing shown on the site is 'Start screen' with three buttons to select from: 'New game', 'Options', 'Rules' and additional 'Top Scores' button which is displayed only after there is at least one entry on top scores list. By selecting 'New game' as expected new game of BlackJack will start. By selecting 'Options' button player will have be able to choose from 'Conservative' and 'Aggressive' modes. This will control the way dealer will make decisions during the round. Lastly, 'Rules' button will display basic rules of the game in a box with arrow buttons and 'close' button for easier navigation. 'Tops scores' button will display list of top 5 scores stored in local memory.
 
-<a name="nav"></a>
 #### 4.1.2 Navigation
 
 ##### Cash-out
@@ -182,7 +106,6 @@ This option will prompt a pop up message with a simple yes/no choice whether pla
 
 This option will show the same rules window as the button in the main menu. Rules window is interactive and allows the player to easily navigate through all rules by selecting on of the arrows. Every rule has it's title and text explaining the rule.
 
-<a name="main"></a>
 #### 4.1.3 Main game area
 
 ##### Playing section
@@ -217,7 +140,6 @@ This is where majority of player game choices takes place. It consists of Bank i
 ---
 
 
-<a name="testing"></a>
 ## 5. TESTING
 
 The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) services were used to validate the code of the project to ensure there were no syntax errors.
@@ -234,7 +156,6 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     - No errors were found in CSS code.
 
-<a name="testux"></a>
 ### 5.1 Testing User Stories from User Experience (UX) Section
 
 **First time player's goals**
@@ -310,7 +231,6 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     - Currency system in the game exists, allowing the player to make bets and track progress during and after each round. Currency used in the game is called *'Credit'*.
 
-<a name="testfurther"></a>
 ### 5.2 Further testing
 
 - Lighthouse test results for [desktop](/documentation/testing/lighthouse/desktop.pdf) and [mobile](/documentation/testing/lighthouse/mobile.pdf) .
@@ -344,12 +264,10 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
     ![screen-size-tip](/documentation/testing/images/resolutions/screen-size-tip.png)
 
 
-<a name="testjs"></a>
 ### 5.3 JavaScript and jQuery tests
 
 Due to extensive testing, this section is provided in separate file which can be found on the following [link](documentation/testing/testing.md).
 
-<a name="testbugs"></a>
 ### 5.4 Known bugs
 
 - JavaScript code does not work in Internet Explorer 11 which causes page elements to display incorrectly on load, and none of the events work. 
@@ -358,7 +276,6 @@ Due to extensive testing, this section is provided in separate file which can be
 
 - AdBlock plugin is preventing Ace of Diamonds card image to display. This is because the string value of this card in JavaScript code is *'AD'* and this word is automatically blocked by the plugin. This bug does not affect the outcome of the game, it just prevents card image to display. It is recommended to disable AdBlock plugin while playing the game.
 
-<a name="testbugsfixed"></a>
 ### 5.5 Fixed bugs
 
 - Value of ace card is not correctly calculated in cases where player draws an ace in the initial two cards and draws another ace in one of the next rounds. For example: If initial hand is Ace and 3, total score is calculated correctly (11 + 3 = 14), but if next card is also ace game is calculating this incorrectly (1 + 3 + 1 = 5) instead of 15 (11 + 3 + 1). 
@@ -431,10 +348,8 @@ if (dealerHandString.length === 5) {
 ---
 
 
-<a name="deployment"></a>
 ## 6. DEPLOYMENT
 
-<a name="pages"></a>
 ### 6.1 GitHub Pages
 
 This project was deployed to GitHub Pages using following steps:
@@ -451,7 +366,6 @@ This project was deployed to GitHub Pages using following steps:
 
 ![Deployment to GitHub Pages](/documentation/deployment/001.jpg)
 
-<a name="forking"></a>
 ### 6.2 Forking repository
 
 To fork the repository use the following steps:
@@ -462,7 +376,6 @@ To fork the repository use the following steps:
 
 ![Forking the repository](/documentation/deployment/002.jpg)
 
-<a name="cloning"></a>
 ### 6.3 Cloning repository
 
 To make a local clone of the repository use the following steps:
@@ -487,10 +400,8 @@ $ git clone https://github.com/bencheee/BlackJack.git
 
 ---
 
-<a name="credits"></a>
 ## 7. CREDITS
 
-<a name="code"></a>
 ### 7.1 Code credits
 
 **CODE CREDIT: https://www.w3schools.com/jsref/prop_win_innerheight.asp**
@@ -555,7 +466,6 @@ function compare(a, b) {
 ```
 
 
-<a name="media"></a>
 ### 7.2 Media
 
 - [Joker hat logo](https://www.freepik.com/free-vector/colored-jester-hat-with-bells-isolated-white-background-vector-illustration_10602191.htm#page=1&query=joker&position=2) in main menu wass downloaded from [freepik.com](https://www.freepik.com). This logo licence is free for personal and commercial purpose with attribution. 
@@ -568,7 +478,6 @@ function compare(a, b) {
 
 - All content was written by developer.
 
-<a name="acknowledgements"></a>
 ### 7.3 Acknowledgements
 
 - My mentor Aaron Sinnott for continuous helpful feedback
