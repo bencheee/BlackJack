@@ -9,10 +9,12 @@ if (localStorage.length > 4) {
 };
 
 // If there is at least one item in local storage, shows 'top score' button in main menu
-checkLocalStorage();
+
+showTopScoresBtn();
+
 
 // Event listener for 'top scores' button in main menu
-$("#top-scores").click(showTopScores);
+$("#top-scores").click(showTopScoresList);
 
 // Event listener for 'cash out' button in nav
 $("#cash-out").click(function () {
@@ -64,7 +66,7 @@ function cashOut() {
 
     yes.click(function () {
         popUpOff();
-        decideWhichPopUp();
+        checkNameInput();
     });
 
     no.click(function () {
@@ -74,7 +76,7 @@ function cashOut() {
     });
 };
 
-function decideWhichPopUp() {
+function checkNameInput() {
     // If there is less than 5 items in local storage or if final score is higher then lowest top 5 score, shows pop up with input field for players name
     if (localStorage.length < 5) {
         enterPlayerName();
@@ -145,7 +147,7 @@ function calculateHighScores() {
             copyToLocal()
         };
         popUpOff();
-        showTopScores()
+        showTopScoresList()
 
     } else {
 
@@ -162,7 +164,7 @@ function calculateHighScores() {
             localStorage.clear();
             copyToLocal()
             popUpOff();
-            showTopScores();
+            showTopScoresList();
         };
 
     };
@@ -198,7 +200,7 @@ function copyFromLocal() {
 };
 
 // If there is at least one item in local storage, shows 'top score' button in main menu
-function checkLocalStorage() {
+function showTopScoresBtn() {
     if (localStorage.length != 0) {
         let scoresBtn = $("<button></button>").addClass("main-btn").attr("id", "top-scores").text("TOP SCORES");
         $(".buttons-container").append(scoresBtn);
@@ -221,7 +223,7 @@ function updateDom() {
 
 
 
-function showTopScores() {
+function showTopScoresList() {
     updateDom();
     $(".nav-container").hide();
     $(".menu-container").hide();
@@ -234,7 +236,10 @@ function showTopScores() {
     $(".top-scores-box").append(btn);
 
     $(".options-close").click(function () {
-        checkLocalStorage();
+        // Makes sure button is not duplicated
+        if ($("#top-scores").length === 0) {
+            showTopScoresBtn();
+        };
         $(".menu-container").show();
         $(".top-scores-container").hide();
     });
