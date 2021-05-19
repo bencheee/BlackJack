@@ -549,7 +549,9 @@ function decideWinner() {
             setTimeout(resetRound, 1000);
         });
     } else {
-        popUpOn(`You win with ${playerScore} points!`);
+        (playerScore === 21) ?
+            popUpOn(`You win with Blackjack!`) :
+            popUpOn(`You win with ${playerScore} points!`);
         if (doubleMode) {
             creditsAvailable += (totalBet * 2);
         } else {

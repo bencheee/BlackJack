@@ -231,14 +231,6 @@ function updateDom() {
     };
 };
 
-
-
-
-
-
-
-
-
 function showTopScoresList() {
     updateDom();
     $(".nav-container").hide();
@@ -253,6 +245,7 @@ function showTopScoresList() {
 
     $(".options-close").click(function () {
         // Makes sure button is not duplicated
+        // CODE CREDIT: https://stackoverflow.com/questions/4592493/check-if-element-exists-in-jquery
         if ($("#top-scores").length === 0) {
             showTopScoresBtn();
         };
