@@ -132,7 +132,7 @@ function saveHighScore() {
 
 function calculateHighScores() {
     // Saves current score to local storage if local storage is empty. If there is at least one item in local storage but less then 5 items, all items from local storage are copied to topFive array. Current score is also pushed to the array, which is then sorted, local storage cleared and sorted items from topFive array are then put back to local storage.
-
+    debugger;
     if (localStorage.length < 5) {
         if (localStorage.length === 0) {
             localStorage.setItem("highScore0", JSON.stringify(currentScore));

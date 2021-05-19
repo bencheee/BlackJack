@@ -31,6 +31,10 @@ Most of the testing is done in Chrome developer tools. Console logging is used i
 
     - [1.1.3.2 Close button](#closerules)
 
+- [1.1.4 Top Scores](#topscores)
+
+    - [1.1.4.1 Close button](#closetopscores)
+
 [1.2 GAME SCREEN](#gamescreen)
 
 - [1.2.1 Chip buttons](#chipbtns)
@@ -68,6 +72,8 @@ Most of the testing is done in Chrome developer tools. Console logging is used i
 [2.3 Calculating the score](#calculatescore)
 
 [2.4 Calculating payouts](#payouts)
+
+[2.5 Checking highscores](#highscores)
 
 ---
 
@@ -168,6 +174,32 @@ Expected outcome: By pressing ‘close’ button rules window should close and m
 Test outcome:
 
 ![test008](/documentation/testing/images/dom/008.jpg)
+
+Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
+
+<a name="topscores"></a>
+#### 1.1.4 Top Scores button
+
+Expected outcome: By pressing 'Top Scores' button main menu buttons should be hidden and Top Scores window should appear on the screen. Inside the window there should be title section, a table with minimum 1 and maximum 5 top scores, and close button in bottom right corner.
+
+Test outcome:
+
+![test027](/documentation/testing/images/dom/027.jpg)
+
+Result: Passed all criteria
+
+[Back to Table of contents](#mainmenu)
+
+<a name="closetopscores"></a>
+##### 1.1.4.1	Close button
+
+Expected outcome: By pressing ‘close’ button rules window should close and main menu screen should appear on screen with all 4 buttons available.
+
+Test outcome:
+
+![test028](/documentation/testing/images/dom/028.jpg)
 
 Result: Passed all criteria
 
@@ -567,5 +599,54 @@ Player wins insurance bet
 ![test006](/documentation/testing/images/functions/006.jpg)
 
 ![test007](/documentation/testing/images/functions/007.jpg)
+
+[Back to Table of contents](#mainmenu)
+
+<a name="highscores"></a>
+### 2.5 Checking highscores
+
+For this purpose following functions are used:
+
+*checkNameInput()* - This function decides if players score is enough to enter top 5 list. If yes, it should ask player for the name and if no it should display message with players score.
+
+*enterPlayerName()* - It should display the pop up box with input field for player to enter the name.
+
+*saveHighScore()* - It should prevent submitting empty input field. If the field is populated it calls the *calculateHighScores()* function.
+
+*calculateHighScores()* - It manipulates the local storage. There can be 3 possible scenarios: 
+    
+    - There are no previou entries in local storage: In this case object with user name and current score should be written directly in to the local storage.
+
+    - There are less than 5 entries in local storage: In this case object with user name and current score should be written directly in to the local storage, then all objects from local storage should be copied in to the *topFive* array. *topFive* array should then be sorted by the *score* value of each object in the array. When all objects are sorted, local storage should be cleared and all content from the array written back in to it.
+
+    - There are 5 entries in the local storage: In this case all objects from local storage should be copied in to the *topFive* array, which should then be sorted by the *score* value of each object in the array. Object with lowest score value should then be removed from the array, and object with user name and current score should be put in to the array. Array should then be sorted by the *score* value of each object in the array again. When all objects are sorted, local storage should be cleared and all content from the array written in to it.
+
+**Testing procedure:**
+
+Outcome of the four possible scenarios is tested by manipulating data in local storage, and using debugger function.
+
+- Case 1: There are no entries in local storage.
+
+![test029](/documentation/testing/images/functions/029.jpg)
+
+- Case 2: There is less than 5 entries in local storage.
+
+![test030](/documentation/testing/images/functions/030.jpg)
+
+![test031](/documentation/testing/images/functions/031.jpg)
+
+- Case 3: There are 5 entires in local storage, and score is in top 5
+
+![test032](/documentation/testing/images/functions/032.jpg)
+
+![test033](/documentation/testing/images/functions/033.jpg)
+
+- Case 4: There are 5 entires in local storage, and score is not in top 5
+
+![test034](/documentation/testing/images/functions/034.jpg)
+
+![test035](/documentation/testing/images/functions/035.jpg)
+
+**Testing result:** Code is working properly
 
 [Back to top of the document](#top)
