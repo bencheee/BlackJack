@@ -117,9 +117,6 @@ function enterPlayerName() {
     let input = $("<input></input>");
     input.attr({ type: "text", id: "name", name: "name" });
 
-    // CODE CREDIT: https://stackoverflow.com/questions/19166685/jquery-add-required-to-input-fields
-    input.prop('required', true);
-
     $(".pop-up-box button").before(input);
 };
 

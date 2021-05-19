@@ -528,6 +528,33 @@ $(document).dblclick(function (event) {
 });
 ```
 
+**CODE CREDIT: https://stackoverflow.com/questions/4592493/check-if-element-exists-in-jquery**
+
+Code was used to check if jQuery selector exists in the DOM.
+
+```
+if ($("#top-scores").length === 0) {
+    showTopScoresBtn();
+};
+```
+
+**// CODE CREDIT: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value**
+
+Code was used to sort objects in the *topFive* array by the *score* values.
+
+```
+function compare(a, b) {
+    if (Number(a.score) > Number(b.score)) {
+        return -1;
+    }
+    if (Number(a.score) < Number(b.score)) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+
 <a name="media"></a>
 ### 7.2 Media
 
