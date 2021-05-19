@@ -629,23 +629,29 @@ Outcome of the four possible scenarios is tested by manipulating data in local s
 
 ![test008](/documentation/testing/images/functions/008.jpg)
 
-- Case 2: There is less than 5 entries in local storage.
-
 ![test009](/documentation/testing/images/functions/009.jpg)
 
 ![test010](/documentation/testing/images/functions/010.jpg)
 
-- Case 3: There are 5 entires in local storage, and score is in top 5
+- Case 2: There is less than 5 entries in local storage.
 
 ![test011](/documentation/testing/images/functions/011.jpg)
 
 ![test012](/documentation/testing/images/functions/012.jpg)
 
-- Case 4: There are 5 entires in local storage, and score is not in top 5
-
 ![test013](/documentation/testing/images/functions/013.jpg)
 
+- Case 3: There are 5 entires in local storage, and score is in top 5
+
 ![test014](/documentation/testing/images/functions/014.jpg)
+
+![test015](/documentation/testing/images/functions/015.jpg)
+
+![test016](/documentation/testing/images/functions/016.jpg)
+
+- Case 4: There are 5 entires in local storage, and score is not in top 5
+
+![test017](/documentation/testing/images/functions/017.jpg)
 
 **Testing result:** Code is working properly
 
