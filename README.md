@@ -339,7 +339,10 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     ![responsive](/documentation/testing/images/resolutions/responsive.JPG)
 
-- *NOTE: Game is designed to be played in portrait mode on mobile and tablet devices and in landscape mode on desktop and laptop computers. However, game will work in landscape mode on some mobile and tablet devices with larger screen resolutions.*
+- *NOTE: Game is designed to be played in portrait mode on mobile and tablet devices and in landscape mode on desktop and laptop computers. However, game experience gets better in landscape mode on mobile and tablet devices with larger screen resolutions. For this purpose, in cases when player is using mobile or tablet device in landscape mode, folloing pop up message appears:*
+
+    ![screen-size-tip](/documentation/testing/images/resolutions/screen-size-tip.png)
+
 
 <a name="testjs"></a>
 ### 5.3 JavaScript and jQuery tests
