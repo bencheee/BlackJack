@@ -16,6 +16,10 @@ a {
     color: white;
 }
 
+h3 {
+    font-family: "Bungee Inline";
+}
+
 .play-btn {
     outline: none;
     background-color: transparent;
@@ -355,15 +359,27 @@ footer {
 
 .logo-container {
     background-image: linear-gradient(to top, white, transparent);
-}
-
-.buttons-container {
     flex-direction: column;
-    background-image: linear-gradient(to bottom, white, transparent);
 }
 
 .logo-container img {
-    height: 90%;
+    width: 60%;
+}
+
+.desktop-container h1 {
+    color: black;
+    position: absolute;
+    top: 45%;
+width: 100%;
+text-align: center;
+    font-family: "bungee inline";
+    font-weight: 100;
+    font-size: 3.5vh;
+    z-index: 1;
+}
+.buttons-container {
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, white, transparent);
 }
 
 .main-btn {
@@ -454,6 +470,15 @@ font-family: 'Oswald';
   and (max-width: 767px)
   and (orientation: landscape) {
   
+.logo-container img {
+    height: 60%;
+    width: auto;
+}
+
+.desktop-container h1 {
+    top: 40%;
+    font-size: 8vh;
+}
   .main-btn {
     font-size: 0.7rem;
     margin: 5px auto;
@@ -556,6 +581,18 @@ td {
     font-size: 1.5rem;
   }
 
+  h3 {
+    font-size: 2.5rem;
+}
+
+  .logo-container img {
+    width: 55%;
+}
+
+.desktop-container h1 {
+    font-size: 3.4vh;
+}
+
   .main-btn {
     width: 150px;
   }
@@ -598,6 +635,17 @@ td {
   and (min-width: 768px)
   and (orientation: landscape) {
   
+        .logo-container img {
+    height: 70%;
+    width: auto;
+}
+
+.main-btn {
+    width: 100px;
+    margin: 5px auto;
+    font-size: 0.7rem;
+}
+
   .playing-container,
   .controls-container {
     height: 90%;
@@ -668,7 +716,7 @@ td {
 
   .help-box p {
     display: flex;
-    align-items: center;
+    align-items: baseline;
   }
 
     .table-heading {
@@ -694,6 +742,14 @@ td {
   body, button, a {
     font-size: 2.1rem;
   }
+
+    h3 {
+    font-size: 3.5rem;
+}
+
+  .desktop-container h1 {
+    font-size: 5vh;
+}
 
   .main-btn {
     width: 200px;
@@ -731,6 +787,21 @@ td {
   body, button, a {
     font-size: 1.1rem;
   }
+
+  h3 {
+      font-size: 2rem;
+  }
+
+  .logo-container img {
+    height: 60%;
+    width: auto;
+}
+
+  .main-btn {
+    width: 150px;
+    margin: 10px auto;
+    font-size: 1.1rem;
+}
 
   .main-area {
     border-radius: 15px;
@@ -779,6 +850,7 @@ td {
 
   .help-box p {
     font-size: 1.3rem;
+    align-items: center;
   }
 
   #btn-left, #btn-right {
@@ -802,6 +874,10 @@ td {
   body, button, a {
     font-size: 1.3rem;
   }
+
+  .desktop-container h1 {
+    font-size: 5.5vh;
+}
 
   .nav-container button:hover {
     text-shadow: 2px 2px 2px black;

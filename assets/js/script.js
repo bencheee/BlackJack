@@ -61,6 +61,8 @@ $("#new-game").click(function () {
     $(".playing-container").show();
     $(".controls-container").show();
     $(".menu-container").hide();
+    $("h1").hide();
+    $("h1").hide();
     //$(".chip").addClass("chip-off");
 
     popUpOn(
@@ -74,7 +76,15 @@ $("#new-game").click(function () {
 
 $("#options").click(function () {
     $(".menu-container").hide();
+    $("h1").hide();
     $(".options-container").show();
+
+    // Adds close button to options window. This is necessary because this button is removed by showTopScoresList() function which causes a bug where button is permanently hidden.
+    if ($(".options-close").length === 0) {
+        let btn = $("<button></button>").addClass("options-close").text("CLOSE");
+        $(".options-box").append(btn);
+    };
+
 
     // Toggles between "aggressive" and "conservative" mode
     $("#option-conservative").click(function () {
@@ -118,12 +128,14 @@ $("#options").click(function () {
 
 $("#rules").click(function () {
     $(".menu-container").hide();
+    $("h1").hide();
     $(".help-container").show();
     let btn = $("<button></button>").addClass("help-close").text("CLOSE");
     $(".help-controls").append(btn);
 
     $(".help-close").click(function () {
         $(".menu-container").show();
+        $("h1").show();
         $(".help-container").hide();
         $(".help-close").remove();
     });

@@ -88,7 +88,7 @@
 
 Design is very simplistic using only one photo as main background and all other elements are on top with added opacity so the background can be visible all the time. Background image shows a game of BlackJack in action which suits the theme of the site.
 
-Color scheme consists of two main colors. Light green for main playing area where cards are displayed, and deep blue for controls area where most of the playing buttons are placed. Throught the game pop up messages are displayed to explain current status of the game to the user and sometimes to decide on the next step. They are made in white color with black text. Font which is used throughout the site is 'Oswald' with 'Sans Serif' as the fallback font in case for any reason main font is not loaded.
+Color scheme consists of two main colors. Light green for main playing area where cards are displayed, and deep blue for controls area where most of the playing buttons are placed. Throught the game pop up messages are displayed to explain current status of the game to the user and sometimes to decide on the next step. They are made in white color with black text. Font which is used for headings is 'Bungee Inline' with 'Sans Serif' as the fallback font in case for any reason main font is not loaded. Font which is used throughout the site for the rest of the text is 'Oswald' with 'Sans Serif' as the fallback font.
 
 ### 4.1 Layout and Functionality
 

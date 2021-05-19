@@ -234,6 +234,7 @@ function showTopScoresList() {
     updateDom();
     $(".nav-container").hide();
     $(".menu-container").hide();
+    $("h1").hide();
     $(".playing-container").hide();
     $(".controls-container").hide();
     $(".overlay").remove();
@@ -249,6 +250,7 @@ function showTopScoresList() {
             showTopScoresBtn();
         };
         $(".menu-container").show();
+        $("h1").show();
         $(".top-scores-container").hide();
         $(".options-close").remove();
     });
