@@ -330,7 +330,8 @@ footer {
 }
 
 .help-close,
-.options-close {
+.options-close,
+.top-scores-close {
     border: none;
     background-color: black;
     color: white;
@@ -393,7 +394,8 @@ footer {
     font-weight: 400;
 }
 
-.options-close {
+.options-close,
+.top-scores-close {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -819,7 +821,8 @@ td {
   .main-btn:hover,
   .pop-up-box button:hover,
   .help-close:hover,
-  .options-close:hover {
+  .options-close:hover,
+  .top-scores-close:hover {
     box-shadow: 0 0 20px 0 black;
   }
 
@@ -884,7 +887,8 @@ td {
   }
 
   .help-close,
-  .options-close {
+  .options-close,
+  .top-scores-close {
       box-shadow: none;
   }
 

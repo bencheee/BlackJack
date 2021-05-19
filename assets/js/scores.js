@@ -145,9 +145,17 @@ function calculateHighScores() {
             topFive.sort(compare);
             localStorage.clear();
             copyToLocal()
+            creditsAvailable = 1000;
+            $("#bank-amount").text(creditsAvailable);
         };
         popUpOff();
-        showTopScoresList()
+        showTopScoresList();
+        // Changes default behaviour of close button to reload page in case top scores list is shown from inside the game area and not from the main menu.
+        $(".options-close").addClass("top-scores-close");
+        $(".top-scores-close").removeClass("options-close");
+        $(".top-scores-close").click(function () {
+            location.reload();
+        });
 
     } else {
 
@@ -163,8 +171,16 @@ function calculateHighScores() {
             topFive.sort(compare);
             localStorage.clear();
             copyToLocal()
+            creditsAvailable = 1000;
+            $("#bank-amount").text(creditsAvailable);
             popUpOff();
             showTopScoresList();
+            // Changes default behaviour of close button to reload page in case top scores list is shown from inside the game area and not from the main menu.
+            $(".options-close").addClass("top-scores-close");
+            $(".top-scores-close").removeClass("options-close");
+            $(".top-scores-close").click(function () {
+                location.reload();
+            });
         };
 
     };
@@ -242,7 +258,6 @@ function showTopScoresList() {
         };
         $(".menu-container").show();
         $(".top-scores-container").hide();
+        $(".options-close").remove();
     });
-
-
 };
