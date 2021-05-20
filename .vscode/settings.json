@@ -22,6 +22,6 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "editor.defaultFormatter": "HookyQR.beautify",
-"editor.formatOnSave": true,
+"editor.formatOnSave": false,
 "javascript.format.enable": true
 }

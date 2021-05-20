@@ -1,484 +1,521 @@
-/* GLOBAL STYLES */
+/* 
+##############
+GLOBAL STYLES 
+##############
+*/
 
 * {
-    position: relative;
-    border-radius: 4px;
-    padding: 0;
-    margin: 0;
+  position: relative;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
 }
 
 body,
 button,
 a {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
 }
 
-h3 {
-    font-family: "Bungee Inline";
+h2 {
+  font-family: "Bungee Inline";
 }
 
 .play-btn {
-    outline: none;
-    background-color: transparent;
-    border: 1px rgba(0, 255, 0, 0.3) solid;
-    background-image: linear-gradient(45deg, rgba(0, 0, 255, 0.9), rgba(0, 0, 255, 0.4));
-    box-shadow: 0 0 10px 0px rgba(0, 0, 0);
-    text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.4);
-    font-weight: 300;
+  outline: none;
+  background-color: transparent;
+  border: 1px rgba(0, 255, 0, 0.3) solid;
+  background-image: linear-gradient(45deg, rgba(0, 0, 255, 0.9), rgba(0, 0, 255, 0.4));
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0);
+  text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.4);
+  font-weight: 300;
 }
 
 .play-btn-disabled {
-    background-color: rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-    color: rgba(0, 0, 0, 0.4);
-    text-shadow: 4px 2px 2px rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  color: rgba(0, 0, 0, 0.4);
+  text-shadow: 4px 2px 2px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  pointer-events: none;
 }
 
 .flex-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 body {
-    background: url('../images/bg-color.jpg') no-repeat center rgb(128, 128, 128);
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+  background: url('../images/bg-color.jpg') no-repeat center rgb(128, 128, 128);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
 }
 
 .overlay {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
 }
 
 .desktop-container {
-    height: 95%;
-    width: 100%;
+  height: 95%;
+  width: 100%;
 }
 
 .main-area {
-    height: 95%;
-    width: 95%;
-    flex-direction: column;
-    box-shadow: 0 0 5px 2px black;
+  height: 95%;
+  width: 95%;
+  flex-direction: column;
+  box-shadow: 0 0 5px 2px black;
 }
-
-/* NAVBAR AREA */
-
-.nav-container {
-    height: 5%;
-    justify-content: space-between;
-}
-
-.nav-container button {
-    margin: 0 20px;
-    background: transparent;
-    box-shadow: none;
-    border: none;
-}
-
-/* PLAYING AREA */
-
-.playing-container {
-    height: 60%;
-}
-
-.main-area--playing {
-    margin: 10px auto;
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(0, 150, 0, 0.8));
-}
-
-.playing-section {
-    height: 33%;
-    width: 100%;
-}
-
-#playing-section-middle {
-    flex-direction: column;
-}
-
-.playing-section--dealer,
-.playing-section--player {
-    flex-direction: column;
-}
-
-.player-cards,
-.dealer-cards {
-    height: 85%;
-    width: 100%;
-}
-
-.card {
-    display: inline-block;
-    background-size: contain;
-    width: 14%;
-    margin: 0 5px;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.score-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
-}
-
-.score-container--dealer,
-.score-container--player {
-    margin: 5px;
-}
-
-.score-container span {
-    display: inline-block;
-    padding: 0 5px;
-}
-
-.score-value {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-}
-
-.double,
-.insurance {
-    height: 8vh;
-    width: 25vw;
-    margin: 2px;
-}
-
-/* CONTROLS AREA */
-
-.controls-container {
-    height: 40%;
-}
-
-.main-area--bank {
-    background-image: linear-gradient(225deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 255, 0.8));
-}
-
-.play-controls {
-    width: 90%;
-    justify-content: space-between;
-}
-
-.play-controls button {
-    height: 8vh;
-    width: 25vw;
-    margin: 2px;
-}
-
-.bet-info {
-    padding: 2px;
-    margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
-    color: rgba(0, 0, 0, 0.45);
-}
-
-.bet-info--active {
-    background-color: white;
-    color: black;
-}
-
-.bet-info span {
-    display: block;
-    margin: 0 2px;
-}
-
-.bank-info {
-    padding: 2px;
-}
-
-.chips-container {
-    width: 100%;
-    justify-content: space-around;
-}
-
-.chip {
-    height: 50px;
-    width: 50px;
-    margin: 10px 0;
-    border: dashed 5px black;
-    border-radius: 50%;
-    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
-}
-
-.chip--1 {
-    background-color: rgb(0, 80, 0);
-}
-
-.chip--2 {
-    background-color: rgb(214, 182, 0);
-}
-
-.chip--3 {
-    background-color: rgb(180, 0, 0);
-}
-
-.chip--4 {
-    background-color: rgb(0, 0, 200);
-}
-
-.chip--5 {
-    background-color: rgb(255, 144, 162);
-}
-
-.chip-inner {
-    height: 85%;
-    width: 85%;
-    font-size: 75%;
-    margin: auto;
-    border: none;
-    border-radius: 50%;
-    background-color: white;
-    color: black;
-    text-align: center;
-}
-
-.chip-off {
-    opacity: 0.3;
-    background-color: black;
-    pointer-events: none;
-}
-
-.undo-btn {
-    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(255, 0, 0, 0.4));
-    padding: 10px;
-    border: 1px rgba(255, 0, 0, 0.3) solid;
-    outline: none;
-    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
-}
-
-/* FOOTER */
 
 footer {
-    text-align: center;
+  text-align: center;
 }
 
-/* POP UP MESSAGES */
+/* 
+########## 
+MAIN MENU 
+##########
+*/
 
-.pop-up-box {
-    background-color: white;
-    color: black;
-    width: 75vw;
-    height: 30%;
-    margin: auto;
-    padding: 5px;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-weight: 300;
-    line-height: 1;
-    z-index: 1;
-    position: absolute;
+.menu-container {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
-.pop-up-box button {
-    background-color: black;
-    color: white;
-    width: 24vw;
-    font-size: 0.9rem;
-    margin: 10px 10px 0px 10px;
-    padding: 0 5px;
+.logo-container,
+.buttons-container {
+  height: 50%;
+  width: 100vw;
 }
 
-/* HELP SECTION */
+.logo-container {
+  background-image: linear-gradient(to top, white, transparent);
+  flex-direction: column;
+}
+
+.logo-container img {
+  width: 60%;
+}
+
+.desktop-container h1 {
+  color: black;
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-family: "bungee inline";
+  font-weight: 100;
+  font-size: 3.5vh;
+  z-index: 1;
+}
+
+.buttons-container {
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, white, transparent);
+}
+
+.main-btn {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
+  width: 100px;
+  margin: 10px auto;
+}
+
+/* 
+################
+OPTIONS SECTION
+################
+*/
+
+.options-container {
+  height: 100%;
+}
+
+.options-box {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.options-btns-container {
+  flex-direction: column;
+}
+
+.option-btns {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.options-close,
+.top-scores-close {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+/*
+#############
+HELP SECTION
+#############
+*/
 
 .help-container,
 .top-scores-container {
-    height: 100%;
+  height: 100%;
 }
 
 .help-box,
 .options-box,
 .top-scores-box {
-    background-color: white;
-    color: black;
-    justify-content: space-between;
-    flex-direction: column;
-    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
-    height: 70%;
-    width: 70vw;
-    padding: 20px;
-    font-weight: 300;
+  background-color: white;
+  color: black;
+  justify-content: space-between;
+  flex-direction: column;
+  box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
+  height: 70%;
+  width: 70vw;
+  padding: 20px;
+  font-weight: 300;
 }
 
 .help-title {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .help-box p {
-    font-size: 1.3rem;
-    text-align: justify;
-    height: 75%;
-    overflow: scroll;
+  font-size: 1.3rem;
+  text-align: justify;
+  height: 75%;
+  overflow: scroll;
 }
 
 .help-controls {
-    flex-direction: column;
-    width: 100%;
+  flex-direction: column;
+  width: 100%;
 }
 
 #btn-left,
 #btn-right {
-    border: none;
-    background-color: transparent;
-    color: black;
-    font-size: 2rem;
-    margin: 0 20px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 2rem;
+  margin: 0 20px;
 }
 
 .help-close,
 .options-close,
 .top-scores-close {
-    border: none;
-    background-color: black;
-    color: white;
-    align-self: flex-end;
-    padding: 2px 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  align-self: flex-end;
+  padding: 2px 10px;
 }
 
-/* MAIN MENU */
-
-.menu-container {
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
-
-.logo-container,
-.buttons-container {
-    height: 50%;
-    width: 100vw;
-}
-
-.logo-container {
-    background-image: linear-gradient(to top, white, transparent);
-    flex-direction: column;
-}
-
-.logo-container img {
-    width: 60%;
-}
-
-.desktop-container h1 {
-    color: black;
-    position: absolute;
-    top: 45%;
-width: 100%;
-text-align: center;
-    font-family: "bungee inline";
-    font-weight: 100;
-    font-size: 3.5vh;
-    z-index: 1;
-}
-.buttons-container {
-    flex-direction: column;
-    background-image: linear-gradient(to bottom, white, transparent);
-}
-
-.main-btn {
-    background-color: black;
-    color: white;
-    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
-    width: 100px;
-    margin: 10px auto;
-}
-
-/* OPTIONS */
-
-.options-container {
-    height: 100%;
-}
-
-.options-box {
-    justify-content: center;
-    flex-direction: column;
-}
-
-.options-btns-container {
-    flex-direction: column;
-}
-
-.option-btns {
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
-.options-close,
-.top-scores-close {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
-
-/* TOP SCORES */
+/*
+###################
+TOP SCORES SECTION
+###################
+*/
 
 .top-scores-box {
-    justify-content: start;
+  justify-content: start;
 }
 
 table {
-    height: 80%;
-    width: 100%;
+  height: 80%;
+  width: 100%;
 }
 
 .table-heading {
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5%;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5%;
 }
 
 tbody {
-    color: white;
-    width: 90%;
+  color: white;
+  width: 90%;
 }
 
 tr {
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: space-around;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-around;
 }
 
 td {
-    margin: 2% 0;
-    width: 30%;
+  margin: 2% 0;
+  width: 30%;
 }
 
 #name {
-font-family: 'Oswald';
-    text-align: center;
-    width: 24vw;
-    height: 15%;
-    font-size: 1rem;
+  font-family: 'Oswald';
+  text-align: center;
+  width: 24vw;
+  height: 15%;
+  font-size: 1rem;
 }
 
+/*
+###############
+NAVBAR SECTION
+###############
+*/
 
+.nav-container {
+  height: 5%;
+  justify-content: space-between;
+}
 
-/* MEDIA QUERIES */
+.nav-container button {
+  margin: 0 20px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/*
+############################
+PLAYING AREA (green section)
+#############################
+*/
+
+.playing-container {
+  height: 60%;
+}
+
+.main-area--playing {
+  margin: 10px auto;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(0, 150, 0, 0.8));
+}
+
+.playing-section {
+  height: 33%;
+  width: 100%;
+}
+
+#playing-section-middle {
+  flex-direction: column;
+}
+
+.playing-section--dealer,
+.playing-section--player {
+  flex-direction: column;
+}
+
+.player-cards,
+.dealer-cards {
+  height: 85%;
+  width: 100%;
+}
+
+.card {
+  display: inline-block;
+  background-size: contain;
+  width: 14%;
+  margin: 0 5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.score-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+}
+
+.score-container--dealer,
+.score-container--player {
+  margin: 5px;
+}
+
+.score-container span {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.score-value {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.double,
+.insurance {
+  height: 8vh;
+  width: 25vw;
+  margin: 2px;
+}
+
+/*
+#############################
+CONTROLS AREA (blue section)
+#############################
+*/
+
+.controls-container {
+  height: 40%;
+}
+
+.main-area--bank {
+  background-image: linear-gradient(225deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 255, 0.8));
+}
+
+.play-controls {
+  width: 90%;
+  justify-content: space-between;
+}
+
+.play-controls button {
+  height: 8vh;
+  width: 25vw;
+  margin: 2px;
+}
+
+.bet-info {
+  padding: 2px;
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.bet-info--active {
+  background-color: white;
+  color: black;
+}
+
+.bet-info span {
+  display: block;
+  margin: 0 2px;
+}
+
+.bank-info {
+  padding: 2px;
+}
+
+.chips-container {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.chip {
+  height: 50px;
+  width: 50px;
+  margin: 10px 0;
+  border: dashed 5px black;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+.chip--1 {
+  background-color: rgb(0, 80, 0);
+}
+
+.chip--2 {
+  background-color: rgb(214, 182, 0);
+}
+
+.chip--3 {
+  background-color: rgb(180, 0, 0);
+}
+
+.chip--4 {
+  background-color: rgb(0, 0, 200);
+}
+
+.chip--5 {
+  background-color: rgb(255, 144, 162);
+}
+
+.chip-inner {
+  height: 85%;
+  width: 85%;
+  font-size: 75%;
+  margin: auto;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.chip-off {
+  opacity: 0.3;
+  background-color: black;
+  pointer-events: none;
+}
+
+.undo-btn {
+  background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(255, 0, 0, 0.4));
+  padding: 10px;
+  border: 1px rgba(255, 0, 0, 0.3) solid;
+  outline: none;
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/*
+################
+POP UP MESSAGES
+################
+*/
+
+.pop-up-box {
+  background-color: white;
+  color: black;
+  width: 75vw;
+  height: 30%;
+  margin: auto;
+  padding: 5px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-weight: 300;
+  line-height: 1;
+  z-index: 1;
+  position: absolute;
+}
+
+.pop-up-box button {
+  background-color: black;
+  color: white;
+  width: 24vw;
+  font-size: 0.9rem;
+  margin: 10px 10px 0px 10px;
+  padding: 0 5px;
+}
+
+/* 
+##############
+MEDIA QUERIES
+##############
+ */
 
 /* Mobile - Landscape */
-@media only screen
-  and (max-width: 767px)
-  and (orientation: landscape) {
-  
-.logo-container img {
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+
+  .logo-container img {
     height: 60%;
     width: auto;
-}
+  }
 
-.desktop-container h1 {
+  .desktop-container h1 {
     top: 40%;
     font-size: 8vh;
-}
+  }
+
   .main-btn {
     font-size: 0.7rem;
     margin: 5px auto;
@@ -505,7 +542,8 @@ font-family: 'Oswald';
     width: 10%
   }
 
-  .double, .insurance {
+  .double,
+  .insurance {
     width: 12vw;
     height: 9vh;
   }
@@ -555,43 +593,42 @@ font-family: 'Oswald';
 
   .table-heading {
     margin-bottom: 0;
-}
+  }
 
-td {
+  td {
     margin: 0;
-}
+  }
 
-#name {
+  #name {
     font-size: 1rem;
-}
+  }
 
   footer {
     font-size: 0.5rem;
   }
 }
 
-/* Tablets - Standard Size */
+/* Tablets - Standard Size (portrait) */
 
-/* PORTRAIT */
-@media only screen
-  and (min-width: 768px)
-  and (orientation: portrait) {
-  
-  body, button, a {
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+
+  body,
+  button,
+  a {
     font-size: 1.5rem;
   }
 
-  h3 {
+  h2 {
     font-size: 2.5rem;
-}
+  }
 
   .logo-container img {
     width: 55%;
-}
+  }
 
-.desktop-container h1 {
+  .desktop-container h1 {
     font-size: 3.4vh;
-}
+  }
 
   .main-btn {
     width: 150px;
@@ -616,7 +653,8 @@ td {
     align-items: center;
   }
 
-  #btn-left, #btn-right {
+  #btn-left,
+  #btn-right {
     font-size: 3rem;
     margin: 0 50px;
   }
@@ -627,24 +665,23 @@ td {
 
   #name {
     font-size: 2rem;
-}
+  }
 }
 
-/* LANDSCAPE */
-@media only screen
-  and (min-width: 768px)
-  and (orientation: landscape) {
-  
-        .logo-container img {
+/* Tablets - Standard Size (landscape) */
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+
+  .logo-container img {
     height: 70%;
     width: auto;
-}
+  }
 
-.main-btn {
+  .main-btn {
     width: 100px;
     margin: 5px auto;
     font-size: 0.7rem;
-}
+  }
 
   .playing-container,
   .controls-container {
@@ -667,7 +704,8 @@ td {
     width: 10%
   }
 
-  .double, .insurance {
+  .double,
+  .insurance {
     width: 12vw;
     height: 9vh;
   }
@@ -719,37 +757,36 @@ td {
     align-items: baseline;
   }
 
-    .table-heading {
+  .table-heading {
     margin-bottom: 0;
-    }
+  }
 
-    td {
-        margin: 0;
-    }
+  td {
+    margin: 0;
+  }
 
-    #name {
+  #name {
     font-size: 1.5rem;
-}
+  }
 }
 
-/* Tablets - XL */
+/* Tablets - XL Size (portrait) */
 
-/* PORTRAIT */
-@media only screen
-  and (min-width: 992px)
-  and (orientation: portrait) {
-  
-  body, button, a {
+@media only screen and (min-width: 992px) and (orientation: portrait) {
+
+  body,
+  button,
+  a {
     font-size: 2.1rem;
   }
 
-    h3 {
+  h2 {
     font-size: 3.5rem;
-}
+  }
 
   .desktop-container h1 {
     font-size: 5vh;
-}
+  }
 
   .main-btn {
     width: 200px;
@@ -769,39 +806,40 @@ td {
     font-size: 2.2rem;
   }
 
-  #btn-left, #btn-right {
+  #btn-left,
+  #btn-right {
     font-size: 4.5rem;
   }
 
   .pop-up-box button {
     font-size: 2rem;
   }
-
 }
 
-/* LANDSCAPE */
-@media only screen
-  and (min-width: 992px)
-  and (orientation: landscape) {
-  
-  body, button, a {
+/* Tablets - XL Size (landscape) */
+
+@media only screen and (min-width: 992px) and (orientation: landscape) {
+
+  body,
+  button,
+  a {
     font-size: 1.1rem;
   }
 
-  h3 {
-      font-size: 2rem;
+  h2 {
+    font-size: 2rem;
   }
 
   .logo-container img {
     height: 60%;
     width: auto;
-}
+  }
 
   .main-btn {
     width: 150px;
     margin: 10px auto;
     font-size: 1.1rem;
-}
+  }
 
   .main-area {
     border-radius: 15px;
@@ -815,7 +853,7 @@ td {
   .playing-container {
     width: 55vw;
   }
-  
+
   .card {
     width: 15%;
   }
@@ -853,31 +891,34 @@ td {
     align-items: center;
   }
 
-  #btn-left, #btn-right {
+  #btn-left,
+  #btn-right {
     font-size: 3rem;
     margin: 0 40px;
   }
 
-      .table-heading {
+  .table-heading {
     margin-bottom: 5%;
-    }
+  }
 
-    td {
-        margin: 2%;
-    }
-  
+  td {
+    margin: 2%;
+  }
 }
 
 /* DESKTOP */
+
 @media only screen and (min-width: 1200px) {
 
-  body, button, a {
+  body,
+  button,
+  a {
     font-size: 1.3rem;
   }
 
   .desktop-container h1 {
     font-size: 5.5vh;
-}
+  }
 
   .nav-container button:hover {
     text-shadow: 2px 2px 2px black;
@@ -914,12 +955,13 @@ td {
   .playing-container {
     width: 50vw;
   }
-  
+
   .card {
     width: 13%;
   }
 
-  .double, .insurance {
+  .double,
+  .insurance {
     width: 8vw;
   }
 
@@ -947,8 +989,8 @@ td {
   }
 
   .help-box p {
-      font-size: 1.8rem;
-      overflow: auto;
+    font-size: 1.8rem;
+    overflow: auto;
   }
 
   .option-btns {
@@ -965,12 +1007,12 @@ td {
   .help-close,
   .options-close,
   .top-scores-close {
-      box-shadow: none;
+    box-shadow: none;
   }
 
-  #btn-left, #btn-right {
+  #btn-left,
+  #btn-right {
     font-size: 3rem;
     margin: 0 40px;
   }
-
-} 
+}

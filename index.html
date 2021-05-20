@@ -2,185 +2,185 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Oswald:wght@300;400;600&amp;display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <title>BlackJack the Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+    crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Oswald:wght@300;400;600&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+  <title>BlackJack the Game</title>
 </head>
 
 <body>
-    <!-- Nav Bar (hidden by default) -->
-    <nav class="nav-container flex-centered">
-        <button id="cash-out">CASH OUT</button>
-        <button id="help-ingame">HELP</button>
-    </nav>
-
-    <!-- Container for all elements (changes flex direction from column to row on screens wider than 1024px) -->
-    <div class="desktop-container">
-        <h1>BLACKJACK THE GAME</h1>
-        <!-- Main menu container -->
-        <section class="menu-container flex-centered">
-            <div class="logo-container flex-centered">
-                <img src="assets/images/logo.gif" alt="logo">
-            </div>
-            <div class="buttons-container flex-centered">
-                <button id="new-game" class="main-btn">NEW GAME</button>
-                <button id="options" class="main-btn">OPTIONS</button>
-                <button id="rules" class="main-btn">RULES</button>
-            </div>
-        </section>
-        <!-- Options container (hidden by default) -->
-        <section class="options-container flex-centered">
-            <div class="options-box flex-centered">
-                <div class="options-btns-container flex-centered">
-                    <h3 id="option-conservative" class="option-btns">
-                        <i class="far fa-check-square"></i> CONSERVATIVE
-                    </h3>
-                    <p class="option-text"><em>Dealer will play safe and will not draw new card in tie situation.
-                            Enabling
-                            this option will
-                            result in drawing more often.</em></p>
-                    <br>
-                    <h3 id="option-aggressive" class="option-btns">
-                        <i class="far fa-square"></i> AGGRESSIVE
-                    </h3>
-                    <p class="option-text"><em>Dealer will play more aggressively and will always draw another card in
-                            tie
-                            situations.</em></p>
-                </div>
-                <button class="options-close">CLOSE</button>
-            </div>
-        </section>
-        <!-- Help container (hidden by default) -->
-        <section class="help-container flex-centered">
-            <div class="help-box flex-centered">
-                <h3 class="help-title">TITLE</h2>
-                    <p class="help-text"></p>
-                    <div class="help-controls flex-centered">
-                        <div class="arrows">
-                            <button id="btn-left"><i class="fas fa-caret-left"></i></button>
-                            <button id="btn-right"><i class="fas fa-caret-right"></i></button>
-                        </div>
-                    </div>
-            </div>
-        </section>
-        <!-- Top Scores container (hidden by default) -->
-        <section class="top-scores-container flex-centered">
-            <div class="top-scores-box flex-centered">
-                <h3 class="top-scores-title">TOP SCORES</h2>
-                    <table class="flex-centered">
-                        <tr class="table-heading">
-                            <th>Place</th>
-                            <th class="name">Name</th>
-                            <th class="score">Score</th>
-                        </tr>
-                        <tr class="no1">
-                            <td>1.</td>
-                            <td class="name"></td>
-                            <td class="score"></td>
-                        </tr>
-                        <tr class="no2">
-                            <td>2.</td>
-                            <td class="name"></td>
-                            <td class="score"></td>
-                        </tr>
-                        <tr class="no3">
-                            <td>3.</td>
-                            <td class="name"></td>
-                            <td class="score"></td>
-                        </tr>
-                        <tr class="no4">
-                            <td>4.</td>
-                            <td class="name"></td>
-                            <td class="score"></td>
-                        </tr>
-                        <tr class="no5">
-                            <td>5.</td>
-                            <td class="name"></td>
-                            <td class="score"></td>
-                        </tr>
-                    </table>
-            </div>
-        </section>
-
-        <!-- Wrapper for main game elements -->
-        <section class="playing-container flex-centered">
-            <!-- Playing area (green surface) -->
-            <div class="main-area main-area--playing flex-centered">
-                <div class="playing-section playing-section--dealer flex-centered">
-                    <div id="dealer-cards" class="dealer-cards flex-centered"></div>
-                </div>
-                <div id="playing-section-middle" class="playing-section flex-centered">
-                    <div class="playing-section-middle--item score-container score-container--dealer flex-centered">
-                        <span>DEALER:</span>
-                        <span id="dealer-score" class="score-value">0</span>
-                    </div>
-                    <div class="playing-section-middle--item flex-centered">
-                        <button id="double" class=" double play-btn">Double</button>
-                        <button id="insurance" class=" insurance play-btn">Insurance</button>
-                    </div>
-                    <div class="playing-section-middle--item score-container score-container--player flex-centered">
-                        <span>PLAYER:</span>
-                        <span id="player-score" class="score-value">0</span>
-                    </div>
-                </div>
-                <div class="playing-section playing-section--player flex-centered">
-                    <div id="player-cards" class="player-cards flex-centered"></div>
-                </div>
-            </div>
-        </section>
-        <!-- Controls area (blue surface) -->
-        <section class="controls-container flex-centered">
-
-            <div class="main-area main-area--bank flex-centered">
-                <div class="play-controls flex-centered">
-                    <button id="stand" class="play-btn">STAND</button>
-                    <button id="bet" class="play-btn">BET</button>
-                    <button id="hit" class="play-btn">HIT</button>
-                </div>
-                <div class="bet-bank-container">
-                    <div class="undo-container"></div>
-                    <div id="bet-info" class="bet-info flex-centered">
-                        <span id="bet-info-txt">Total bet: </span>
-                        <span id="total-bet"> 0 </span>
-                    </div>
-                    <div class="bank-info">
-                        <span>Credits available:</span>
-                        <span id="bank-amount">0</span>
-                    </div>
-                </div>
-                <div class="chips-container flex-centered">
-                    <button class="chip chip--1">
-                        <span class="chip-inner flex-centered">25</span>
-                    </button>
-                    <button class="chip chip--2">
-                        <span class="chip-inner flex-centered">50</span>
-                    </button>
-                    <button class="chip chip--3">
-                        <span class="chip-inner flex-centered">100</span>
-                    </button>
-                    <button class="chip chip--4">
-                        <span class="chip-inner flex-centered">250</span>
-                    </button>
-                    <button class="chip chip--5">
-                        <span class="chip-inner flex-centered">500</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+  <!-- Nav Bar (hidden by default) -->
+  <nav class="nav-container flex-centered">
+    <button id="cash-out">CASH OUT</button>
+    <button id="help-ingame">HELP</button>
+  </nav>
+  <!-- Container for all elements (changes flex direction from column to row in landscape) -->
+  <section class="desktop-container">
+    <h1>BLACKJACK THE GAME</h1>
+    <!-- Main menu container -->
+    <div class="menu-container flex-centered">
+      <div class="logo-container flex-centered">
+        <img src="assets/images/logo.gif" alt="logo">
+      </div>
+      <div class="buttons-container flex-centered">
+        <button id="new-game" class="main-btn">NEW GAME</button>
+        <button id="options" class="main-btn">OPTIONS</button>
+        <button id="rules" class="main-btn">RULES</button>
+      </div>
     </div>
-
-    <footer>© 2021, Made by Sandro Bencinic</footer>
-
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/help.js"></script>
-    <script src="assets/js/scores.js"></script>
+    <!-- Options container (hidden by default) -->
+    <div class="options-container flex-centered">
+      <div class="options-box flex-centered">
+        <div class="options-btns-container flex-centered">
+          <h2 id="option-conservative" class="option-btns">
+            <i class="far fa-check-square"></i> CONSERVATIVE
+          </h2>
+          <p class="option-text"><em>Dealer will play safe and will not draw new
+              card in tie situation. Enabling this option will result in drawing
+              more often.</em></p>
+          <br>
+          <h2 id="option-aggressive" class="option-btns">
+            <i class="far fa-square"></i> AGGRESSIVE
+          </h2>
+          <p class="option-text"><em>Dealer will play more aggressively and will
+              always draw another card in tie situations.</em></p>
+        </div>
+        <button class="options-close">CLOSE</button>
+      </div>
+    </div>
+    <!-- Help container (hidden by default) -->
+    <div class="help-container flex-centered">
+      <div class="help-box flex-centered">
+        <h2 class="help-title">TITLE</h2>
+        <p class="help-text"></p>
+        <div class="help-controls flex-centered">
+          <div class="arrows">
+            <button id="btn-left"><i class="fas fa-caret-left"></i></button>
+            <button id="btn-right"><i class="fas fa-caret-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- High Scores container (hidden by default) -->
+    <div class="top-scores-container flex-centered">
+      <div class="top-scores-box flex-centered">
+        <h2 class="top-scores-title">TOP SCORES</h2>
+        <table class="flex-centered">
+          <tr class="table-heading">
+            <th>Place</th>
+            <th class="name">Name</th>
+            <th class="score">Score</th>
+          </tr>
+          <tr class="no1">
+            <td>1.</td>
+            <td class="name"></td>
+            <td class="score"></td>
+          </tr>
+          <tr class="no2">
+            <td>2.</td>
+            <td class="name"></td>
+            <td class="score"></td>
+          </tr>
+          <tr class="no3">
+            <td>3.</td>
+            <td class="name"></td>
+            <td class="score"></td>
+          </tr>
+          <tr class="no4">
+            <td>4.</td>
+            <td class="name"></td>
+            <td class="score"></td>
+          </tr>
+          <tr class="no5">
+            <td>5.</td>
+            <td class="name"></td>
+            <td class="score"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- Container for main game elements -->
+    <div class="playing-container flex-centered">
+      <!-- Playing area (green surface) -->
+      <div class="main-area main-area--playing flex-centered">
+        <div class="playing-section playing-section--dealer flex-centered">
+          <div id="dealer-cards" class="dealer-cards flex-centered"></div>
+        </div>
+        <div id="playing-section-middle" class="playing-section flex-centered">
+          <div
+            class="playing-section-middle--item score-container score-container--dealer flex-centered">
+            <span>DEALER:</span>
+            <span id="dealer-score" class="score-value">0</span>
+          </div>
+          <div class="playing-section-middle--item flex-centered">
+            <button id="double" class=" double play-btn">Double</button>
+            <button id="insurance"
+              class=" insurance play-btn">Insurance</button>
+          </div>
+          <div
+            class="playing-section-middle--item score-container score-container--player flex-centered">
+            <span>PLAYER:</span>
+            <span id="player-score" class="score-value">0</span>
+          </div>
+        </div>
+        <div class="playing-section playing-section--player flex-centered">
+          <div id="player-cards" class="player-cards flex-centered"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Controls area (blue surface) -->
+    <div class="controls-container flex-centered">
+      <div class="main-area main-area--bank flex-centered">
+        <div class="play-controls flex-centered">
+          <button id="stand" class="play-btn">STAND</button>
+          <button id="bet" class="play-btn">BET</button>
+          <button id="hit" class="play-btn">HIT</button>
+        </div>
+        <div class="bet-bank-container">
+          <div class="undo-container"></div>
+          <div id="bet-info" class="bet-info flex-centered">
+            <span id="bet-info-txt">Total bet: </span>
+            <span id="total-bet"> 0 </span>
+          </div>
+          <div class="bank-info">
+            <span>Credits available:</span>
+            <span id="bank-amount">0</span>
+          </div>
+        </div>
+        <div class="chips-container flex-centered">
+          <button class="chip chip--1">
+            <span class="chip-inner flex-centered">25</span>
+          </button>
+          <button class="chip chip--2">
+            <span class="chip-inner flex-centered">50</span>
+          </button>
+          <button class="chip chip--3">
+            <span class="chip-inner flex-centered">100</span>
+          </button>
+          <button class="chip chip--4">
+            <span class="chip-inner flex-centered">250</span>
+          </button>
+          <button class="chip chip--5">
+            <span class="chip-inner flex-centered">500</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>© 2021, Made by Sandro Bencinic</footer>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/help.js"></script>
+  <script src="assets/js/scores.js"></script>
 </body>
 
 </html>
