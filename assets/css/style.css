@@ -899,6 +899,7 @@ MEDIA QUERIES
   .help-box p {
     font-size: 1.3rem;
     align-items: center;
+    width: 80%;
   }
 
   #btn-left,
