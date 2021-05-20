@@ -119,7 +119,12 @@ function enterPlayerName() {
 // Makes sure input field is populated, and calls the calculateHighScores() function to manipulate the local storage
 function saveHighScore() {
   if ($("#name").val() === "") {
-    alert("required field");
+    if ($(".required-text").length === 0) {
+      let requiredTxt = $("<span></span>").addClass("required-text");
+      requiredTxt.text("* Name field cannot be empty *");
+      $(".pop-up-box").append(requiredTxt);
+      return;
+    };
   } else {
     currentScore = {
       name: $("#name").val(),

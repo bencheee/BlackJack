@@ -496,6 +496,13 @@ POP UP MESSAGES
   padding: 0 5px;
 }
 
+.required-text {
+  position: absolute;
+  bottom: 4px;
+  font-size: 0.8em;
+  color: red;
+}
+
 /* 
 ##############
 MEDIA QUERIES
@@ -750,6 +757,10 @@ MEDIA QUERIES
 
   .pop-up-box button {
     width: 10vw;
+  }
+
+  .required-text {
+    bottom: 20px;
   }
 
   .help-box p {
