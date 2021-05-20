@@ -180,7 +180,6 @@ HELP SECTION
 .top-scores-box {
   background-color: white;
   color: black;
-  justify-content: space-between;
   flex-direction: column;
   box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
   height: 70%;
