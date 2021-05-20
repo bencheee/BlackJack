@@ -142,19 +142,39 @@ This is where majority of player game choices takes place. It consists of Bank i
 
 ## 5. TESTING
 
-The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) services were used to validate the code of the project to ensure there were no syntax errors.
+The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) services were used to validate the HTML and CSS code of the project to ensure there were no syntax errors. [jsHint](https://jshint.com/) was used to test JavaScript code.
 
 * HTML Code Test Results:
 
   - [index.html](documentation/testing/images/code_validation/html_test.jpg)
 
-    - No errors were found in HTML code. However there are 4 warnings. They are all suggesting to change sections to heading tags. Since those sections were used to divide different areas of the game, they have no text content so I have decided to still use section tags.
+    - No errors were found in HTML code.
 
 * CSS Code Test Results:
 
   - [CSS](documentation/testing/images/code_validation/css_test.jpg)
 
     - No errors were found in CSS code.
+
+* JavaScript Code Testing:
+
+  - Following settings were used to test the code
+
+  - [JavaScript](documentation/testing/images/code_validation/js_test_settings.JPG)
+
+  - *script.js* test results:
+
+  - [script.js](documentation/testing/images/code_validation/js_test_script.JPG)
+
+  - *help.js* test results:
+
+  - [help.js](documentation/testing/images/code_validation/js_test_help.JPG)
+
+  - *scores.js* test results:
+
+  - [scores.js](documentation/testing/images/code_validation/js_test_scores.JPG)
+
+    - All tests passed with no major issues
 
 ### 5.1 Testing User Stories from User Experience (UX) Section
 

@@ -34,7 +34,7 @@ let help = [{
 ];
 
 // Shows help/rules section on the screen
-$('.help-title').text(help[0].title)
+$('.help-title').text(help[0].title);
 $('.help-text').text(help[0].text);
 $('#help-ingame').click(function() {
   $('nav button').css("pointer-events", "none");
@@ -59,7 +59,7 @@ $('#btn-right').click(function() {
   helpCounter += 1;
   if (helpCounter > 6) {
     helpCounter = 0;
-  };
+  }
   helpText(helpCounter);
 });
 // Left arrow in help section
@@ -67,11 +67,11 @@ $('#btn-left').click(function() {
   helpCounter -= 1;
   if (helpCounter < 0) {
     helpCounter = 6;
-  };
+  }
   helpText(helpCounter);
 });
 
 function helpText(i) {
-  $('.help-title').text(help[i].title)
+  $('.help-title').text(help[i].title);
   $('.help-text').text(help[i].text);
-};
+}

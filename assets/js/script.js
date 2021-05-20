@@ -80,7 +80,7 @@ $("#options").click(function() {
     let btn = $("<button></button>").addClass("options-close").text(
     "CLOSE");
     $(".options-box").append(btn);
-  };
+  }
   // Toggles between "aggressive" and "conservative" mode
   $("#option-conservative").click(function() {
     if ($("#option-conservative i").hasClass("fa-square")) {
@@ -92,7 +92,7 @@ $("#options").click(function() {
         playStyle = "aggressive";
       } else {
         playStyle = "conservative";
-      };
+      }
     }
   });
   // Toggles between "aggressive" and "conservative" mode
@@ -106,8 +106,8 @@ $("#options").click(function() {
         playStyle = "conservative";
       } else {
         playStyle = "aggressive";
-      };
-    };
+      }
+    }
   });
   $(".options-close").click(function() {
     $(".menu-container").show();
@@ -149,12 +149,12 @@ $(".chip").click(function() {
 $("#bet").click(function() {
   placedBet = true;
   // Draws 2 cards for player / dealer
-  for (i = 0; i < 2; i++) {
+  for ( let i = 0; i < 2; i++) {
     generateCard();
     addCard(playerHandString, playerHandValue, $("#player-cards"));
     generateCard();
     addCard(dealerHandString, dealerHandValue, $("#dealer-cards"));
-  };
+  }
   // Hides first dealer's card
   $("#dealer-cards").children(":first")
     .replaceWith(`<img src="assets/images/Red_back.jpg" class="card">`);
@@ -170,10 +170,10 @@ $("#bet").click(function() {
   $("#stand").removeClass("play-btn-disabled");
   if (playerScore < 21) {
     $("#double").removeClass("play-btn-disabled");
-  };
+  }
   if (dealerHandValue[0] === 11 || dealerHandValue[0] === 10) {
     $("#insurance").removeClass("play-btn-disabled");
-  };
+  }
   $(".chip").addClass("chip-off");
   // Checks if player has Blackjack
   checkBlackjack();
@@ -209,6 +209,7 @@ GAME FUNCTIONS
 function generateCard() {
   /* Determines card value by generating string
      2-10 or A, J, Q, K ( A = Ace, J = Jack, Q = Queen, K = King */
+  let cardValue;
   let randNumber = Math.ceil(Math.random() * 13);
   switch (randNumber) {
     case 1:
@@ -225,9 +226,10 @@ function generateCard() {
       break;
     default:
       cardValue = randNumber.toString();
-  };
+  }
   /* Determines card color by generating string
      H, C, D or S (H = Hearts, C = Clubs, D = Diamonds, S = Spades) */
+  let cardColor;
   let randColor = Math.ceil(Math.random() * 4);
   switch (randColor) {
     case 2:
@@ -238,18 +240,18 @@ function generateCard() {
       break;
     case 4:
       cardColor = "D";
-      break
+      break;
     default:
       cardColor = "S";
-  };
+  }
   /* If generated combination of strings already exists
      in cardsDrawn array generates another*/
   if (!cardsDrawn.includes(`${cardValue}${cardColor}`)) {
     cardsDrawn.unshift(`${cardValue}${cardColor}`);
   } else {
     generateCard();
-  };
-};
+  }
+}
 // Function takes parameters depending on if it is adding card to player's or dealer's hand
 function addCard(handString, handValue, container) {
   // Creates and adds new card element to index.html
@@ -279,14 +281,14 @@ function addCard(handString, handValue, container) {
       break;
     default:
       convertedValue = Number(firstChar);
-  };
+  }
   // Updates handValue array for player / dealer with numeric value of card drawn
   handValue.unshift(convertedValue);
-};
+}
 // Adds up all items in player's/dealer's handValue array and returns the sum
 function getHandValue(handValue) {
   let totalHandValue = 0;
-  for (i = 0; i < handValue.length; i++) {
+  for (let i = 0; i < handValue.length; i++) {
     // Checks for NaN value to determine if this is Ace card
     if (isNaN(handValue[i])) {
       // Gives value of 1 or 11 to Ace card
@@ -294,12 +296,12 @@ function getHandValue(handValue) {
         handValue[i] = 1;
       } else {
         handValue[i] = 11;
-      };
-    };
+      }
+    }
     totalHandValue += handValue[i];
   }
   return totalHandValue;
-};
+}
 // Corrects and updates the scores for player/dealer
 function updateTotal() {
   // Stores score for player / dealer BEFORE correcting ace value
@@ -314,11 +316,11 @@ function updateTotal() {
   // Updates html with latest scores
   $("#player-score").text(`${playerScore}`);
   $("#dealer-score").text(`${dealerHandValue[0]}`);
-}; // end updateTotal
+}
 function aceCorrect(handValue, score) {
   // Adjusts value of ace card to 1 if total score is > 21
   if (score > 21) {
-    for (i = 0; i < handValue.length; i++) {
+    for (let i = 0; i < handValue.length; i++) {
       if (handValue[i] === 11) {
         handValue[i] = 1;
         score -= 10;
@@ -327,11 +329,11 @@ function aceCorrect(handValue, score) {
           break;
         } else {
           aceCorrect(handValue, score);
-        };
-      };
-    };
-  };
-};
+        }
+      }
+    }
+  }
+}
 // Checks if player has Blackjack after initial two cards are dealt
 function checkBlackjack() {
   if (playerScore === 21) {
@@ -354,14 +356,14 @@ function checkBlackjack() {
           .replaceWith(
             `<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`
           );
-      };
+      }
       $(".pop-up-box button").click(function() {
         popUpOff();
         setTimeout(resetRound, 1000);
       });
     });
-  };
-};
+  }
+}
 // Checks if player busted / has Blackjack / drew 5 cards after "hit" button is pressed
 function checkScore() {
   if (playerScore > 21) {
@@ -376,7 +378,7 @@ function checkScore() {
       popUpOff();
       dealerTurn();
     });
-  };
+  }
   // Checks and limits amount of player"s drawn cards to 5 
   if (playerHandString.length === 5 && playerScore < 21) {
     popUpOn(
@@ -386,8 +388,8 @@ function checkScore() {
       popUpOff();
       dealerTurn();
     });
-  };
-};
+  }
+}
 
 function dealerTurn() {
   // Keeps drawing cards as long as player is in the lead
@@ -409,9 +411,9 @@ function dealerTurn() {
           setTimeout(resetRound, 1000);
         });
         return;
-      };
+      }
       dealerDraws();
-    };
+    }
     if (dealerScore <= playerScore) {
       if (dealerScore === playerScore && playStyle === "conservative") {
         decideWinner();
@@ -432,7 +434,7 @@ function dealerTurn() {
           creditsAvailable += (totalBet * 2);
         } else {
           creditsAvailable += (totalBet * 1.5);
-        };
+        }
         $(".pop-up-box button").click(function() {
           popUpOff();
           setTimeout(resetRound, 1000);
@@ -443,8 +445,8 @@ function dealerTurn() {
         }
         decideWinner();
         return;
-      };
-    };
+      }
+    }
   } else {
     $("#dealer-score").text(dealerScore);
     $("#dealer-cards").children(":first")
@@ -452,8 +454,8 @@ function dealerTurn() {
         `<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`
       );
     decideWinner();
-  };
-};
+  }
+}
 // Generates new card for dealer
 function dealerDraws() {
   generateCard();
@@ -475,14 +477,14 @@ function dealerDraws() {
         creditsAvailable += (totalBet * 2);
       } else {
         creditsAvailable += (totalBet * 1.5);
-      };
+      }
       $(".pop-up-box button").click(function() {
         popUpOff();
         setTimeout(resetRound, 1000);
       });
-    };
-  };
-};
+    }
+  }
+}
 
 function decideWinner() {
   $("#dealer-score").text(dealerScore);
@@ -515,13 +517,13 @@ function decideWinner() {
       creditsAvailable += (totalBet * 2);
     } else {
       creditsAvailable += (totalBet * 1.5);
-    };
+    }
     $(".pop-up-box button").click(function() {
       popUpOff();
       setTimeout(resetRound, 1000);
     });
-  };
-};
+  }
+}
 // Displays pop up message on game screen
 function popUpOn(message) {
   $(".playing-section-middle--item").hide();
@@ -535,14 +537,14 @@ function popUpOn(message) {
   popUpBox.append(popUpTxt);
   popUpBox.append(popUpBtn);
   $("#hit, #stand").addClass("play-btn-disabled");
-};
+}
 // Removes pop up message from game screen
 function popUpOff() {
   $(".overlay").remove();
   $(".pop-up-box").remove();
   $(".playing-section-middle--item").show();
   $('nav button').css("pointer-events", "auto");
-};
+}
 // Cancels last bet in totalBet array and changes DOM elements accordingly
 function undoBtn() {
   // Makes sure undo button is not duplicated
@@ -552,7 +554,7 @@ function undoBtn() {
       $(".undo-container").append(undoBtn.text("UNDO BET"));
     } else {
       $("#player-cards").append(undoBtn.text("UNDO BET"));
-    };
+    }
     // Removes last bet
     $(".undo-btn").click(function() {
       totalBet -= betPool[0];
@@ -567,11 +569,11 @@ function undoBtn() {
         $("#bet-info").removeClass("bet-info--active");
         // Deactivates bet button
         $("#bet").addClass("play-btn-disabled");
-      };
+      }
       chipsToggle();
     });
-  };
-};
+  }
+}
 // Runs when double button is pressed
 function double() {
   // Checks if there is enough credit to place double bet
@@ -583,7 +585,7 @@ function double() {
       $("#double").addClass("play-btn-disabled");
     });
     return;
-  };
+  }
   // Displays pop-up message with yes/no option
   popUpOn(
     `You will place additional bet of ${totalBet} credits and draw only one card. Do you wish to proceed?`
@@ -617,13 +619,13 @@ function double() {
         popUpOff();
         dealerTurn();
       });
-    };
+    }
   });
   no.click(function() {
     popUpOff();
     $("#hit, #stand").removeClass("play-btn-disabled");
   });
-};
+}
 // Runs when double button is pressed
 function insurance() {
   // Checks if there is enough credit to place insurance bet
@@ -635,7 +637,7 @@ function insurance() {
       $("#insurance").addClass("play-btn-disabled");
     });
     return;
-  };
+  }
   // Displays pop-up message with yes/no option
   popUpOn(
     `You will bet ${totalBet / 2} credits on whether dealer has Blackjack or not. Do you wish to proceed?`
@@ -676,13 +678,13 @@ function insurance() {
         $("#hit, #stand").removeClass("play-btn-disabled");
         $("#total-bet").text(`${totalBet}`);
       });
-    };
+    }
   });
   no.click(function() {
     popUpOff();
     $("#hit, #stand").removeClass("play-btn-disabled");
   });
-};
+}
 // Checks which chip buttons should activate/deactivate depending on the available player's credit left
 function chipsToggle() {
   $(".chip span").each(function() {
@@ -690,9 +692,9 @@ function chipsToggle() {
       $(this.parentNode).addClass("chip-off");
     } else {
       $(this.parentNode).removeClass("chip-off");
-    };
+    }
   });
-};
+}
 // Resets everything except available credits to default values
 function resetRound() {
   $(".card").remove();
@@ -719,10 +721,10 @@ function resetRound() {
       popUpOff();
       location.reload();
     });
-  };
+  }
   chipsToggle();
   $(".play-btn").addClass("play-btn-disabled");
-};
+}
 
 /*
 Adds .flex-centered class to .desktop-container if in landscape mode.
@@ -743,16 +745,16 @@ function checkScreenSize() {
       $(".pop-up-box button").click(function() {
         popUpOff();
       });
-    };
+    }
   } else {
     $(".desktop-container").removeClass("flex-centered");
     if ($("div").hasClass("check-screen")) {
       popUpOff();
       $(".nav-container").show();
-    };
-  };
+    }
+  }
   $("body").css("height", `${window.innerHeight}px`);
-};
+}
 
 function popUpWarning(message) {
   let overlay = $("<div></div>").addClass("overlay check-screen flex-centered");
@@ -766,4 +768,4 @@ function popUpWarning(message) {
   overlay.append(popUpBox);
   popUpBox.append(popUpTxt);
   popUpBox.append(popUpBtn);
-};
+}
