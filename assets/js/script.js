@@ -737,10 +737,10 @@ function checkScreenSize() {
     $(".desktop-container").addClass("flex-centered");
     // It will not pop up message if another pop up is active
     if ((window.innerWidth < 992) && ($("div").hasClass("pop-up-box") ===
-      false)) {
+        false)) {
       popUpWarning(
         "TIP: For best experience it is recommended to play in portrait mode when on mobile and tablet devices."
-        );
+      );
       $(".overlay").css("height", `${window.innerHeight}px`);
       $(".pop-up-box button").click(function() {
         popUpOff();
@@ -748,8 +748,10 @@ function checkScreenSize() {
     }
   } else {
     $(".desktop-container").removeClass("flex-centered");
-    if ($("div").hasClass("check-screen")) {
-      popUpOff();
+    popUpOff();
+    // Does nod display navbar items if in main menu
+    // CODE CREDIT: https://stackoverflow.com/questions/19669786/check-if-element-is-visible-in-dom
+    if ($(".menu-container")[0].offsetParent === true) {
       $(".nav-container").show();
     }
   }
@@ -757,7 +759,7 @@ function checkScreenSize() {
 }
 
 function popUpWarning(message) {
-  let overlay = $("<div></div>").addClass("overlay check-screen flex-centered");
+  let overlay = $("<div></div>").addClass("overlay flex-centered");
   overlay.css("height", "100vh");
   let popUpBox = $("<div></div>").addClass("pop-up-box flex-centered");
   popUpBox.css("left", "auto");
