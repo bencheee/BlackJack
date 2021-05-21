@@ -497,6 +497,15 @@ localStorage.setItem("highScore0", JSON.stringify(currentScore));
 JSON.parse(localStorage.getItem("highScore4")).score;
 ```
 
+**CODE CREDIT: https://stackoverflow.com/questions/19669786/check-if-element-is-visible-in-dom**
+
+Code was used to hide navbar items in main menu only, when switching from portrait to landscape view
+
+```
+if ($(".menu-container")[0].offsetParent === true) {
+    $(".nav-container").show();
+}
+```
 
 ### 7.2 Media
 
