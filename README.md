@@ -28,13 +28,13 @@
 
 - *As a casual player*, I want to get notified about the score in real time so I can adapt my strategy accordingly.
 
-- *As a casual player*, I want to see 'quit' button so I can restart the session whenever I wish.
+- *As a casual player*, I want to see 'quit' button so I can exit the session whenever I wish.
 
 #### 1.1.3 Advanced player's goals
 
 - *As an advanced player*, I want to be able to choose advanced options in order to make the game more interesting.
 
-- *As an advanced player*, I want to be able to keep my score so I can compare it with previous scores.
+- *As an advanced player*, I want to be able to keep my score so I can compare it with best scores.
 
 - *As an advanced player*, I want to see virtual currency system so I can place bets in each round.
 
@@ -64,17 +64,17 @@
 
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the site design process.
 
-- [jQuery](https://jquery.com/) was used along with JavaScript to manipulate the DOM, CSS and handling JavaScript events in simpler way.
+- [jQuery](https://jquery.com/) was used along with JavaScript to manipulate the DOM, CSS and handle JavaScript events in easier way.
 
-- [Google Fonts](https://fonts.google.com/) were used to import 'Oswald' font which is the only font used throughout the site.
+- [Google Fonts](https://fonts.google.com/) were used to import 'Oswald' and 'Bungee Inline' fonts which were used throughout the site.
 
-- [Gitpod](https://www.gitpod.io/) was used to write all the HTML and CSS for the site.
+- [Gitpod](https://www.gitpod.io/) was used to write all the HTML, CSS and JavaScript code for the site.
 
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub
 
 - [GitHub](https://github.com/) is used to store the projects code after being pushed from Git.
 
-- [Photopea](https://www.photopea.com/) is free online photo editor which was used to edit and optimize background image and all card images.
+- [Photopea](https://www.photopea.com/) is free online photo editor which was used to edit and optimize background image, logo and all card images.
 
 - [Font Awesome](https://fontawesome.com/) was used to add icons for aesthetic and UX purposes.
 
@@ -86,7 +86,7 @@
 
 ## 4. DESIGN
 
-Design is very simplistic using only one photo as main background and all other elements are on top with added opacity so the background can be visible all the time. Background image shows a game of BlackJack in action which suits the theme of the site.
+Design is simplistic, with only one photo as main background (color and grayscale version). In the main menu there is also game logo (joker hat), game title and menu buttons. In the game playing area, main elements are opaque so the background is visible all the time. Background image shows a game of BlackJack in action which suits the theme of the site.
 
 Color scheme consists of two main colors. Light green for main playing area where cards are displayed, and deep blue for controls area where most of the playing buttons are placed. Throught the game pop up messages are displayed to explain current status of the game to the user and sometimes to decide on the next step. They are made in white color with black text. Font which is used for headings is 'Bungee Inline' with 'Sans Serif' as the fallback font in case for any reason main font is not loaded. Font which is used throughout the site for the rest of the text is 'Oswald' with 'Sans Serif' as the fallback font.
 
@@ -94,17 +94,17 @@ Color scheme consists of two main colors. Light green for main playing area wher
 
 #### 4.1.1 Start Screen
 
-First thing shown on the site is 'Start screen' with three buttons to select from: 'New game', 'Options', 'Rules' and additional 'Top Scores' button which is displayed only after there is at least one entry on top scores list. By selecting 'New game' as expected new game of BlackJack will start. By selecting 'Options' button player will have be able to choose from 'Conservative' and 'Aggressive' modes. This will control the way dealer will make decisions during the round. Lastly, 'Rules' button will display basic rules of the game in a box with arrow buttons and 'close' button for easier navigation. 'Tops scores' button will display list of top 5 scores stored in local memory.
+First thing shown on the site is 'Start screen' with three buttons to select from: 'New game', 'Options', 'Rules' and additional 'Top Scores' button which is displayed only after there is at least one entry on top scores list. By selecting 'New game', new game of BlackJack starts. By selecting 'Options' button player can choose from 'Conservative' and 'Aggressive' modes. This controls the way dealer makes decisions during the round. Lastly, 'Rules' button displays basic rules of the game in a box with arrow buttons and 'close' button for easier navigation. 'Tops scores' button displays list of top 5 scores stored in local storage of the browser.
 
 #### 4.1.2 Navigation
 
 ##### Cash-out
 
-This option will prompt a pop up message with a simple yes/no choice whether player wants to end current game session or not. If 'yes' is selected this will inform the player of the final score and reload the page, bringing the player to main menu.
+This option prompts a pop up message with a simple yes/no choice whether player wants to end current game session or not. If 'yes' is selected this informs the player of the final score and reloads the page, bringing the player to main menu.
 
 ##### Help
 
-This option will show the same rules window as the button in the main menu. Rules window is interactive and allows the player to easily navigate through all rules by selecting on of the arrows. Every rule has it's title and text explaining the rule.
+This option show the same rules window as the button in the main menu. Rules window is interactive and allows the player to easily navigate through all rules by selecting on of the arrows. Every rule has it's title and text which explains the rule.
 
 #### 4.1.3 Main game area
 
@@ -116,25 +116,25 @@ This is where majority of the card game takes place. It consists of 2 card conta
 
 * *Score boxes* - Their purpose is to show sum of the drawn card values. Because of the game mechanic players score box gets updated in real time after every new card is drawn. Dealers score box shows only the value of the one visible card in dealer's container. If dealer gets a chance to play and to show the cards in the end of the round then this score box is updated with total sum of card values too.
 
-* *Undo bet button* - It is enabled only after at least one bet is placed and before cards are dealt. By selecting in the last bet will be cancelled and credits will be returned to player. If all bets are cancelled button gets disabled again.
+* *Undo bet button* - It is enabled only after at least one bet is placed and before cards are dealt. By selecting in the last bet will be cancelled and credits will be returned to player. If all bets are cancelled button gets disabled again. On desktop computers this button is shown inside of controls section.
 
-* *Double button* - It is enabled only after initial cards are dealt. If player decides to choose other action at this stage (hit / stand / insurance) Double button gets disabled again until the end of the round.
+* *Double button* - It is enabled only after initial cards are dealt. If player decides to choose other action at this stage (hit / stand / insurance), 'double' button gets disabled again until the end of the round. If 'hit' button is activated, 'double' button is deactivated for the rest of the round.
 
-* *Insurance button* - It gets enabled only in situation when after initial dealing of cards dealer's visible card is Ace or any card which has value of 10. If player decides to activate insurance button separate bet will be placed. Pop-up message will be shown informing the player of the outcome of insurance bet and game will continue.
+* *Insurance button* - It gets enabled only in situation when after initial dealing of cards dealer's visible card is Ace or any card which has value of 10. If player decides to activate insurance button, separate bet is placed. Then a pop-up message is shown informing the player of the outcome of insurance bet and game continues. If 'hit' button is activated, 'insurance' button is deactivated for the rest of the round.
 
-* *Pop up message box* - It gets visible only when game needs to inform player about game outcome (win, loss, draw or insurance bet). Message box is shown in the same section on the screen where scores and double/insurance buttons are so when it gets activated it will automatically disable the latter.
+* *Pop up message box* - It gets visible only when game needs to inform player about game outcome (win, loss, draw or insurance bet), or wait for payer's input. Message box is shown in the same section on the screen where scores and double/insurance buttons are so when it gets activated it will automatically disable the latter.
 
 ##### Controls section
 
-This is where majority of player game choices takes place. It consists of Bank info which shows current amount of credits in the bank, chip buttons which are used to place bets and three game buttons (bet / hit / stand).
+This is where majority of player game choices takes place. It consists of 'Credits available' which shows current amount of credits on player's disposal, 'Total bet' box, chip buttons which are used to place bets and three game buttons (bet / hit / stand).
 
-* *Bank info* - Shows current amount of credits left for player to place as a bet. It gets updated in real time depending on player's bets and potential winnings.
+* *Credits available* - Shows current amount of credits left for player to place as a bet. It gets updated in real time depending on player's bets and potential winnings.
 
-* *Bet-info* - Shows total value of the bet in the round. It adds or deducts total value of the bet depending on player's actions and updates the value in real time. After the cards are dealt this value can not be changed until the end of the round (only exception is if player decides to play double game which will double the bet or insurance game which will display separate bet in brackets).
+* *Total bet* - Shows total value of the bet in the round. It adds or deducts total value of the bet depending on player's actions and updates the value in real time. After the cards are dealt this value can not be changed until the end of the round (only exception is if player decides to play double game which will double the bet or insurance game which will display separate bet in brackets).
 
-* *Chip buttons* - There are 5 chip buttons with different values and colors. By selecting any of them a bet of the assigned value in credits will be placed. If there is no enough credits left in the bank to place a bet of certain chip value this will disable the chip button. If the amount gets available again (for example by undoing the last bet) chip button gets activated. Once the bet is placed and initial cards are dealt all chip buttons get deactivated until the beginning of the new round.
+* *Chip buttons* - There are 5 chip buttons with different values and colors. By selecting any of them a bet of the assigned value in credits is placed. If there is no enough credits left to place a bet of certain chip value this chip is then deactivated. If the amount gets available again (for example by undoing the last bet) chip button gets activated. Once the bet is placed and initial cards are dealt all chip buttons get deactivated for the rest of the round.
 
-* *Play buttons* - There are 3 buttons in this area available to play the game (bet / hit / stand). Bet button gets activated after there is minimum bet placed in the pot. Bet button can be selected only once after which initial cards will be dealt and button will be disabled until new bet in next round is placed. Hit button will add new card to player's card container and it can be selected until there are 5 cards in player's card container or until the total player's score is 21 or more. Stand button will end player's turn and allow dealer to play.
+* *Play buttons* - There are 3 buttons in this area available to play the game (bet / hit / stand). Bet button gets activated after there is minimum bet placed in the pot. Bet button can be selected only once, after which initial cards is dealt and button is deactivated until the end of the round. Hit button adds new card to player's card container and it can be selected until there are 5 cards in player's card container or until the total player's score is 21 or more. Stand button ends player's turn and allows dealer to play.
 
 
 ---
@@ -202,7 +202,7 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     [Example 6](/documentation/testing/images/ux/006.jpg)
 
-- As a first time player, I want to clearly see who won and why so I can quicker understand all mechanics of the game.
+- As a first time player, I want to clearly see who won and why so I can faster understand all mechanics of the game.
 
     - Every game outcome is explained through pop up messages, same as special functions such as *double*, *insurance* and *cash-out*
 
@@ -217,7 +217,7 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
 - As a casual player, I want to be challenged and entertained.
 
-    - Different combinations of cards, different betting strategies and in game decisions made by user combined with many possible game outcomes make every round of the game a unique experience for the user.
+    - Different combinations of cards, betting strategies and in game decisions made by user combined with many possible game outcomes make every round of the game a unique experience for the user.
 
 - As a casual player, I want to get notified about the score in real time so I can adapt my strategy accordingly.
 
@@ -225,7 +225,7 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     [Example 8](/documentation/testing/images/ux/008.jpg)
 
-- As a casual player, I want to see 'quit' button so I can restart the session whenever I wish.
+- As a casual player, I want to see 'quit' button so I can exit the session whenever I wish.
 
     - In the top left corner of the navigation bar there is *Cash-out* button which gives the user the option to leave current session and get notified about the final score.
 
@@ -241,9 +241,9 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     [Example 11](/documentation/testing/images/ux/011.jpg)
 
-- As an advanced player, I want to be able to keep my score so I can compare it with previous scores.
+- As an advanced player, I want to be able to keep my score so I can compare it with best scores.
 
-    - In the main menu there is a 'Top Scores' button which will show list of all time top 5 scores stored in local memory of the browser.
+    - In the main menu there is a 'Top Scores' button which will show list of all time top 5 scores stored in local storage of the browser.
 
     [Example 12](/documentation/testing/images/ux/012.jpg)
 
@@ -279,7 +279,7 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
     ![responsive](/documentation/testing/images/resolutions/responsive.JPG)
 
-- *NOTE: Game is designed to be played in portrait mode on mobile and tablet devices and in landscape mode on desktop and laptop computers. However, game experience gets better in landscape mode on mobile and tablet devices with larger screen resolutions. For this purpose, in cases when player is using mobile or tablet device in landscape mode, folloing pop up message appears:*
+- *NOTE: Game is designed to be played in portrait mode on mobile and tablet devices and in landscape mode on desktop and laptop computers. However, game experience gets better in landscape mode on mobile and tablet devices with larger screen resolutions. For this purpose, in cases when player is using mobile or tablet device in landscape mode, following pop up message appears:*
 
     ![screen-size-tip](/documentation/testing/images/resolutions/screen-size-tip.png)
 
