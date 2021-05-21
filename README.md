@@ -66,6 +66,8 @@
 
 - [jQuery](https://jquery.com/) was used along with JavaScript to manipulate the DOM, CSS and handle JavaScript events in easier way.
 
+- [Local Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) was used to store game high scores.
+
 - [Google Fonts](https://fonts.google.com/) were used to import 'Oswald' and 'Bungee Inline' fonts which were used throughout the site.
 
 - [Gitpod](https://www.gitpod.io/) was used to write all the HTML, CSS and JavaScript code for the site.
