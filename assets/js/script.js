@@ -18,7 +18,7 @@ let cardsDrawn = [],
   doubleMode = false,
   placedBet = false;
 
-/*
+  /*
 ###################################################
 ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 ###################################################
@@ -27,8 +27,8 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 // Checks screen size / layout
 $(window).ready(checkScreenSize);
 $(window).resize(checkScreenSize);
-
 /*
+
 Disables zoom on double click
 CODE CREDIT: https://www.quora.com/How-can-I-prevent-default-double-click-behavior-with-JavaScript
 */
@@ -43,8 +43,8 @@ $(".playing-container").hide();
 $(".controls-container").hide();
 $(".options-container").hide();
 $(".top-scores-container").hide();
-$(".play-btn").addClass("play-btn-disabled");
 $("#bank-amount").text(creditsAvailable);
+disableBtn(".play-btn");
 
 /*
 ###############
@@ -62,15 +62,15 @@ $("#new-game").click(function() {
   $(".menu-container").hide();
   $("h1").hide();
   $("h1").hide();
-  //$(".chip").addClass("chip-off");
   popUpOn(
-    `Welcome to "Blackjack The Game". Place your first bet by pressing one of the chip buttons. Good luck!`
+    "Welcome to 'Blackjack The Game'. Place your first bet by pressing one of the chip buttons. Good luck!"
   );
   $(".pop-up-box button").click(function() {
     popUpOff();
     $(".chip").removeClass("chip-off");
   });
 });
+
 $("#options").click(function() {
   $(".menu-container").hide();
   $("h1").hide();
@@ -78,7 +78,7 @@ $("#options").click(function() {
   // Adds close button to options window. This is necessary because this button is removed by showTopScoresList() function which causes a bug where button is permanently hidden.
   if ($(".options-close").length === 0) {
     let btn = $("<button></button>").addClass("options-close").text(
-    "CLOSE");
+      "CLOSE");
     $(".options-box").append(btn);
   }
   // Toggles between "aggressive" and "conservative" mode
@@ -115,6 +115,7 @@ $("#options").click(function() {
     $(".options-container").hide();
   });
 });
+
 $("#rules").click(function() {
   $(".menu-container").hide();
   $("h1").hide();
@@ -128,9 +129,10 @@ $("#rules").click(function() {
     $(".help-close").remove();
   });
 });
+
 $(".chip").click(function() {
   // Activates "bet" button
-  $("#bet").removeClass("play-btn-disabled");
+  enableBtn("#bet");
   // Adds chip value to array
   betPool.unshift(Number($(this).text()));
   // Adds current amount to total bet and updates html
@@ -146,10 +148,11 @@ $(".chip").click(function() {
   // Checks which chips need to be activated / deactivated
   chipsToggle();
 });
+
 $("#bet").click(function() {
   placedBet = true;
   // Draws 2 cards for player / dealer
-  for ( let i = 0; i < 2; i++) {
+  for (let i = 0; i < 2; i++) {
     generateCard();
     addCard(playerHandString, playerHandValue, $("#player-cards"));
     generateCard();
@@ -164,39 +167,41 @@ $("#bet").click(function() {
   // Updates scoreboard in html
   $("#player-score").text(`${playerScore}`);
   $("#dealer-score").text(`${dealerHandValue[0]}`);
-  $("#bet").addClass("play-btn-disabled");
+  disableBtn("#bet");
+  enableBtn("#hit, #stand");
   $(".undo-btn").remove();
-  $("#hit").removeClass("play-btn-disabled");
-  $("#stand").removeClass("play-btn-disabled");
   if (playerScore < 21) {
-    $("#double").removeClass("play-btn-disabled");
+    enableBtn("#double");
   }
   if (dealerHandValue[0] === 11 || dealerHandValue[0] === 10) {
-    $("#insurance").removeClass("play-btn-disabled");
+    enableBtn("#insurance");
   }
   $(".chip").addClass("chip-off");
   // Checks if player has Blackjack
   checkBlackjack();
 });
+
 $("#hit").click(function() {
   // Draws one new card for player
   generateCard();
   addCard(playerHandString, playerHandValue, $("#player-cards"));
   updateTotal();
   checkScore();
-  $("#double").addClass("play-btn-disabled");
-  $("#insurance").addClass("play-btn-disabled");
+  disableBtn("#double, #insurance");
 });
+
 $("#stand").click(function() {
   popUpOn(`You have ${playerScore} points! It's dealer's turn now!`);
   $(".pop-up-box button").click(function() {
     popUpOff();
     dealerTurn();
     // disables all buttons
-    $(".play-btn").addClass("play-btn-disabled");
+    disableBtn(".play-btn");
   });
 });
+
 $("#double").click(double);
+
 $("#insurance").click(insurance);
 
 /*
@@ -252,6 +257,7 @@ function generateCard() {
     generateCard();
   }
 }
+
 // Function takes parameters depending on if it is adding card to player's or dealer's hand
 function addCard(handString, handValue, container) {
   // Creates and adds new card element to index.html
@@ -285,6 +291,7 @@ function addCard(handString, handValue, container) {
   // Updates handValue array for player / dealer with numeric value of card drawn
   handValue.unshift(convertedValue);
 }
+
 // Adds up all items in player's/dealer's handValue array and returns the sum
 function getHandValue(handValue) {
   let totalHandValue = 0;
@@ -302,6 +309,7 @@ function getHandValue(handValue) {
   }
   return totalHandValue;
 }
+
 // Corrects and updates the scores for player/dealer
 function updateTotal() {
   // Stores score for player / dealer BEFORE correcting ace value
@@ -317,6 +325,7 @@ function updateTotal() {
   $("#player-score").text(`${playerScore}`);
   $("#dealer-score").text(`${dealerHandValue[0]}`);
 }
+
 function aceCorrect(handValue, score) {
   // Adjusts value of ace card to 1 if total score is > 21
   if (score > 21) {
@@ -334,15 +343,16 @@ function aceCorrect(handValue, score) {
     }
   }
 }
+
 // Checks if player has Blackjack after initial two cards are dealt
 function checkBlackjack() {
   if (playerScore === 21) {
-    popUpOn(`You have Blackjack! It's dealer's turn now!`);
-    $("#insurance").addClass("play-btn-disabled");
+    popUpOn("You have Blackjack! It's dealer's turn now!");
+    disableBtn("#insurance");
     $(".pop-up-box button").click(function() {
       popUpOff();
       if (dealerScore === 21) {
-        popUpOn(`You and Dealer have Blackjack! It's a tie!`);
+        popUpOn("You and Dealer have Blackjack! It's a tie!");
         creditsAvailable += totalBet;
         $("#dealer-cards").children(":first")
           .replaceWith(
@@ -364,6 +374,7 @@ function checkBlackjack() {
     });
   }
 }
+
 // Checks if player busted / has Blackjack / drew 5 cards after "hit" button is pressed
 function checkScore() {
   if (playerScore > 21) {
@@ -373,7 +384,7 @@ function checkScore() {
       setTimeout(resetRound, 1000);
     });
   } else if (playerScore === 21) {
-    popUpOn(`You have Blackjack! It's dealer's turn now!`);
+    popUpOn("You have Blackjack! It's dealer's turn now!");
     $(".pop-up-box button").click(function() {
       popUpOff();
       dealerTurn();
@@ -400,7 +411,7 @@ function dealerTurn() {
       return;
     } else {
       if (dealerScore === 21) {
-        popUpOn(`You and dealer have Blackjack! It's a tie!`);
+        popUpOn("You and dealer have Blackjack! It's a tie!");
         creditsAvailable += totalBet;
         $("#dealer-cards").children(":first")
           .replaceWith(
@@ -456,6 +467,7 @@ function dealerTurn() {
     decideWinner();
   }
 }
+
 // Generates new card for dealer
 function dealerDraws() {
   generateCard();
@@ -494,7 +506,7 @@ function decideWinner() {
     );
   if (dealerScore === playerScore) {
     (dealerScore === 21) ?
-    popUpOn(`You and dealer have Blackjack! It's a tie!`):
+    popUpOn("You and dealer have Blackjack! It's a tie!"):
       popUpOn(`You and dealer have ${playerScore} points. It's a tie!`);
     creditsAvailable += totalBet;
     $(".pop-up-box button").click(function() {
@@ -511,7 +523,7 @@ function decideWinner() {
     });
   } else {
     (playerScore === 21) ?
-    popUpOn(`You win with Blackjack!`):
+    popUpOn("You win with Blackjack!"):
       popUpOn(`You win with ${playerScore} points!`);
     if (doubleMode) {
       creditsAvailable += (totalBet * 2);
@@ -524,6 +536,7 @@ function decideWinner() {
     });
   }
 }
+
 // Displays pop up message on game screen
 function popUpOn(message) {
   $(".playing-section-middle--item").hide();
@@ -536,15 +549,17 @@ function popUpOn(message) {
   playSectionDealer.after(popUpBox);
   popUpBox.append(popUpTxt);
   popUpBox.append(popUpBtn);
-  $("#hit, #stand").addClass("play-btn-disabled");
+  disableBtn("#hit, #stand");
 }
+
 // Removes pop up message from game screen
 function popUpOff() {
   $(".overlay").remove();
   $(".pop-up-box").remove();
   $(".playing-section-middle--item").show();
-  $('nav button').css("pointer-events", "auto");
+  $("nav button").css("pointer-events", "auto");
 }
+
 // Cancels last bet in totalBet array and changes DOM elements accordingly
 function undoBtn() {
   // Makes sure undo button is not duplicated
@@ -568,21 +583,22 @@ function undoBtn() {
         // Deactivates bet info box
         $("#bet-info").removeClass("bet-info--active");
         // Deactivates bet button
-        $("#bet").addClass("play-btn-disabled");
+        disableBtn("#bet");
       }
       chipsToggle();
     });
   }
 }
+
 // Runs when double button is pressed
 function double() {
   // Checks if there is enough credit to place double bet
   if (creditsAvailable < (totalBet)) {
-    popUpOn(`You don't have enough credit to place double bet!`);
+    popUpOn("You don't have enough credit to place the double bet!");
     $(".pop-up-box button").click(function() {
       popUpOff();
-      $("#hit, #stand").removeClass("play-btn-disabled");
-      $("#double").addClass("play-btn-disabled");
+      enableBtn("#hit, #stand");
+      disableBtn("#double");
     });
     return;
   }
@@ -600,7 +616,7 @@ function double() {
   // Runs if YES option is pressed
   yes.click(function() {
     // Deactivates all playing buttons
-    $(".play-btn").addClass("play-btn-disabled");
+    disableBtn(".play-btn");
     popUpOff();
     doubleMode = true;
     // Doubles the current bet
@@ -623,18 +639,19 @@ function double() {
   });
   no.click(function() {
     popUpOff();
-    $("#hit, #stand").removeClass("play-btn-disabled");
+    enableBtn("#hit, #stand");
   });
 }
+
 // Runs when double button is pressed
 function insurance() {
   // Checks if there is enough credit to place insurance bet
   if (creditsAvailable < (totalBet / 2)) {
-    popUpOn(`You don't have enough credit to place insurance bet!`);
+    popUpOn("You don't have enough credit to place the insurance bet!");
     $(".pop-up-box button").click(function() {
       popUpOff();
-      $("#hit, #stand").removeClass("play-btn-disabled");
-      $("#insurance").addClass("play-btn-disabled");
+      enableBtn("#hit, #stand");
+      disableBtn("#insurance");
     });
     return;
   }
@@ -651,7 +668,7 @@ function insurance() {
   $(".pop-up-box").append(container);
   // Runs if YES option is pressed
   yes.click(function() {
-    $("#insurance").addClass("play-btn-disabled");
+    disableBtn("#insurance");
     popUpOff();
     creditsAvailable -= (totalBet / 2);
     $("#bank-amount").text(creditsAvailable);
@@ -663,7 +680,7 @@ function insurance() {
         .replaceWith(
           `<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`
         );
-      popUpOn(`Dealer wins with Blackjack! You win insurance bet!`);
+      popUpOn("Dealer wins with Blackjack! You win insurance bet!");
       $(".pop-up-box button").click(function() {
         popUpOff();
         $("#bank-amount").text(creditsAvailable);
@@ -671,20 +688,21 @@ function insurance() {
       });
     } else {
       popUpOn(
-        `Dealer does not have Blackjack! Insurance bet is lost! Round continues...`
+        "Dealer does not have Blackjack! Insurance bet is lost! Round continues."
       );
       $(".pop-up-box button").click(function() {
         popUpOff();
-        $("#hit, #stand").removeClass("play-btn-disabled");
+        enableBtn("#hit, #stand");
         $("#total-bet").text(`${totalBet}`);
       });
     }
   });
   no.click(function() {
     popUpOff();
-    $("#hit, #stand").removeClass("play-btn-disabled");
+    enableBtn("#hit, #stand");
   });
 }
+
 // Checks which chip buttons should activate/deactivate depending on the available player's credit left
 function chipsToggle() {
   $(".chip span").each(function() {
@@ -695,6 +713,7 @@ function chipsToggle() {
     }
   });
 }
+
 // Resets everything except available credits to default values
 function resetRound() {
   $(".card").remove();
@@ -715,7 +734,7 @@ function resetRound() {
     placedBet = false;
   // If there is not enough credits ends the game
   if (creditsAvailable < 25) {
-    popUpOn(`You don't have enough credits to place bet.`);
+    popUpOn("You don't have enough credits to place the bet.");
     $(".pop-up-box button").text("GAME OVER");
     $(".pop-up-box button").click(function() {
       popUpOff();
@@ -723,7 +742,7 @@ function resetRound() {
     });
   }
   chipsToggle();
-  $(".play-btn").addClass("play-btn-disabled");
+  disableBtn(".play-btn");
 }
 
 /*
@@ -770,4 +789,12 @@ function popUpWarning(message) {
   overlay.append(popUpBox);
   popUpBox.append(popUpTxt);
   popUpBox.append(popUpBtn);
+}
+
+function enableBtn(btn) {
+  $(btn).removeClass("play-btn-disabled");
+}
+
+function disableBtn(btn) {
+  $(btn).addClass("play-btn-disabled");
 }

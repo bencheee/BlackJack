@@ -17,21 +17,20 @@ $("#top-scores").click(showTopScoresList);
 // Event listener for 'cash out' button in nav
 $("#cash-out").click(function() {
   if (placedBet) {
-    popUpOn(`You can't cash out in the middle of the round!`);
+    popUpOn("You can't cash out in the middle of the round!");
     $(".pop-up-box button").click(function() {
       popUpOff();
-      $("#stand").removeClass("play-btn-disabled");
-      $("#hit").removeClass("play-btn-disabled");
+      enableBtn("#stand, #hit");
     });
   } else {
     if (totalBet != 0) {
-      popUpOn(`Please remove all bets before leaving!`);
-      $("#bet").addClass("play-btn-disabled");
+      popUpOn("Please remove all bets before leaving!");
+      disableBtn("#bet");
       $(".undo-btn").hide();
       $(".chip").addClass("chip-off");
       $(".pop-up-box button").click(function() {
         popUpOff();
-        $("#bet").removeClass("play-btn-disabled");
+        enableBtn("#bet")
         $(".undo-btn").show();
         chipsToggle();
       });
@@ -56,7 +55,7 @@ function cashOut() {
   $(".pop-up-box").append(container);
   // Deactivates 'chip' buttons and 'nav' buttons
   $(".chip").addClass("chip-off");
-  $('nav button').css("pointer-events", "none");
+  $("nav button").css("pointer-events", "none");
   yes.click(function() {
     popUpOff();
     checkNameInput();
@@ -64,7 +63,7 @@ function cashOut() {
   no.click(function() {
     popUpOff();
     $(".chip").removeClass("chip-off");
-    $('nav button').css("pointer-events", "auto");
+    $("nav button").css("pointer-events", "auto");
   });
 }
 
