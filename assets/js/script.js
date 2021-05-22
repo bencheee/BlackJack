@@ -27,8 +27,8 @@ ADJUSTING HTML / CSS ELEMENTS WHEN SCRIPT IS LOADED
 // Checks screen size / layout
 $(window).ready(checkScreenSize);
 $(window).resize(checkScreenSize);
-/*
 
+/*
 Disables zoom on double click
 CODE CREDIT: https://www.quora.com/How-can-I-prevent-default-double-click-behavior-with-JavaScript
 */
@@ -160,7 +160,7 @@ $("#bet").click(function() {
   }
   // Hides first dealer's card
   $("#dealer-cards").children(":first")
-    .replaceWith(`<img src="assets/images/Red_back.jpg" class="card">`);
+    .replaceWith(`<img src="assets/images/red_back.jpg" class="card">`);
   // Stores numeric values of current score for dealer / player 
   playerScore = getHandValue(playerHandValue);
   dealerScore = getHandValue(dealerHandValue);
@@ -213,41 +213,41 @@ GAME FUNCTIONS
 //  Function generates new card by creating unique string combination where first character of the string represents card value and second character represents card color. When string is generated it is pushed in to cardsDrawn array.
 function generateCard() {
   /* Determines card value by generating string
-     2-10 or A, J, Q, K ( A = Ace, J = Jack, Q = Queen, K = King */
+     2-10 or a, j, q, k ( a = Ace, j = Jack, q = Queen, k = King */
   let cardValue;
   let randNumber = Math.ceil(Math.random() * 13);
   switch (randNumber) {
     case 1:
-      cardValue = "A";
+      cardValue = "a";
       break;
     case 11:
-      cardValue = "J";
+      cardValue = "j";
       break;
     case 12:
-      cardValue = "Q";
+      cardValue = "q";
       break;
     case 13:
-      cardValue = "K";
+      cardValue = "k";
       break;
     default:
       cardValue = randNumber.toString();
   }
   /* Determines card color by generating string
-     H, C, D or S (H = Hearts, C = Clubs, D = Diamonds, S = Spades) */
+     h, c, d or s (h = Hearts, c = Clubs, d = Diamonds, s = Spades) */
   let cardColor;
   let randColor = Math.ceil(Math.random() * 4);
   switch (randColor) {
     case 2:
-      cardColor = "H";
+      cardColor = "h";
       break;
     case 3:
-      cardColor = "C";
+      cardColor = "c";
       break;
     case 4:
-      cardColor = "D";
+      cardColor = "d";
       break;
     default:
-      cardColor = "S";
+      cardColor = "s";
   }
   /* If generated combination of strings already exists
      in cardsDrawn array generates another*/
@@ -273,13 +273,13 @@ function addCard(handString, handValue, container) {
   let convertedValue;
   let firstChar = handString[0].slice(0, 1);
   switch (firstChar) {
-    case "J":
+    case "j":
       convertedValue = 10;
       break;
-    case "Q":
+    case "q":
       convertedValue = 10;
       break;
-    case "K":
+    case "k":
       convertedValue = 10;
       break;
     case "1":
