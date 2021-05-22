@@ -354,6 +354,7 @@ function checkBlackjack() {
       if (dealerScore === 21) {
         popUpOn("You and Dealer have Blackjack! It's a tie!");
         creditsAvailable += totalBet;
+        $("#dealer-score").text(dealerScore);
         $("#dealer-cards").children(":first")
           .replaceWith(
             `<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`
@@ -413,6 +414,7 @@ function dealerTurn() {
       if (dealerScore === 21) {
         popUpOn("You and dealer have Blackjack! It's a tie!");
         creditsAvailable += totalBet;
+        $("#dealer-score").text(dealerScore);
         $("#dealer-cards").children(":first")
           .replaceWith(
             `<img src="assets/images/${dealerHandString[dealerHandString.length - 1]}.jpg" class="card">`
