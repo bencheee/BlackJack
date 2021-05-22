@@ -573,22 +573,7 @@ function undoBtn() {
       $("#player-cards").append(undoBtn.text("UNDO BET"));
     }
     // Removes last bet
-    $(".undo-btn").click(function() {
-      totalBet -= betPool[0];
-      creditsAvailable += betPool[0];
-      betPool.shift();
-      $("#total-bet").text(`${totalBet}`);
-      $("#bank-amount").text(creditsAvailable);
-      // If there are no bets left removes button
-      if (totalBet === 0) {
-        $(".undo-btn").remove();
-        // Deactivates bet info box
-        $("#bet-info").removeClass("bet-info--active");
-        // Deactivates bet button
-        disableBtn("#bet");
-      }
-      chipsToggle();
-    });
+    $(".undo-btn").click(undoClick);
   }
 }
 
@@ -716,6 +701,23 @@ function chipsToggle() {
   });
 }
 
+function undoClick() {
+  totalBet -= betPool[0];
+  creditsAvailable += betPool[0];
+  betPool.shift();
+  $("#total-bet").text(`${totalBet}`);
+  $("#bank-amount").text(creditsAvailable);
+  // If there are no bets left removes button
+  if (totalBet === 0) {
+    $(".undo-btn").remove();
+    // Deactivates bet info box
+    $("#bet-info").removeClass("bet-info--active");
+    // Deactivates bet button
+    disableBtn("#bet");
+  }
+  chipsToggle();
+}
+
 // Resets everything except available credits to default values
 function resetRound() {
   $(".card").remove();
@@ -776,6 +778,20 @@ function checkScreenSize() {
       $(".nav-container").show();
     }
   }
+
+  // Changes location of activated undo button depending on screen layout
+  if ((window.innerWidth > window.innerHeight) && ($("#player-cards").is(
+    ":empty") === false)) {
+      $(".undo-btn").remove();
+      let undoBtn = $("<button></button>").addClass("undo-btn");
+      $(".undo-container").append(undoBtn.text("UNDO BET"));
+  } else if ((window.innerHeight > window.innerWidth) && ($(".undo-container").is(
+    ":empty") === false)) {
+      $(".undo-btn").remove();
+      let undoBtn = $("<button></button>").addClass("undo-btn");
+      $("#player-cards").append(undoBtn.text("UNDO BET"));
+  }
+  $(".undo-btn").click(undoClick);
   $("body").css("height", `${window.innerHeight}px`);
 }
 
