@@ -34,7 +34,7 @@ h2 {
 .play-btn {
   outline: none;
   background-color: transparent;
-  border: 1px rgba(0, 255, 0, 0.3) solid;
+  border: 1px rgba(0, 0, 0, 0.3) solid;
   background-image: -o-linear-gradient(
     45deg, rgba(0, 0, 255, 0.9), rgba(0, 0, 255, 0.4));
   background-image: linear-gradient(
