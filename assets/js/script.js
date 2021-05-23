@@ -702,6 +702,11 @@ function chipsToggle() {
 }
 
 function undoClick() {
+  // Makes sure there are no bets so NaN can't be returned
+  if (betPool.length === 0) {
+      return;
+  }
+
   totalBet -= betPool[0];
   creditsAvailable += betPool[0];
   betPool.shift();
