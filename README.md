@@ -156,7 +156,7 @@ The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](ht
 
   - [CSS](documentation/testing/images/code_validation/css_test.jpg)
 
-    - No errors were found in CSS code.
+    - No errors were found in CSS code. (*However, due to use of autoprefixer to include vendor prefixes which are not standard W3C CSS code, test returned 99 warnings.*)
 
 * JavaScript Code Testing:
 
